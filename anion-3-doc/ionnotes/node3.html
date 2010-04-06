@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>2 Object system implementation</TITLE>
+<META NAME="description" CONTENT="2 Object system implementation">
+<META NAME="keywords" CONTENT="ionnotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ionnotes.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="ionnotes.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html100"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html94"
+  HREF="ionnotes.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html88"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html96"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html98"
+  HREF="node8.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html101"
+  HREF="node4.html">3 The Lua interface</A>
+<B> Up:</B> <A NAME="tex2html95"
+  HREF="ionnotes.html">Ion: Notes for the</A>
+<B> Previous:</B> <A NAME="tex2html89"
+  HREF="node2.html">1 Class and object</A>
+ &nbsp; <B>  <A NAME="tex2html97"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html99"
+  HREF="node8.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00030000000000000000">
+<SPAN CLASS="arabic">2</SPAN> Object system implementation</A>
+</H1>
+
+<P>
+First, to get things clear, what are considered objects here are C
+structures containing a properly initialised <A NAME="432"></A>
+structure defined in <SPAN  CLASS="textit">ioncore/obj.h</SPAN> as the first element (or the
+first element of the structure which is the first element and so on which
+gives rise to inheritance). The WObj structure contains a pointer
+to a WObjDescr<A NAME="434"></A> class type info structure and
+a list of so called ``watches''. The WObjDescr structure simply
+lists the class name, a table of dynamic functions and a pointer to
+deinitialisation function (or ``destructor'').
+
+<P>
+Ion does not do any reference counting, garbage collecting or other
+fancy things related to automatic safe freeing of objects with its
+simplistic object system. Instead special watches (the WWatch
+<A NAME="435"></A> structure) may be used to create safe references to
+objects that might be destroyed during the time the specific pointer is
+needed. When an object is destroyed, its list of watches is processed,
+setting the pointers in the watches to NULL and the watch handlers for
+each watch are called. 
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html100"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html94"
+  HREF="ionnotes.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html88"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html96"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html98"
+  HREF="node8.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html101"
+  HREF="node4.html">3 The Lua interface</A>
+<B> Up:</B> <A NAME="tex2html95"
+  HREF="ionnotes.html">Ion: Notes for the</A>
+<B> Previous:</B> <A NAME="tex2html89"
+  HREF="node2.html">1 Class and object</A>
+ &nbsp; <B>  <A NAME="tex2html97"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html99"
+  HREF="node8.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

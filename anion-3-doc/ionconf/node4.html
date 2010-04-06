@@ -1,0 +1,1564 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>3. Basic configuration</TITLE>
+<META NAME="description" CONTENT="3. Basic configuration">
+<META NAME="keywords" CONTENT="ionconf">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ionconf.css">
+
+<LINK REL="next" HREF="node5.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="ionconf.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html287"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html281"
+  HREF="ionconf.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html275"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html283"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html285"
+  HREF="node11.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html288"
+  HREF="node5.html">4. Graphical styles</A>
+<B> Up:</B> <A NAME="tex2html282"
+  HREF="ionconf.html">Configuring and extending Ion3</A>
+<B> Previous:</B> <A NAME="tex2html276"
+  HREF="node3.html">2. Preliminaries: Key concepts</A>
+ &nbsp; <B>  <A NAME="tex2html284"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html286"
+  HREF="node11.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html289"
+  HREF="node4.html#SECTION00410000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> The configuration files</A>
+<LI><A NAME="tex2html290"
+  HREF="node4.html#SECTION00420000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> A walk through <SPAN  CLASS="textit">cfg_ion.lua</SPAN></A>
+<LI><A NAME="tex2html291"
+  HREF="node4.html#SECTION00430000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Keys and rodents</A>
+<UL>
+<LI><A NAME="tex2html292"
+  HREF="node4.html#SECTION00431000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Binding handlers and special variables</A>
+<LI><A NAME="tex2html293"
+  HREF="node4.html#SECTION00432000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Guards</A>
+<LI><A NAME="tex2html294"
+  HREF="node4.html#SECTION00433000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Defining the bindings</A>
+<LI><A NAME="tex2html295"
+  HREF="node4.html#SECTION00434000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Examples</A>
+<LI><A NAME="tex2html296"
+  HREF="node4.html#SECTION00435000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Key specifications</A>
+<LI><A NAME="tex2html297"
+  HREF="node4.html#SECTION00436000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Button specifications</A>
+<LI><A NAME="tex2html298"
+  HREF="node4.html#SECTION00437000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> A further note on the default binding configuration</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html299"
+  HREF="node4.html#SECTION00440000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Menus</A>
+<UL>
+<LI><A NAME="tex2html300"
+  HREF="node4.html#SECTION00441000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Defining menus</A>
+<LI><A NAME="tex2html301"
+  HREF="node4.html#SECTION00442000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Special menus</A>
+<LI><A NAME="tex2html302"
+  HREF="node4.html#SECTION00443000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> Defining context menus</A>
+<LI><A NAME="tex2html303"
+  HREF="node4.html#SECTION00444000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">4</SPAN> Displaying menus</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html304"
+  HREF="node4.html#SECTION00450000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Winprops</A>
+<UL>
+<LI><A NAME="tex2html305"
+  HREF="node4.html#SECTION00451000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> Sizehint winprops</A>
+<LI><A NAME="tex2html306"
+  HREF="node4.html#SECTION00452000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN> Classes, roles and instances</A>
+<LI><A NAME="tex2html307"
+  HREF="node4.html#SECTION00453000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN> Finding window identification</A>
+<LI><A NAME="tex2html308"
+  HREF="node4.html#SECTION00454000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">4</SPAN> Some common examples</A>
+<UL>
+<LI><A NAME="tex2html309"
+  HREF="node4.html#SECTION00454100000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Acrobat Reader</A>
+<LI><A NAME="tex2html310"
+  HREF="node4.html#SECTION00454200000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Forcing newly created windows in named frames</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html311"
+  HREF="node4.html#SECTION00460000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> The statusbar</A>
+<UL>
+<LI><A NAME="tex2html312"
+  HREF="node4.html#SECTION00461000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> The template</A>
+<LI><A NAME="tex2html313"
+  HREF="node4.html#SECTION00462000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN> The systray</A>
+<LI><A NAME="tex2html314"
+  HREF="node4.html#SECTION00463000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN> Monitors</A>
+<UL>
+<LI><A NAME="tex2html315"
+  HREF="node4.html#SECTION00463100000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Date</A>
+<LI><A NAME="tex2html316"
+  HREF="node4.html#SECTION00463200000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Load</A>
+<LI><A NAME="tex2html317"
+  HREF="node4.html#SECTION00463300000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Mail</A>
+</UL></UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00400000000000000000"></A>
+<A NAME="chap:config"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>. Basic configuration
+</H1>
+
+<P>
+This chapter should help your configure Ion to your liking. As  the your
+probably already know, Ion uses Lua as a configuration and extension 
+language. If you're new to it, you might first want to read some Lua 
+documentation as already suggested and pointed to in the Introduction
+before continuing with this chapter.
+
+<P>
+Section <A HREF="#sec:conffiles">3.1</A>&nbsp;is an overview of the multiple configuration
+files Ion uses and as a perhaps more understandable introduction to the
+general layout of the configuration files, a walk-through of the main 
+configuration file <SPAN  CLASS="textit">cfg_ion.lua</SPAN> is provided in section 
+<A HREF="#sec:walkthrough">3.2</A>.
+How keys and mouse action are bound to functions is described in detail
+in <A HREF="#sec:bindings">3.3</A> and in section <A HREF="#sec:winprops">3.5</A> winprops are
+explained. Finally, the statusbar is explained in <A HREF="#sec:statusbar">3.6</A>.
+For a reference on exported functions, see section <A HREF="node7.html#sec:exports">6</A>.
+
+<P>
+
+<H2><A NAME="SECTION00410000000000000000"></A>
+<A NAME="sec:conffiles"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> The configuration files
+</H2>
+
+<P>
+Ion3, to which document applies, stores its stock configuration files in
+<SPAN  CLASS="textit">/usr/local/etc/ion3/</SPAN> unless you, the OS package maintainer or 
+whoever  installed the package on the system has modified the variables
+<TT>PREFIX</TT><A NAME="589"></A> or
+<TT>ETCDIR</TT><A NAME="590"></A> in
+<SPAN  CLASS="textit">system.mk</SPAN><A NAME="591"></A> before compiling Ion.
+In the first case you probably know where to find the files and in 
+the other case the system administrator or the OS package maintainer
+should  have provided documentation to point to the correct location. 
+If these instructions are no help in locating the correct directory, 
+the command <TT>locate cfg_ion.lua</TT> might help provided <TT>updatedb</TT> 
+has been run recently. 
+
+<P>
+User configuration files go in <SPAN  CLASS="textit">~/.ion3/</SPAN>. 
+Ion always searches the user configuration file directory before the stock
+configuration file directory for files. Therefore, if you want to change
+some setting, it is advised against that you modify the stock configuration
+files in-place as subsequent installs of Ion will restore the stock
+configuration files. Instead you should always make a copy of the stock
+file in <SPAN  CLASS="textit">~/.ion3/</SPAN> and modify this file. For sake of maintainability
+of your customised configuration, it is recommended against copying all of
+the files there. Only copy those files you actually need to modify. Most 
+simple customisations, such as changes in a few bindings, are best done 
+entirely within <SPAN  CLASS="textit">cfg_ion.lua</SPAN>.
+
+<P>
+All the configuration files are named <SPAN  CLASS="textit">cfg_*.lua</SPAN> with the ``<SPAN  CLASS="textit">*</SPAN>''
+part varying. The configuration file for each module <SPAN  CLASS="textit">mod_modname</SPAN> is
+<SPAN  CLASS="textit">cfg_modname.lua</SPAN>, with <SPAN  CLASS="textit">modname</SPAN> varying by the module in
+question. Configuration files can also be compiled into <SPAN  CLASS="textit">.lc</SPAN> files,
+and these are attempted by the configuration file search routines before
+<SPAN  CLASS="textit">.lua</SPAN> files.
+
+<P>
+The following table summarises these and other configuration
+files:
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1" WIDTH="100%">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=1>File</TD>
+<TD ALIGN="LEFT">Description</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=1><SPAN  CLASS="textit">cfg_ion.lua</SPAN></TD>
+<TD ALIGN="LEFT">The main configuration file</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=1><SPAN  CLASS="textit">cfg_ioncore.lua</SPAN></TD>
+<TD ALIGN="LEFT">Configuration file for Ion's core library.
+    Most of the bindings and menus are configured here. Bindings that are
+    specific to some module are configured in the module's configuration
+    file. For details, see section <A HREF="#sec:bindings">3.3</A>.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=1><SPAN  CLASS="textit">cfg_kludges.lua</SPAN></TD>
+<TD ALIGN="LEFT">Settings to get some applications behave more nicely have been 
+    collected here. See section <A HREF="#sec:winprops">3.5</A>.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=1><SPAN  CLASS="textit">cfg_layouts.lua</SPAN></TD>
+<TD ALIGN="LEFT">Some workspace layouts are defined here.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=1><SPAN  CLASS="textit">cfg_tiling.lua</SPAN> 
+    <SPAN  CLASS="textit">cfg_query.lua</SPAN> 
+    <SPAN  CLASS="textit">cfg_menu.lua</SPAN> 
+    <SPAN  CLASS="textit">cfg_dock.lua</SPAN> 
+    <SPAN  CLASS="textit">cfg_statusbar.lua</SPAN> 
+    ...</TD>
+<TD ALIGN="LEFT">Configuration files for different modules.</TD>
+</TR>
+</TABLE>
+
+<P>
+Additionally, there's the file <SPAN  CLASS="textit">look.lua</SPAN> that configures the 
+drawing engine, but it is covered in chapter <A HREF="node5.html#chap:gr">4</A>.
+
+<P>
+
+<H2><A NAME="SECTION00420000000000000000"></A>
+<A NAME="sec:walkthrough"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> A walk through <SPAN  CLASS="textit">cfg_ion.lua</SPAN>
+</H2>
+
+<P>
+As already mentioned <SPAN  CLASS="textit">cfg_ion.lua</SPAN> is Ion's main configuration
+file. Some basic 'feel' settings are usually configured there and
+the necessary modules and other configuration files configuring some 
+more specific aspects of Ion are loaded there. In this section we
+take a walk through the stock <SPAN  CLASS="textit">cfg_ion.lua</SPAN>.
+Notice that most of the settings are commented-out (<code>--</code> is a 
+line comment in Lua) in the actual file, as they're the defaults
+nevertheless.
+
+<P>
+The first thing done in the file, is to set
+<PRE>
+META="Mod1+"
+ALTMETA=""
+</PRE>
+These settings cause most of Ion's key bindings to use <SPAN  CLASS="textbf">Mod1</SPAN> as the
+modifier key. If <TT>ALTMETA</TT> is set, it is used as modifier for the
+keys that don't normally use a modifier. Note that these two are Lua 
+variables used in the configuration files only, and not Ion settings. 
+For details on modifiers and key binding setup in general, see section
+<A HREF="#sec:bindings">3.3</A>.
+
+<P>
+Next we do some basic feel configuration:
+
+<P>
+<PRE>
+ioncore.set{
+    dblclick_delay=250,
+    kbresize_delay=1500,
+}
+</PRE>
+
+<P>
+These two will set the delay between button presses in a double click, and
+the timeout to quit resize mode in milliseconds.
+
+<P>
+<PRE>
+ioncore.set{
+    opaque_resize=true,
+    warp=true
+}
+</PRE>
+
+<P>
+The first of these two settings enables opaque resize mode: in move/resize
+move frames and other objects mirror you actions immediately. If opaque
+resize is disabled, a XOR rubber band is shown during the mode instead.
+This will, unfortunately, cause Ion to also grab the X server and has some
+side effects. 
+
+<P>
+There are some other options as well; see the documentation
+for <A HREF="node7.html#fn:ioncore.set"><TT>ioncore.set</TT></A> for details.
+
+<P>
+As a next step, in the actual <SPAN  CLASS="textit">cfg_ion.lua</SPAN> file, we load
+<SPAN  CLASS="textit">cfg_defaults.lua</SPAN>. However, it is merely a convenience file for
+doing exactly what we will going through below, and what is commented
+out in the actual file. If you do not want to load what 
+<SPAN  CLASS="textit">cfg_defaults.lua</SPAN> loads, just comment out the corresponding 
+line, and uncomment the lines for the files that you want:
+
+<P>
+<PRE>
+--dopath("cfg_defaults")
+dopath("cfg_ioncore")
+dopath("cfg_kludges")
+dopath("cfg_layouts")
+</PRE>
+
+<P>
+Most bindings and menus are defined in <SPAN  CLASS="textit">cfg_ioncore.lua</SPAN>.
+Details on making such definitions follow in sections <A HREF="#sec:bindings">3.3</A> 
+and <A HREF="#sec:menus">3.4</A>, respectively. 
+some kludges or ``winprops'' to make some applications behave better
+under Ion are collected in <SPAN  CLASS="textit">cfg_kludges.lua</SPAN>; see section
+<A HREF="#sec:winprops">3.5</A> for details. In addition to these, this file
+lists quite a few statements of the form
+<PRE>
+ioncore.defshortening("[^:]+: (.*)(&lt;[0-9]+&gt;)", "$1$2$|$1$&lt;...$2")
+</PRE>
+These are used to configure how Ion attempts to shorten window titles
+when they do not fit in a Tab. The first argument is a POSIX regular
+expression that is used to match against the title and the next is
+a rule to construct a new title of a match occurs. This particular
+rule is used to shorten e.g. 'Foo: barbaz&lt;3&gt;' to 'barba...&lt;3&gt;'; for
+details see the function reference entry for <A HREF="node7.html#fn:ioncore.defshortening"><TT>ioncore.defshortening</TT></A>.
+Finally, <SPAN  CLASS="textit">cfg_layouts.lua</SPAN> defines some workspace layouts, available
+through the <SPAN  CLASS="textbf">F9</SPAN> workspace creation query.
+
+<P>
+To actually be able to do something besides display windows in full screen
+mode, we must next load some modules:
+
+<P>
+<PRE>
+dopath("mod_query")
+dopath("mod_menu")
+dopath("mod_tiling")
+dopath("mod_statusbar")
+--dopath("mod_dock")
+dopath("mod_sp")
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00430000000000000000"></A>
+<A NAME="sec:bindings"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Keys and rodents
+</H2>
+
+<P>
+In the stock configuration file setup, most key and mouse bindings are set
+from the file <SPAN  CLASS="textit">cfg_ioncore.lua</SPAN> while module-specific bindings
+are set from the modules' main configuration files (<SPAN  CLASS="textit">cfg_modname.lua</SPAN>).
+This, however, does not have to be so as long as the module has been
+loaded prior to defining any module-specific bindings.
+
+<P>
+Bindings are defined by calling the function 
+<A HREF="node7.html#fn:ioncore.defbindings"><TT>defbindings</TT></A> with the ``context'' of the
+bindings and the a table of new bindings to make. The context is simply
+string indicating one of the classes of regions (or modes such as
+WMoveresMode) introduced in section <A HREF="node3.html#sec:objects">2.2</A>, and fully
+listed in appendix <A HREF="node9.html#app:fullhierarchy">B</A>, although not all define
+a binding map. For example, the following skeleton would be used to 
+define new bindings for all frames:
+
+<P>
+<PRE>
+defbindings("WFrame", {
+    -- List of bindings to make goes here.
+})
+</PRE>
+
+<P>
+There has been some confusion among users about the need to define the
+``context'' for each binding, so let me try to explain this design
+decision here. The thing is that if there was a just a simple 'bind this 
+key to this action' method without knowledge of the context, some 
+limitations would have to be made on the available actions and writing 
+custom handlers would be more complicated. In addition one may want to 
+bind the same function to different key for different types of objects.
+Indeed, the workspace and frame tab switching functions are the same both
+classes being based on WMPlex, and in the stock configuration the 
+switch to <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$n$"></SPAN>:th workspaces is bound to <SPAN  CLASS="textbf">Mod1+n</SPAN> while the switch to 
+<SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$n$"></SPAN>:th tab is bound to the sequence <SPAN  CLASS="textbf">Mod1+k n</SPAN>.
+
+<P>
+Currently known contexts include: 
+`<TT>WScreen</TT>',
+`<TT>WMPlex</TT>',
+`<TT>WMPlex.toplevel</TT>',
+`<TT>WFrame</TT>',
+`<TT>WFrame.toplevel</TT>',
+`<TT>WFrame.floating</TT>',
+`<TT>WFrame.tiled</TT>',
+`<TT>WFrame.transient</TT>',
+`<TT>WMoveresMode</TT>',
+`<TT>WGroup</TT>',
+`<TT>WGroupCW</TT>',
+`<TT>WGroupWS</TT>',
+`<TT>WClientWin</TT>',
+`<TT>WTiling</TT>', and
+`<TT>WStatusBar</TT>'.
+Most of these should be self-explanatory, corresponding to objects
+of class with the same name. The ones with `<TT>.toplevel</TT>' suffix
+refer to screens and ``toplevel''  frames, i.e. frames that are
+not used for transient windows. Likewise `<TT>.transient</TT>' refers
+to frames in transient mode, and `<TT>.tiled</TT>' and `<TT>.floating</TT>'
+to frames in, respectively, tiled and floating modes. 
+
+<P>
+The following subsections describe how to construct elements of the
+binding table. Note that <A HREF="node7.html#fn:ioncore.defbindings"><TT>defbindings</TT></A> adds
+the the newly defined bindings to the previous bindings of the context,
+overriding duplicates. To unbind an event, set the handler parameter
+to <TT>nil</TT> for each of the functions to be described in the following
+subsections.
+
+<P>
+Also note that when multiple objects want to handle a binding, the 
+innermost (when the root window is considered the outermost) active object
+in the parent-child hierarchy (see Figure <A HREF="node3.html#fig:parentship">2.2</A>) of objects 
+gets to handle the action.
+
+<P>
+
+<H3><A NAME="SECTION00431000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Binding handlers and special variables</A>
+</H3>
+
+<P>
+Unlike in Ion2, in Ion3 binding handlers are not normally passed as
+``anonymous functions'', although this is still possible. The preferred
+method now is to pass the code of the handler as a string. Two following
+special variables are available in this code.
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1" WIDTH="100%">
+<TR><TD ALIGN="LEFT">Variable</TD>
+<TD ALIGN="LEFT">Description</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT>_</TT> (underscore)</TD>
+<TD ALIGN="LEFT">Reference to the object on which the 
+      binding was triggered. The object is of the same class as the the
+      context of the <A HREF="node7.html#fn:ioncore.defbindings"><TT>defbindings</TT></A> call
+      defining the binding.</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT>_sub</TT></TD>
+<TD ALIGN="LEFT">Usually, the currently active <SPAN  CLASS="textit">managed object</SPAN> of the 
+      object referred to by <TT>_</TT>, but sometimes (e.g. mouse actions
+      on tabs of frames) something else relevant to the action triggering
+      the binding.</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT>_chld</TT></TD>
+<TD ALIGN="LEFT">Object corresponding to the currently active child window of the
+       object referred to by <TT>_</TT>. This should seldom be needed.</TD>
+</TR>
+</TABLE>
+
+<P>
+For example, supposing <TT>_</TT> (underscore) is a WFrame, the 
+following handler should move the active window to the right, if 
+possible:
+
+<P>
+<PRE>
+"_:inc_index(_sub)"
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION00432000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Guards</A>
+</H3>
+
+<P>
+To suppress error messages, each binding handler may also be accompanied
+by a ``guard'' expression that blocks the handler from being called when
+the guard condition is not met. Currently the following guard expressions
+are supported (for both <TT>_sub</TT> and <TT>_chld</TT>):
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1" WIDTH="100%">
+<TR><TD ALIGN="LEFT">Guard</TD>
+<TD ALIGN="LEFT">Description</TD>
+</TR>
+<TR><TD ALIGN="LEFT">`<TT>_sub:non-nil</TT>'</TD>
+<TD ALIGN="LEFT">The <TT>_sub</TT> parameter must be set.</TD>
+</TR>
+<TR><TD ALIGN="LEFT">`<TT>_sub:SomeClass</TT>'</TD>
+<TD ALIGN="LEFT">The <TT>_sub</TT> parameter must be member
+      of class SomeClass.</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H3><A NAME="SECTION00433000000000000000"></A>
+<A NAME="sec:binddef"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Defining the bindings
+</H3>
+
+<P>
+The descriptions of the individual bindings in the binding table argument
+to <A HREF="node7.html#fn:ioncore.defbindings"><TT>defbindings</TT></A> should be constructed with the following
+functions.
+
+<P>
+Key presses:
+
+<UL>
+<LI><A HREF="node7.html#fn:ioncore.kpress"><TT>kpress</TT></A>, and
+          <A HREF="node7.html#fn:ioncore.kpress_wait"><TT>kpress_wait</TT></A><TT>(keyspec, handler [, guard])</TT>.
+</LI>
+<LI><A HREF="node7.html#fn:ioncore.submap"><TT>submap</TT></A><TT>(keyspec, { ... more key bindings ... })</TT>.
+</LI>
+<LI><A HREF="node7.html#fn:ioncore.submap_enter"><TT>submap_enter</TT></A>, and
+          <A HREF="node7.html#fn:ioncore.submap_wait"><TT>submap_wait</TT></A><TT>(handler [, guard])</TT>.
+</LI>
+</UL>
+Mouse actions:
+
+<UL>
+<LI><A HREF="node7.html#fn:ioncore.mclick"><TT>mclick</TT></A>,
+          <A HREF="node7.html#fn:ioncore.mdblclick"><TT>mdblclick</TT></A>,
+          <A HREF="node7.html#fn:ioncore.mpress"><TT>mpress</TT></A>, and
+          <A HREF="node7.html#fn:ioncore.mdrag"><TT>mdrag</TT></A><TT>(buttonspec, handler [, guard])</TT>.
+</LI>
+</UL>
+
+<P>
+The actions that most of these functions correspond to should be clear
+and as explained in the reference, <A HREF="node7.html#fn:ioncore.kpress_wait"><TT>kpress_wait</TT></A> is simply
+<A HREF="node7.html#fn:ioncore.kpress"><TT>kpress</TT></A> with a flag set instructing Ioncore wait for
+all modifiers to be released before processing any further actions.
+This is to stop one from accidentally calling e.g.
+<A HREF="node7.html#fn:WRegion.rqclose"><TT>WRegion.rqclose</TT></A> multiple times in a row. The 
+<A HREF="node7.html#fn:ioncore.submap"><TT>submap</TT></A> function is used to define submaps or
+``prefix maps''. The second argument to this function is table listing
+the key press actions (<A HREF="node7.html#fn:ioncore.kpress"><TT>kpress</TT></A>) in the submap. 
+The <A HREF="node7.html#fn:ioncore.submap_enter"><TT>submap_enter</TT></A> handler is called when the submap
+is entered, in which this handler is defined. Likewise, the
+<A HREF="node7.html#fn:ioncore.submap_wait"><TT>submap_wait</TT></A> handler is  called when all modifiers
+have been released while waiting for further key presses in the submap.
+
+<P>
+The parameters <TT>keyspec</TT> and <TT>buttonspec</TT> are explained below
+in detail. The parameter <TT>handler</TT> is the handler for the binding,
+and the optional parameter <TT>guard</TT> its guard. These should normally
+be strings as explained above. 
+
+<P>
+
+<H3><A NAME="SECTION00434000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Examples</A>
+</H3>
+
+<P>
+For example, to just bind the key <SPAN  CLASS="textbf">Mod1+1</SPAN> to switch to the first
+workspace and <SPAN  CLASS="textbf">Mod1+Right</SPAN> to the next workspace, you would make the
+following call
+<PRE>
+defbindings("WScreen", {
+    kpress("Mod1+Right", "_:switch_next()"),
+    kpress("Mod1+1", "_:switch_nth(1)"),
+})
+</PRE>
+
+<P>
+Note that <TT>_:switch_nth(1)</TT> is the same as calling
+<A HREF="node7.html#fn:WMPlex.switch_next"><TT>WMPlex.switch_next</TT></A><TT>(_, 1)</TT> as WScreen inherits
+WMPlex and this is where the function is actually defined.
+
+<P>
+Similarly to the above example, to bind the key sequence <SPAN  CLASS="textbf">Mod1+k n</SPAN> 
+switch to the next managed object within a frame, and <SPAN  CLASS="textbf">Mod1+k 1</SPAN> to the
+first, you would issue the following call:
+<PRE>
+defbindings("WFrame", {
+    submap("Mod1+K", {
+        kpress("Right", "_:switch_next()"),
+        kpress("1", "_:switch_nth(1)"),
+   }),
+})
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION00435000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Key specifications</A>
+</H3>
+
+<P>
+As seen above, the functions that create key binding specifications require
+a <TT>keyspec</TT> argument. This argument should be a string containing the
+name of a key as listed in the X header file <SPAN  CLASS="textit">keysymdef.h</SPAN><A NAME="tex2html7"
+  HREF="#foot886"><SUP><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A> without the <TT>XK_</TT> prefix.
+<A NAME="887"></A>
+Most of the key names are quite intuitive while some are not. For example,
+the <SPAN  CLASS="textbf">Enter</SPAN> key on the main part of the keyboard has the less common
+name <SPAN  CLASS="textbf">Return</SPAN> while the one the numpad is called <SPAN  CLASS="textbf">KP_Enter</SPAN>.
+
+<P>
+The <TT>keyspec</TT> string may optionally have multiple ``modifier'' names
+followed by a plus sign (<TT>+</TT>) as a prefix. X defines the following
+modifiers:
+
+<P>
+<SPAN  CLASS="textbf">Shift</SPAN>, <SPAN  CLASS="textbf">Control</SPAN>, <SPAN  CLASS="textbf">Mod1</SPAN> to <SPAN  CLASS="textbf">Mod5</SPAN>,
+<SPAN  CLASS="textbf">AnyModifier</SPAN> and <SPAN  CLASS="textbf">Lock</SPAN>.
+<A NAME="888"></A>
+<A NAME="889"></A>
+<A NAME="890"></A>
+<A NAME="891"></A>
+<A NAME="892"></A>
+
+<P>
+X allows binding all of these modifiers to almost any key and while this
+list of modifiers does not explicitly list keys such as 
+<SPAN  CLASS="textbf">Alt</SPAN><A NAME="893"></A> that are common on modern keyboards, such
+keys are bound to one of the <SPAN  CLASS="textbf">ModN</SPAN>. On systems running XFree86
+<SPAN  CLASS="textbf">Alt</SPAN> is usually <SPAN  CLASS="textbf">Mod1</SPAN>. On Suns <SPAN  CLASS="textbf">Mod1</SPAN> is the diamond key
+and <SPAN  CLASS="textbf">Alt</SPAN> something else. One of the ``flying window'' keys on so
+called Windows-keyboards is probably mapped to <SPAN  CLASS="textbf">Mod3</SPAN> if you have
+such a key. Use the program <SPAN  CLASS="textit">xmodmap</SPAN><A NAME="894"></A>
+to find out what exactly is bound where. 
+
+<P>
+Ion defaults to <SPAN  CLASS="textbf">AnyModifier</SPAN> in submaps. This can sometimes lead to
+unwanted effects when the same key is used with and without explicitly
+specified modifiers in nested regions. For this reason, Ion recognises
+<SPAN  CLASS="textbf">NoModifier</SPAN> as a special modifier that can be used to reset this
+default.
+
+<P>
+Ion ignores the <SPAN  CLASS="textbf">Lock</SPAN> modifier and any <SPAN  CLASS="textbf">ModN</SPAN> (<SPAN CLASS="MATH"><IMG
+ WIDTH="81" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$N=1{\ldots} 5$"></SPAN>)
+bound to <SPAN  CLASS="textbf">NumLock</SPAN><A NAME="895"></A> or
+<SPAN  CLASS="textbf">ScrollLock</SPAN><A NAME="896"></A>
+by default because such<A NAME="tex2html8"
+  HREF="#foot865"><SUP><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> locking keys may otherwise
+cause confusion.
+
+<P>
+
+<H3><A NAME="SECTION00436000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Button specifications</A>
+</H3>
+
+<P>
+Button specifications are similar to key definitions but now
+instead of specifying modifiers and a key, you specify modifiers
+and one of the button names <SPAN  CLASS="textbf">Button1</SPAN> to
+<SPAN  CLASS="textbf">Button5</SPAN><A NAME="897"></A>. Additionally the
+specification may end with an optional area name following an @-sign.
+Only frames currently support areas, and the supported values in this
+case are
+`<TT>border</TT>', `<TT>tab</TT>', `<TT>empty_tab</TT>', `<TT>client</TT>' 
+and <TT>nil</TT> (for the whole frame).
+
+<P>
+For example, the following code binds dragging a tab with the first 
+button pressed to initiate tab drag&amp;drop handling:
+
+<P>
+<PRE>
+defbindings("WFrame", {
+    mdrag("Button1@tab", "_:p_tabdrag()"),
+})
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION00437000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> A further note on the default binding configuration</A>
+</H3>
+
+<P>
+The default binding configuration contains references to the variables
+<TT>META</TT> and <TT>ALTMETA</TT> instead of directly using the default
+values of `<TT>Mod1+</TT>' and `' (nothing). As explained in
+section <A HREF="#sec:walkthrough">3.2</A>, the definitions of these variables
+appear in <SPAN  CLASS="textit">cfg_ion.lua</SPAN>. This way you can easily change the the
+modifiers used by all bindings in the default configuration without 
+changing the whole binding configuration. Quite a few people prefer 
+to use the Windows keys as modifiers because many applications already
+use <SPAN  CLASS="textbf">Alt</SPAN>. Nevertheless, <SPAN  CLASS="textbf">Mod1</SPAN> is the default as a key bound 
+to it is available virtually everywhere.
+
+<P>
+
+<H2><A NAME="SECTION00440000000000000000"></A>
+<A NAME="sec:menus"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Menus
+</H2>
+
+<P>
+
+<H3><A NAME="SECTION00441000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Defining menus</A>
+</H3>
+
+<P>
+<A NAME="1154"></A>
+<A NAME="1205"></A>
+<A NAME="1206"></A>
+<A NAME="1207"></A>
+In the stock configuration file setup, menus are defined in the file
+<SPAN  CLASS="textit">cfg_menus.lua</SPAN> as previously mentioned. The <SPAN  CLASS="textit">mod_menu</SPAN> module
+must be loaded for one to be able to define menus, and this is done with
+the function <A HREF="#fn:mod_menu.defmenu"><TT>defmenu</TT></A> provided by it.
+
+<P>
+Here's an example of the definition of a rather simple menu with a submenu:
+
+<P>
+<PRE>
+defmenu("exitmenu", {
+    menuentry("Restart", "ioncore.restart()"),
+    menuentry("Exit", "ioncore.shutdown()"),
+})
+
+defmenu("mainmenu", {
+    menuentry("Lock screen", "ioncore.exec('xlock')"),
+    menuentry("Help", "mod_query.query_man(_)"),
+    submenu("Exit", "exitmenu"),
+})
+</PRE>
+
+<P>
+The <A HREF="#fn:mod_menu.menuentry"><TT>menuentry</TT></A> function is used to create an entry in the 
+menu with a title and an entry handler to be called when the menu entry
+is activated. The parameters to the handler are similar to those of binding
+handlers, and usually the same as those of the binding that opened the menu.
+
+<P>
+The <A HREF="#fn:mod_menu.submenu"><TT>submenu</TT></A> function is used to insert a submenu at that 
+point in the menu. (One could as well just pass a table with the menu
+entries, but it is not encouraged.)
+
+<P>
+
+<H3><A NAME="SECTION00442000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Special menus</A>
+</H3>
+
+<P>
+The menu module predefines the following special menus. These can be used
+just like the menus defined as above.
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1" WIDTH="100%">
+<TR><TD ALIGN="LEFT">Menu name</TD>
+<TD ALIGN="LEFT">Description</TD>
+</TR>
+<TR><TD ALIGN="LEFT">`<TT>windowlist</TT>'</TD>
+<TD ALIGN="LEFT">List of all client windows. Activating an entry jumps to that window.</TD>
+</TR>
+<TR><TD ALIGN="LEFT">`<TT>workspacelist</TT>'</TD>
+<TD ALIGN="LEFT">List of all workspaces. Activating an entry jumps to that workspaces.</TD>
+</TR>
+<TR><TD ALIGN="LEFT">`<TT>focuslist</TT>'</TD>
+<TD ALIGN="LEFT">List of client windows with recent activity in them, followed by 
+    previously focused client windows.</TD>
+</TR>
+<TR><TD ALIGN="LEFT">`<TT>focuslist_</TT>'</TD>
+<TD ALIGN="LEFT">List of previously focused client windows.</TD>
+</TR>
+<TR><TD ALIGN="LEFT">`<TT>stylemenu</TT>'</TD>
+<TD ALIGN="LEFT">List of available <SPAN  CLASS="textit">look_*.lua</SPAN> style files. Activating an entry
+    loads that style and ask to save the selection.</TD>
+</TR>
+<TR><TD ALIGN="LEFT">`<TT>ctxmenu</TT>'</TD>
+<TD ALIGN="LEFT">Context menu for given object.</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H3><A NAME="SECTION00443000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> Defining context menus</A>
+</H3>
+
+<P>
+The ``ctxmenu'' is a special menu that is assembled from a defined context
+menu for the object for which the menu was opened for, but also includes
+the context menus for the manager objects as submenus.
+
+<P>
+Context menus for a given region class are defined with the
+<A HREF="#fn:mod_menu.defctxmenu"><TT>defctxmenu</TT></A> function. This is other ways similar to
+<A HREF="#fn:mod_menu.defmenu"><TT>defmenu</TT></A>, but the first argument instead being the name
+of the menu, the name of the region class to define context menu for.
+For example, here's part of the stock WFrame context menu 
+definition:
+
+<P>
+<PRE>
+defctxmenu("WFrame", {
+    menuentry("Close", "WRegion.rqclose_propagate(_, _sub)"),
+    menuentry("Kill",  "WClientWin.kill(_sub)", "_sub:WClientWin"),
+})
+</PRE>
+
+<P>
+Some of the same ``modes'' as were available for some bindings
+may also be used: `<TT>WFrame.tiled</TT>', `<TT>WFrame.floating</TT>',
+and `<TT>WFrame.transient</TT>'.
+
+<P>
+
+<H3><A NAME="SECTION00444000000000000000"></A>
+<A NAME="sec:menudisp"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">4</SPAN> Displaying menus
+</H3>
+
+<P>
+The following functions may be used to display menus from binding
+handlers (and elsewhere):
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1" WIDTH="100%">
+<TR><TD ALIGN="LEFT">Function</TD>
+<TD ALIGN="LEFT">Description</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><A HREF="node7.html#fn:mod_menu.menu"><TT>mod_menu.menu</TT></A></TD>
+<TD ALIGN="LEFT">Keyboard (or mouse) operated menus that open in the bottom-left corner
+      of a screen or frame.</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><A HREF="node7.html#fn:mod_menu.pmenu"><TT>mod_menu.pmenu</TT></A></TD>
+<TD ALIGN="LEFT">Mouse-operated drop-down menus. This function can only be called from a
+      mouse press or drag handler.</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><A HREF="node7.html#fn:mod_menu.grabmenu"><TT>mod_menu.grabmenu</TT></A></TD>
+<TD ALIGN="LEFT">A special version of <A HREF="node7.html#fn:mod_menu.menu"><TT>mod_menu.menu</TT></A> that grabs the keyboard
+      and is scrolled with a given key until all modifiers have been released,
+      after which the selected entry is activated.</TD>
+</TR>
+</TABLE>
+
+<P>
+Each of these functions takes three arguments, which when
+called from a binding handler, should be the parameters to the handler, and
+the name of the menu. For example, the following snippet of of code binds
+the both ways to open a context menu for a frame:
+
+<P>
+<PRE>
+defbindings("WFrame", {
+    kpress(MOD1.."M", "mod_menu.menu(_, _sub, 'ctxmenu')"),
+    mpress("Button3", "mod_menu.pmenu(_, _sub, 'ctxmenu')"),
+})
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00450000000000000000"></A>
+<A NAME="sec:winprops"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Winprops
+</H2>
+
+<P>
+The so-called ``winprops''<A NAME="1292"></A> can be used to change how
+specific windows are handled and to set up some kludges to deal with
+badly behaving applications. They are defined by calling the function
+<TT>defwinprop</TT> with a table containing the properties to set and the
+necessary information to identify a window. The currently supported
+winprops are listed below, and the subsequent subsections explain the
+usual method of identifying windows, and how to obtain this information.
+
+<P>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>acrobatic</TT> (boolean)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1459"></A>
+    Set this to <TT>true</TT> for Acrobat Reader. It has an annoying
+    habit of trying to manage its dialogs instead of setting them as
+    transients and letting the window manager do its job, causing
+    Ion and acrobat go a window-switching loop when a dialog is
+    opened.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>float</TT> (boolean)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1460"></A>
+    Set this to open the window in a floating frame, when
+    in a group.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>fullscreen</TT> (boolean)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1461"></A>
+    Should the window be initially in full screen mode?
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>ignore_cfgrq</TT> (boolean)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1462"></A>
+    Should configure requests on the window be ignored?
+    Only has effect on floating windows.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>ignore_net_active_window</TT> (boolean)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1463"></A>
+    Ignore extended WM hints <TT>_NET_ACTIVE_WINDOW</TT> request.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>jumpto</TT> (boolean)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1464"></A>
+    Should a newly created client window always be made
+    active, even if the allocated frame isn't.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>new_group</TT> (string)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1465"></A>
+    If the region specified by <TT>target</TT> winprop does not exist
+    (or that winprop is not set), create a new workspace using the 
+    previously stored layout (see <A HREF="node7.html#fn:ioncore.deflayout"><TT>ioncore.deflayout</TT></A>) named by
+    this property. After creating the workspace, <TT>target</TT> is 
+    attempted to be found again. (If that still fails, the newly 
+    created workspace is still asked to manage the client window.)
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>oneshot</TT> (boolean)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1466"></A>
+    Discard this winprop after first use.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>orientation</TT> (string)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1467"></A>
+    The orientation of the window: one of `<TT>vertical</TT>' or
+    `<TT>horizontal</TT>'. This is only useful when using the
+    window as a status display.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>statusbar</TT> (string)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1468"></A>
+    Put the window in the statusbar, in the named tray component,
+    (The default tray component is called simply `<TT>systray</TT>', 
+    and others you give names to in your custom template, always 
+    prefixed by `<TT>systray_</TT>'.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>switchto</TT> (boolean)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1469"></A>
+    Should a newly mapped client window be switched to within
+    its frame.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>target</TT> (string)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1470"></A>
+    The name of an object (workspace, frame) that should manage 
+    windows of this type. See also <TT>new_group</TT>.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>transient_mode</TT> (string)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1471"></A>
+    `<TT>normal</TT>': No change in behaviour. `<TT>current</TT>':
+    The window should be thought of as a transient for the current
+    active client window (if any) even if it is not marked as a
+    transient by the application. `<TT>off</TT>': The window should 
+    be handled as a normal window even if it is marked as a
+    transient by the application.
+
+</DD>
+</DL>
+
+<P>
+
+  <DL>
+<DT><STRONG>Winprop:</STRONG></DT>
+<DD><TT>transparent</TT> (boolean)
+      
+</DD>
+<DT><STRONG>Description:</STRONG></DT>
+<DD><A NAME="1472"></A>
+    Should frames be made transparent when this window is selected? 
+<BR>  
+  
+</DD>
+</DL>
+
+<P>
+
+<H3><A NAME="SECTION00451000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> Sizehint winprops</A>
+</H3>
+
+<P>
+Additionally, the winprops 
+<TT>max_size</TT><A NAME="1473"></A>,
+<TT>min_size</TT><A NAME="1474"></A>,
+<TT>aspect</TT><A NAME="1475"></A>,
+<TT>resizeinc</TT><A NAME="1476"></A>,
+and
+<TT>ignore_max_size</TT><A NAME="1477"></A>,
+<TT>ignore_min_size</TT><A NAME="1478"></A>,
+<TT>ignore_aspect</TT><A NAME="1479"></A>,
+<TT>ignore_resizeinc</TT><A NAME="1480"></A>,
+may be used to override application-supplied size hints. The four
+first ones are tables with the fields <TT>w</TT> and <TT>h</TT>, indicating
+the width and height size hints in pixels, and the latter ignore
+winprop is a boolean. 
+
+<P>
+Finally, the boolean
+<TT>userpos</TT><A NAME="1481"></A> option may be used to
+override the <TT>USPosition</TT> flag of the size hints. Normally,
+when this flag is set, Ion tries to respect the supplied window
+position more than when it is not set. Obviously, this makes sense
+only for floating windows.
+
+<P>
+
+<H3><A NAME="SECTION00452000000000000000"></A>
+<A NAME="sec:classesrolesinstances"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN> Classes, roles and instances
+</H3>
+
+<P>
+The identification information supported are
+<TT>class</TT><A NAME="1482"></A>,
+<TT>role</TT><A NAME="1483"></A>,
+<TT>instance</TT><A NAME="1484"></A>,
+<TT>name</TT><A NAME="1485"></A>,
+<TT>is_transient</TT><A NAME="1486"></A>, and
+<TT>is_dockapp</TT><A NAME="1487"></A>.
+It is not necessary to specify all of these fields.
+The first three are strings, and must exactly match the
+corresponding information obtained from the window's properties.
+The <TT>name</TT> field is a Lua-style regular expression matched against
+the window's title. The <TT>is_transient</TT> field is a boolean that can
+be used to include or exclude transients only, while the <TT>is_dockapp</TT>
+field is set by Ion for the dock windows of Window Maker dockapp protocol
+dockapps. Usually this is the only information available for these 
+<SPAN  CLASS="textit">icon</SPAN> windows. 
+
+<P>
+Ion looks for a matching winprop in the order listed by the following
+table. An 'E' indicates that the field must be set in the winprop
+and it must match the window's corresponding property exactly or, in
+case of <TT>name</TT>, the regular expression must match the window
+title. An asterisk '*' indicates that a winprop where the field is
+not specified (or is itself an asterisk in case of the first three
+fields) is tried.
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT"><TT>class</TT></TD>
+<TD ALIGN="LEFT"><TT>role</TT></TD>
+<TD ALIGN="LEFT"><TT>instance</TT></TD>
+<TD ALIGN="LEFT">other</TD>
+</TR>
+<TR><TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">E</TD>
+</TR>
+<TR><TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">*</TD>
+</TR>
+<TR><TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">*</TD>
+<TD ALIGN="LEFT">E</TD>
+</TR>
+<TR><TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">*</TD>
+<TD ALIGN="LEFT">*</TD>
+</TR>
+<TR><TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">*</TD>
+<TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">E</TD>
+</TR>
+<TR><TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">*</TD>
+<TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">*</TD>
+</TR>
+<TR><TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">*</TD>
+<TD ALIGN="LEFT">*</TD>
+<TD ALIGN="LEFT">E</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">etc.</TD>
+</TR>
+</TABLE>
+</DIV>
+
+<P>
+If there are multiple matching winprops with the same
+<TT>class</TT>, <TT>role</TT> and <TT>instance</TT>, but other information
+different, the most recently defined one is used.
+
+<P>
+
+<H3><A NAME="SECTION00453000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN> Finding window identification</A>
+</H3>
+
+<P>
+The 'Window info' context menu entry (<SPAN  CLASS="textbf">Mod1+M</SPAN> or <SPAN  CLASS="textbf">Button3</SPAN> on a tab)
+can be used to list the identification information required to set winprops
+for a window and all the transient windows managed within it. 
+
+<P>
+<A NAME="1436"></A> 
+Another way to get the identification information is to use <TT>xprop</TT>.
+Simply run To get class and instance, simply run <TT>xprop WM_CLASS</TT>
+and click on the particular window of interest. The class is the latter of
+the strings while the instance is the former.  To get the role - few
+windows have this property - use the command <TT>xprop WM_ROLE</TT>. 
+This method, however, will not work on transients. 
+
+<P>
+<A NAME="1440"></A>
+So-called ``transient windows'' are usually short-lived dialogs (although
+some programs abuse this property) that have a parent window that they are
+``transient for''. On tiled workspaces Ion displays these windows 
+simultaneously with the parent window at the bottom of the same frame.
+Unfortunately <TT>xprop</TT> is stupid and can't cope with this situation,
+returning the parent window's properties when the transient is clicked on.
+For this reason you'll have to do a little extra work to get the properties
+for that window.<A NAME="tex2html9"
+  HREF="#foot1489"><SUP><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
+<P>
+Finally, it should be mentioned that too many authors these days
+``forget'' to set this vital identification to anything meaningful:
+everything except name is the same for all of the program's 
+windows, for example. Some other programs only set this information
+after the window has been mapped, i.e. the window manager has been
+told to start managing it, which is obviously too late. 
+Gtk applications in particular are often guilty on both counts.
+
+<P>
+
+<H3><A NAME="SECTION00454000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">4</SPAN> Some common examples</A>
+</H3>
+
+<P>
+
+<H4><A NAME="SECTION00454100000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Acrobat Reader</A>
+</H4>
+
+<P>
+The following is absolutely necessary for Acrobat reader:
+
+<P>
+<PRE>
+defwinprop{
+    class = "AcroRead",
+    instance = "documentShell",
+    acrobatic = true,
+}
+</PRE>
+
+<P>
+
+<H4><A NAME="SECTION00454200000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Forcing newly created windows in named frames</A>
+</H4>
+
+<P>
+The following winprop should place xterm started with command-line parameter
+<TT>-name sysmon</TT> and running a system monitoring program in a
+particular frame:
+<PRE>
+defwinprop{
+    class = "XTerm",
+    instance = "sysmon",
+    target = "sysmonframe",
+}
+</PRE>
+
+<P>
+For this example to work, we have to somehow create a frame named
+`<TT>sysmonframe</TT>'. One way to do this is to make the following
+call in the <SPAN  CLASS="textbf">Mod1+F3</SPAN> Lua code query:
+
+<P>
+<PRE>
+mod_query.query_renameframe(_)
+</PRE>
+
+<P>
+Recall that <TT>_</TT> points to the multiplexer (frame or screen) in which 
+the query was opened. Running this code should open a new query prefilled
+with the current name of the frame. In our example we would change the 
+name to `<TT>sysmonframe</TT>', but we could just as well have used the 
+default name formed from the frame's class name and an instance number.
+
+<P>
+
+<H2><A NAME="SECTION00460000000000000000"></A>
+<A NAME="sec:statusbar"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> The statusbar
+</H2>
+
+<P>
+The <SPAN  CLASS="textit">mod_statusbar</SPAN> module provides a statusbar that adapts to 
+layouts of tilings, using only the minimal space needed. Ion only 
+supports one adaptive ``status display'' object per screen, so this
+statusbar is mutually exclusive with the embedded mode of <SPAN  CLASS="textit">mod_dock</SPAN> 
+docks. 
+
+<P>
+The statusbar is configured in <SPAN  CLASS="textit">cfg_statusbar.lua</SPAN>. Typically,
+the configuration consists of two steps: creating a statusbar with
+<A HREF="node7.html#fn:mod_statusbar.create"><TT>mod_statusbar.create</TT></A>, and then launching the separate
+<TT>ion-statusd</TT> status daemon process with 
+<A HREF="node7.html#fn:mod_statusbar.launch_statusd"><TT>mod_statusbar.launch_statusd</TT></A>. This latter phase is done
+automatically, if it was not done by the configuration file, but
+the configuration file may pass extra parameters to <TT>ion-statusd</TT>
+monitors. (See Section <A HREF="node6.html#sec:statusd">5.4</A> for more information on
+writing <TT>ion-statusd</TT> monitors.)
+
+<P>
+A typical <SPAN  CLASS="textit">cfg_statusbar.lua</SPAN> configuration might look as follows:
+
+<P>
+<PRE>
+-- Create a statusbar
+mod_statusbar.create{
+    screen = 0,     -- First screen, 
+    pos = 'bl',     -- bottom left corner
+    systray = true, -- Swallow systray windows
+
+    -- The template
+    template = "[ %date || load:% %&gt;load || mail:% %&gt;mail_new/%&gt;mail_total ]"
+               .. " %filler%systray",
+}
+
+-- Launch ion-statusd. 
+mod_statusbar.launch_statusd{
+    -- Date meter
+    date={
+        -- ISO-8601 date format with additional abbreviated day name
+        date_format='%a %Y-%m-%d %H:%M',
+    },      
+}
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION00461000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> The template</A>
+</H3>
+
+<P>
+The template specifies what is shown on the statusbar; for information
+on the other options to <A HREF="node7.html#fn:mod_statusbar.create"><TT>mod_statusbar.create</TT></A>, see the reference. 
+Strings of the form `<TT>%spec</TT>' tokens specially interpreter by
+the statusbar; the rest appears verbatim. The <TT>spec</TT> typically
+consists of the name of the value/meter to display (beginning with a latin
+alphabet), but may be preceded by an alignment specifier and a number
+specifying the minimum width. The alignment specifiers are: `<TT>&gt;</TT>'
+for right, `<TT>&lt;</TT>' for left,  and `<TT>|</TT>' for centring. Additionally,
+space following `<TT>%</TT>' (that is, the string `<TT>% </TT>'), adds
+``stretchable space'' at that point. The special string `<TT>%filler</TT>'
+may be used to flush the rest of the template to the right end of 
+the statusbar. 
+
+<P>
+The stretchable space works as follows: <SPAN  CLASS="textit">mod_statusbar</SPAN> remembers
+the widest string (in terms of graphical presentation) that it has
+seen for each meter, unless the width has been otherwise constrained.
+If there is stretchable space in the template, it tries to make the
+meter always take this much space, by stretching any space found in
+the direction indicated by the alignment specifier: the opposite
+direction for left or right alignment, and both for centring.
+
+<P>
+
+<H3><A NAME="SECTION00462000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN> The systray</A>
+</H3>
+
+<P>
+The special `<TT>%systray</TT>' and `<TT>%systray_*</TT>'
+(`<TT>*</TT>' varying) monitors indicate where to place system tray 
+windows.  There may be multiple of these. KDE-protocol system tray
+icons are placed in `<TT>%systray</TT>' automatically, unless disabled 
+with the <TT>systray</TT> option. Otherwise the <TT>statusbar</TT> winprop may
+be used to place any window in any particular `<TT>%systray_*</TT>'.
+
+<P>
+
+<H3><A NAME="SECTION00463000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN> Monitors</A>
+</H3>
+
+<P>
+The part before the first
+underscore of each monitor name, describes the script/plugin/module
+that provides the meter, and any configuration should be passed
+in the a corresponding sub-table <A HREF="node7.html#fn:mod_statusbar.launch_statusd"><TT>mod_statusbar.launch_statusd</TT></A>.
+Ion comes with date, load and mail (for plain old mbox) 
+<TT>ion-statusd</TT> monitor scripts. More may be obtained from 
+the scripts repository [<A
+ HREF="node12.html#scripts">1</A>]. These included scripts 
+provide the following monitors and their options
+
+<P>
+
+<H4><A NAME="SECTION00463100000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Date</A>
+</H4>
+
+<P>
+Options: <TT>date_format</TT>: The date format in as seen above, 
+in the usual <TT>strftime</TT> format. <TT>formats</TT>: table of
+formats for additional date monitors, the key being the name
+of the monitor (without the `<TT>date_</TT>' prefix).
+
+<P>
+Monitors: `<TT>date</TT>' and other user-specified ones with the
+`<TT>date_</TT>' prefix.
+
+<P>
+
+<H4><A NAME="SECTION00463200000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Load</A>
+</H4>
+
+<P>
+Options: <TT>update_interval</TT>: Update interval in milliseconds
+(default 10s). <TT>important_threshold</TT>: Threshold above which 
+the load is marked as important (default 1.5), so that the 
+drawing engine may be suitably hinted. <TT>critical_threshold</TT>: 
+Threshold above which  the load is marked as critical (default 4.0).
+
+<P>
+Monitors: `<TT>load</TT>' (for all three values), 
+`<TT>load_1min</TT>', `<TT>load_5min</TT>' and `<TT>load_15min</TT>'.
+
+<P>
+
+<H4><A NAME="SECTION00463300000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Mail</A>
+</H4>
+
+<P>
+Options: <TT>update_interval</TT>: Update interval in milliseconds
+(default 1min). <TT>mbox</TT>: mbox-format mailbox location
+(default <code>$MAIL</code>). 
+<TT>files</TT>: list of additional mailboxes, the key giving the 
+name of the monitor.
+
+<P>
+Monitors: `<TT>mail_new</TT>', `<TT>mail_unread</TT>',
+`<TT>mail_total</TT>', and corresponding
+`<TT>mail_*_new</TT>', `<TT>mail_*_unread</TT>', and `<TT>mail_*_total</TT>'
+for the additional mailboxes (`<TT>*</TT>' varying).
+
+<P>
+
+<P>
+<BR><HR><H4>Footnotes</H4>
+<DL>
+<DT><A NAME="foot886">...keysymdef.h</A><A
+ HREF="node4.html#tex2html7"><SUP><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
+<DD>This file can usually be found in the directory
+<SPAN  CLASS="textit">/usr/X11R6/include/X11/</SPAN>.
+
+</DD>
+<DT><A NAME="foot865">... such</A><A
+ HREF="node4.html#tex2html8"><SUP><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
+<DD>Completely useless keys that should be
+gotten rid of in the author's opinion.
+
+</DD>
+<DT><A NAME="foot1489">... window.</A><A
+ HREF="node4.html#tex2html9"><SUP><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
+<DD>There's a patch to <TT>xprop</TT> to
+fix this, but nothing seems to be happening with respect to including it in 
+XFree86.
+
+</DD>
+</DL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html287"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html281"
+  HREF="ionconf.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html275"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html283"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html285"
+  HREF="node11.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html288"
+  HREF="node5.html">4. Graphical styles</A>
+<B> Up:</B> <A NAME="tex2html282"
+  HREF="ionconf.html">Configuring and extending Ion3</A>
+<B> Previous:</B> <A NAME="tex2html276"
+  HREF="node3.html">2. Preliminaries: Key concepts</A>
+ &nbsp; <B>  <A NAME="tex2html284"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html286"
+  HREF="node11.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,424 @@
+
+\chapter{Graphical styles}
+\label{chap:gr}
+
+This chapter first gives in section \ref{sec:engines} a general outline 
+of how drawing engines are used, of style specifications and then
+in section \ref{sec:defaultde} describes how to specify styles
+for the default drawing engine. Some additional settings and
+user attributes are explained in Sections \ref{sec:grmisc}.
+
+
+\section{Drawing engines, style specifications and sub-styles}
+\label{sec:engines}
+\index{style}\index{drawing engine}
+
+Ion's drawing routines are abstracted into so-called drawing engine
+modules that can, again depending on the system, be dynamically
+loaded as needed. The drawing engine modules provide ``brushes''
+that objects can use to draw some high-level primitives such
+as borders and text boxes (in addition to simple text and rectangle
+drawing) on their windows and configure e.g. the shape and 
+background of the window. While the drawing engines therefore
+do not directly implement looks for each possible object (that
+would hardly be maintainable), different brush styles can be
+used to give a distinctive look to different objects and engines
+could interpret some styles as special cases. Style specifications 
+are strings of the form
+
+\begin{verbatim}
+element1-element2-...-elementn
+\end{verbatim}
+
+An example of such a style specification is \codestr{tab-frame};
+see the table in subsection \ref{sec:styles} for more styles.
+
+When an object asks for a brush of certain style, the selected
+drawing engine will attempt to find the closest match to this
+specification. The styles/brushes defined by the drawing engines 
+may have asterisks (\codestr{*}) as some of the elements indicating
+a match to anything. Exact matches are preferred to asterisk
+matches and longer matches to shorter. For example, let a brush
+for style \codestr{foo-bar-baz} be queried, then the following
+brushes are in order of preference:
+
+\begin{verbatim}
+foo-bar-baz
+foo-*-baz
+foo-bar
+*
+\end{verbatim}
+
+Some of the drawing primitives allow extra attributes to be
+specified, also in the form
+\begin{verbatim}
+attr1-attr2-...-attrn
+\end{verbatim}
+These extra attributes are called \emph{substyles}\index{substyle}
+and allow, for example, the state of the object to be indicated 
+by  different colour sets while keeping the interface at an 
+abstract level and the drawing engine completely ignorant 
+of the semantics -- only the writer of the drawing engine
+configuration file has to know them. However the drawing 
+engine can again interpret known substyles as special cases
+and the default engine indeed does so with frame tab 
+tag and drag states.)
+
+
+\subsection{Known styles and substyles}
+\label{sec:styles}
+
+\subsubsection{Frames}
+
+\begin{tabularx}{\linewidth}{lX}
+\tabhead{Style name & Description}
+\codestr{frame} & Style for frames. 
+	Substyle attributes: \codestr{active}/\codestr{inactive} 
+	(mutually exclusive), and
+	\codestr{quasiactive}.
+	A frame is ``quasiactive'' when an active region
+	has a back-link to it, such as a detached window. \\
+\codestr{frame-tiled} & A more specific style for tiled frames.
+        Substyle attributes as for \codestr{frame}. \\
+\codestr{frame-tiled-alt} & An alternative style for tiled frames.
+        Often used to disable the tab-bar. \\
+\codestr{frame-floating} & A more specific style for floating
+        frames. \\
+\codestr{frame-transient} & A more specific style for frames
+        containing transient windows. \\
+\end{tabularx}
+
+\subsubsection{Tabs and menu entries}
+
+\begin{tabularx}{\linewidth}{lX}
+\tabhead{Style name & Description}
+\codestr{tab} & Style for frames' tabs and menu entries. 
+	Substyle attributes:
+	\codestr{active}/\codestr{inactive} and
+	\codestr{selected}/\codestr{unselected} \\
+\codestr{tab-frame} & A more specific style for frames' tabs.
+        Additional substyle attributes include those of
+        the \codestr{frame} style, as well as tab-specific
+      	\codestr{tagged}/\codestr{not\_tagged},
+	\codestr{dragged}/\codestr{not\_dragged}, and
+	\codestr{activity}/\codestr{no\_activity}. \\
+\codestr{tab-frame-tiled}, & \\
+\codestr{tab-frame-tiled-alt}, & \\
+\codestr{tab-frame-floating}, & \\
+\codestr{tab-frame-transient} & More specific styles for frames in the
+        different modes. \\
+\codestr{tab-menuentry} & A more specific style for entries in \type{WMenu}s. 
+        Additional substyle attributes include \codestr{submenu} and
+        occasionally also \codestr{activity} is used.\\
+\codestr{tab-menuentry-bigmenu} & 
+        An alternate style for entries in \type{WMenu}s. \\
+\codestr{tab-info} & 
+        Extra information tab (displayed e.g. for tagged workspaces). \\
+\end{tabularx}
+
+\subsubsection{The rest}
+
+\begin{tabularx}{\linewidth}{lX}
+\tabhead{Style name & Description}
+\codestr{input} & A style for \type{WInput}s. \\
+\codestr{input-edln} & A more specific style for \type{WEdln}s. 
+	Substyle attributes: \codestr{selection} for selected text and
+	\codestr{cursor} for the cursor indicating current editing point. \\
+\codestr{input-message} & A more specific style for \type{WMessage}s. \\
+\codestr{input-menu} & A more specific style for \type{WMenu}s. \\
+\codestr{input-menu-bigmenu} & An alternate style for \type{WMenu}s. \\
+\codestr{moveres\_display} & The box displaying position/size when
+	moving or resizing frames. \\
+\codestr{actnotify} & Actification notification box. \\
+\codestr{stdisp} & Any status display. \\
+\codestr{stdisp-dock} & The dock. \\
+\codestr{stdisp-statusbar} & The statusbar. Substyles include:
+    the name of any monitor/meter (such as \codestr{date}), and 
+    the supplied hint. Typical hints are: \codestr{normal},
+    \codestr{important}, and \codestr{critical}. \\
+\end{tabularx}
+
+
+\section{Defining styles for the default drawing engine}
+\label{sec:defaultde}
+
+Drawing engine style files are usually named
+\file{look\_foo.lua} where \file{foo} is the name of the
+style. The file that Ion loads on startup or when
+\fnref{gr.read_config} is called, however, is \file{look.lua}
+and should usually be symlinked to or a copy of of some
+\file{look\_foo.lua}.
+
+\subsection{The structure of the configuration files}
+
+The first thing to do in a style file is to choose the drawing
+engine, possibly loading the module as well. This is done
+with the following chunk of code.
+
+\begin{verbatim}
+if not gr.select_engine("de") then 
+    return 
+end
+\end{verbatim}
+
+The \fnref{gr.select_engine} function sees if the engine
+given as argument is registered (the default drawing engine is
+simply called ``de''). If the engine could not be found, it
+tries to load a module of the same name. If the engine still
+is not registered, \fnref{gr.select_engine} returns \codestr{false}
+and in this case we also exit the style setup script.
+If the engine was found, \fnref{gr.select_engine} sees that
+further requests for brushes are forwarded to that engine
+and returns \codestr{true}.
+
+Before defining new styles it may be a good idea to clear old
+styles from memory so if the old configuration defines more
+specific styles than the new, the old styles don't override 
+those specified by the new configuration. That can be done by
+calling
+
+\begin{verbatim}
+de.reset()
+\end{verbatim}
+
+After this the new styles can be defined with \fnref{de.defstyle}
+as explained in the next subsection. Finally, after the styles have
+been defined we must ask objects on the screen to look up new brushes
+to reflect the changes in configuration. This is done with
+
+\begin{verbatim}
+gr.refresh()
+\end{verbatim}
+
+\subsection{Defining the styles}
+
+Styles for the default drawing engine are defined with the
+function \fnref{de.defstyle}. It has two arguments the first being
+a style specification as explained in previous sections and the second
+a table whose fields describe the style:
+
+\begin{verbatim}
+de.defstyle("some-style", {
+    attribute = value,
+    ...
+})
+\end{verbatim}
+
+The supported attributes are described in tables below. The different
+border elements and styles referred to there are explained in Figure
+\ref{fig:borders}.
+
+\begin{figure}
+\begin{htmlonly}
+\docode % Kludge to make latex2html interpret contents instead of
+	% creating an image.
+\end{htmlonly}    
+\begin{verbatim}
+Elevated:        Inlaid:         Ridge:            Groove:        
+  hhhhhhhhhhhs     ............	   hhhhhhhhhhhs      sssssssssssh
+  h..........s     .sssssssssh.	   h..........s      s..........h
+  h.        .s     .s        h.	   h.sssssssh.s      s.hhhhhhhs.h
+  h.        .s     .s        h.	   h.s      h.s      s.h      s.h
+  h.        .s     .s        h.	   h.shhhhhhh.s      s.hsssssss.h
+  h..........s     .shhhhhhhhh.	   h..........s      s..........h
+  hsssssssssss     ............	   hsssssssssss      shhhhhhhhhhh
+
+h = highlight, s = shadow, . = padding
+\end{verbatim}
+\caption{Sketch of different border styles and elements}
+\label{fig:borders}
+\end{figure}
+
+\subsubsection{Colours}
+
+Each of these fields a string of the form that can be
+passed to \code{XAllocNamedColor}. Valid strings are e.g.
+hexadecimal RGB specifications of the form
+\code{#RRGGBB} and colour names as specified
+in \file{/usr/X11R6/lib/X11/rgb.txt} (exact path varying).
+
+\begin{tabularx}{\linewidth}{lX}
+\tabhead{Field  & Description}
+\var{highlight_colour} &  
+	Colour for the ``highlight'' part of a border. \\
+\var{shadow_colour}    &  
+	Colour for the ``shadow'' part of a border. \\
+\var{foreground_colour} &  
+	Colour for the normal drawing operations, e.g. text. \\
+\var{background_colour} &  
+	Window background colour (unless transparency is enabled) and
+	background colour boxes. \\
+\var{padding_colour} &  
+	Colour for the ``padding'' part of a border border. Set to 
+	\var{background_colour} if unset. \\
+\end{tabularx}
+
+
+\subsubsection{Borders and widths}
+
+All other fields below except \var{border_style} are non-negative integers
+indicating a number of pixels.
+
+\begin{tabularx}{\linewidth}{lX}
+\tabhead{Field  & Description}
+\var{border_style} & A string indicating the style of border; one of
+		     \codestr{elevated}/\codestr{inlaid}/\codestr{ridge}/\codestr{groove}
+		     as seen in the above sketch. \\
+\var{border_sides} & A string indicating which sides of the border
+                     to draw: \codestr{all}/\codestr{tb}/\codestr{lr} for all, 
+                     top and bottom, and left and right. To control between
+                     left/right and top/bottom, use the pixel options below. \\
+\var{highlight_pixels} &  
+	Width of the highlight part of the border in pixels. \\
+\var{shadow_pixels}    &  
+	Width of the shadow part of the border in pixels. \\
+\var{padding_pixels} &  
+	Width of the padding part of the border in pixels. \\
+\var{spacing} &
+	Space to be left between all kinds of boxes. \\
+\end{tabularx}
+
+
+\subsubsection{Text}
+
+\begin{tabularx}{\linewidth}{lX}
+\tabhead{Field  & Description}
+\var{font} & Font to be used in text-drawing operations; standard X font
+	     name. \\
+\var{text_align} & How text is to be aligned in text boxes/tabs; one of
+		   the strings \codestr{left}/\codestr{right}/\codestr{center}. \\
+\end{tabularx}
+
+
+\subsubsection{Miscellaneous}
+
+
+\begin{tabularx}{\linewidth}{lX}
+\tabhead{Field  & Description}
+\var{transparent_background} & Should windows' that use this style
+	background be transparent? true/false. \\
+\var{based_on} & The name of a previously defined style that this
+	style should be based on. \\
+\end{tabularx}
+
+
+\subsubsection{Substyles}
+
+As discussed in previous sections, styles may have substyles to e.g.
+indicate different states of the object being drawn. The ``de'' engine
+limits what can be configured in substyles to the set of colours in the
+first table above, but also specifically interprets for the main style
+\codestr{tab-frame} the substyles \codestr{*-*-tagged} and \codestr{*-*-*-dragged}
+by, respectively, drawing a right angle shape at the top right corner 
+of a tab and by shading the tab with a stipple pattern. Also for
+menus the substyles \codestr{*-*-submenu} are handled as a special case.
+
+Substyles are defined with the function \fnref{de.substyle} within the
+table defining the main style. The parameters to this function are 
+similar to those of \fnref{de.defstyle}.
+
+\begin{verbatim}
+de.defstyle("some-style", {
+   ...
+   de.substyle("some-substyle", {
+      ...
+   }),
+   ...
+})
+\end{verbatim}
+
+
+\subsection{An example}
+
+The following shortened segment from \file{look\_cleanviolet.lua}
+should help to clarify the matters discussed in the previous
+subsection.
+
+\begin{verbatim}
+de.defstyle("*", {
+    -- Gray background
+    highlight_colour = "#eeeeee",
+    shadow_colour = "#eeeeee",
+    background_colour = "#aaaaaa",
+    foreground_colour = "#000000",
+    
+    shadow_pixels = 1,
+    highlight_pixels = 1,
+    padding_pixels = 1,
+    spacing = 0,
+    border_style = "elevated",
+    
+    font = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*",
+    text_align = "center",
+})
+
+de.defstyle("tab-frame", {
+    based_on = "*",
+    
+    de.substyle("active-selected", {
+        -- Violet tab
+        highlight_colour = "#aaaacc",
+        shadow_colour = "#aaaacc",
+        background_colour = "#666699",
+        foreground_colour = "#eeeeee",
+    }),
+
+    --  More substyles would follow ...
+})
+\end{verbatim}
+
+
+\section{Miscellaneous settings}
+\label{sec:grmisc}
+
+
+\subsection{Frame user attributes}
+
+The function \fnref{WFrame.set_grattr} may be used to give frames
+(and their tabs) arbitrary extra attributes to be passed to the
+drawing engine. Hence, by configuring such substyles in the style
+configuration files, and turning on the attribute when needed, 
+scripts may display visual cues related to the frame. There is
+also one extra attribute specially interpreted by the default
+drawing engine: the \codestr{numbered} attribute, which causes 
+numbers to be displayed on the tabs.
+
+
+\subsection{Extra fields for style \codestr{frame}}
+
+The following style fields are independent of the drawing engine used,
+but are related to objects' styles and therefore configured in the drawing
+engine configuration file.
+
+\begin{tabularx}{\linewidth}{lX}
+\tabhead{Field  & Description}
+\code{bar} & Controls the style of the tab-bar. Possible values
+        are the strings \codestr{none}, \codestr{inside}, \codestr{outside}
+        and \codestr{shaped}, with the last providing the PWM-style
+        tab-bars for floating frames. \\
+\code{floatframe_tab_min_w} & Minimum tab width in pixels for
+        the shaped style, given that this number times number of tabs
+        doesn't exceed frame width. \\
+\code{floatframe_bar_max_w_q} & Maximum tab-bar width quotient of
+	frame width for the shaped styles. A number in the 
+	interval $(0, 1]$.
+\end{tabularx}
+
+
+
+\subsection{Extra fields for style \codestr{dock}}
+
+\begin{tabularx}{\linewidth}{lX}
+\tabhead{Field  & Description}
+\code{outline_style} & How borders are drawn:
+			\codestr{none} -- no border,
+			\codestr{all} -- border around whole dock,
+			\codestr{each} -- border around each dockapp. \\
+\code{tile_size} & A table with entries \codestr{width} and \codestr{height},
+	indicating the width and height of tiles in pixels.
+\end{tabularx}
+
+
+Hopefully that's enough to get you started in writing new style
+configuration files for Ion. When in doubt, study the existing
+style configuration files.

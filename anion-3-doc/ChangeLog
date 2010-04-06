@@ -1,0 +1,901 @@
+2009-01-09 22:25 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3-20090110
+
+2009-01-09 22:25 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Year update
+
+2008-10-02 15:29 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3-20081002
+
+2008-09-22 15:50 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Fixed an obsolete paragraph
+
+2008-08-25 15:45 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3-20080825
+
+2008-07-07 15:35 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3-20080707
+
+2008-04-11 15:09 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3-20080411
+
+2008-04-11 15:05 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Added missing styles documentation
+
+2008-02-24 16:06 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Changed load order of 'html' package.
+
+2008-02-07 22:13 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * latex2html doesn't like mbox
+
+2008-02-06 07:05 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * fix
+
+2008-02-05 18:28 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3-20080207
+
+2008-02-05 18:27 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Use rubber for building
+
+2008-01-31 07:35 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Sloppyness etc.
+
+2008-01-31 06:57 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Style
+
+2008-01-22 14:57 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Menu docs. weren't up-to-date
+
+2008-01-03 18:20 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3rc-20080103
+
+2008-01-03 18:19 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Year changed
+
+2007-12-28 17:22 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * mod_menu.bigmenu is obsolete
+
+2007-12-20 22:48 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * There was still a ref. to not_quasiactive
+
+2007-12-20 22:43 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Object hierarchy descr. updates
+
+2007-12-20 18:46 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3rc-20071220
+
+2007-12-15 14:45 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * There's no not_quasiactive attribute
+
+2007-12-11 21:27 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Brought winprop 'match' field doc up-to-date
+
+2007-11-30 17:27 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3rc-20071130
+
+2007-11-17 13:44 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Back to GFDL.
+
+2007-11-09 14:55 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3rc-20071109
+
+2007-09-27 16:23 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3rc-20070927
+
+2007-09-11 07:40 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Notes on config file modification
+
+2007-09-02 13:41 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3rc-20070902
+
+2007-07-14 21:59 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Removed obsolete TODO note
+
+2007-07-14 20:34 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Documented orientation winprop
+
+2007-07-08 09:38 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3rc-20070708
+
+2007-06-08 16:58 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3rc-20070608
+
+2007-05-06 14:40 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3rc-20070506
+
+2007-05-06 14:25 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * mod_mgmtmode removal
+
+2007-05-06 13:09 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Removed obsolete example
+
+2007-05-04 21:46 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Fixes and updates to binding docs
+
+2007-05-04 16:13 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Documen the submap leave/enter stuff
+
+2007-04-26 22:44 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Improved string marking
+
+2007-04-26 22:28 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Drawing stuff doc improvements
+
+2007-04-22 18:14 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Document is_dockapp
+
+2007-04-22 12:29 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Winprop doc. improvements/fixes
+
+2007-04-22 00:16 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Minor fixes and improvements
+
+2007-04-20 16:36 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Document is_transient
+
+2007-04-15 12:33 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Updates to implementation notes
+
+2007-04-08 12:38 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Removed quotation abuse
+
+2007-04-08 12:37 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Size policy documentation
+
+2007-04-08 11:53 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Quote changes
+
+2007-04-08 11:49 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Fixed typos etc.
+
+2007-04-08 11:34 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Intro improvements
+
+2007-04-06 11:27 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Systray stuff improvs
+
+2007-04-06 11:23 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Year changed..
+
+2007-04-06 11:17 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Function reference building improvements
+
+2007-04-05 16:32 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Bah, stupid latex2html
+
+2007-04-05 16:27 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * mod_statusbar documentation
+
+2007-04-05 15:21 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Oops, mod_statusbar.lua was missing from sources
+
+2007-03-20 11:27 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Fixes
+
+2007-03-18 20:09 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20070318
+
+2007-03-17 19:08 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * cfg_ion.lua walkthrough updates
+
+2007-03-17 11:13 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * border_sides doc
+
+2007-02-25 19:48 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Note on "userpos" winprop.
+
+2007-02-20 02:47 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Winprop doc updates
+
+2007-02-20 02:27 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Removed outdated winprop
+
+2007-02-19 16:09 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Updated manager-managed figure
+
+2007-02-03 17:32 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Oops, still missing some statusbar stuff
+
+2007-02-03 17:30 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Minor fixes
+
+2007-02-03 15:04 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20070203
+
+2007-02-03 15:00 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Style configuration documentation updates
+
+2007-02-02 21:38 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Statusbar stuff was missing
+
+2007-01-30 18:29 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Documented new_group
+
+2007-01-26 18:16 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Hook reference updates
+
+2007-01-18 07:54 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Updates
+
+2007-01-17 19:28 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Updated class hierarchies
+
+2007-01-13 18:43 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Update
+
+2007-01-13 16:12 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Updated hook documentation
+
+2007-01-03 19:12 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Document focuslist and focuslist_ menus
+
+2007-01-03 15:31 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Added missing clientwin_property_change_hook documentation
+
+2006-12-23 15:00 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20061223
+
+2006-10-30 21:08 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Updates
+
+2006-10-28 23:16 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20061029
+
+2006-10-17 22:02 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Mention the 'float' winprop
+
+2006-10-15 17:53 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20061015
+
+2006-10-15 14:36 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Documentation updates.
+
+2006-08-03 09:05 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * much->match
+
+2006-06-20 18:16 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20060620
+
+2006-06-08 17:58 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Moving usepackage{dvipdfm} before everything else seems to fix things.
+
+2006-02-12 15:19 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Added documentation for region_activity_hook.
+
+2006-01-25 23:23 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Updated bar_inside_border stuf.
+
+2006-01-07 21:03 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20060107
+
+2005-12-10 20:46 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20051210
+
+2005-12-10 00:39 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Added missing min_size winprop and changes in winprop listing.
+
+2005-11-10 20:22 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Updated frame style documentation.
+
+2005-10-23 22:40 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20051023
+
+2005-08-26 17:37 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * List oneshot winprop.
+
+2005-08-20 11:37 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20050820
+
+2005-07-28 17:40 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20050728
+
+2005-06-25 15:16 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20050625
+
+2005-06-07 13:14 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20050607
+
+2005-06-07 13:13 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * predist.sh updates.
+
+2005-06-01 17:07 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Added a note on NoModifier.
+
+2005-05-02 14:56 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20050502
+
+2005-03-25 17:41 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Added documentation on ion-statusd monitors.
+
+2005-03-25 17:41 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Fixed a typo, etc.
+
+2005-03-22 14:34 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20050322
+
+2005-03-21 00:16 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Fixed typos.
+
+2005-03-19 13:55 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Added documentation on ioncore_sigchld_hook.
+
+2005-03-13 12:34 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Fixed typos etc.
+
+2005-03-13 12:27 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * fnrefx macro was still wrong.
+
+2005-03-09 23:12 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Moved new layer documentation to scripting chapter.
+
+2005-03-09 22:23 UTC  Matthieu.Moy@imag.fr
+  * More doc on layer 2 and placement hooks
+  
+  Be warned that:
+  
+  * I missed some LaTeX package, and therefore couldn't compile my
+    changes,
+  
+  * I don't know ion's internal well enough to be sure of what I write.
+  
+
+2005-03-07 09:35 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Fixed copy-paste error.
+
+2005-03-04 08:39 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20050304
+
+2005-03-03 18:42 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Added a note on hooks being called in protected mode.
+
+2005-03-03 18:39 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  * Updated ionws_placement_alt documentation.
+
+2005-02-27 13:19 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3ds-20050227
+
+2005-02-22 22:54 UTC  Tuomo Valkonen <tuomov@iki.fi>
+  tagged ion-doc-3-svn2darcs
+
+2005-01-16 11:52 UTC  tuomov
+  tagged ion-doc-3ds-20050116
+
+2005-01-16 11:29 UTC  tuomov
+  * trunk: changeset 1931
+  fixed predist.sh
+
+2005-01-16 11:08 UTC  tuomov
+  * trunk: changeset 1930
+  Fixed undefined references.
+
+2005-01-15 21:33 UTC  tuomov
+  * trunk: changeset 1928
+  Updated some scripting docs.
+
+2005-01-15 21:20 UTC  tuomov
+  * trunk: changeset 1926
+  tabularx header changes.
+
+2005-01-15 21:03 UTC  tuomov
+  * trunk: changeset 1924
+  Tuning for latex2html etc.
+
+2005-01-15 17:29 UTC  tuomov
+  * trunk: changeset 1923
+  Added hook reference and updated hook documentation.
+
+2005-01-15 17:29 UTC  tuomov
+  * trunk: changeset 1922
+  Improved function reference macros to use lists instead of tables.
+
+2005-01-14 14:47 UTC  tuomov
+  * trunk: changeset 1920
+  Some minor fixes.
+
+2005-01-14 14:25 UTC  tuomov
+  * trunk: changeset 1918
+  - Improved menu documentation.
+  
+  - Other minor improvements.
+
+2005-01-13 16:49 UTC  tuomov
+  * trunk: changeset 1917
+  Updated graphical styles documentation.
+
+2005-01-13 14:40 UTC  tuomov
+  * trunk: changeset 1915
+  Updated winprop documentation.
+
+2005-01-13 14:27 UTC  tuomov
+  * trunk: changeset 1914
+  Updated binding and menu definition documentation.
+
+2005-01-11 20:18 UTC  tuomov
+  * trunk: changeset 1913
+  Brought config file intro up-to-date
+
+2005-01-11 15:31 UTC  tuomov
+  * trunk: changeset 1912
+  Updated class hierarchy documentation etc.
+
+2004-10-11 14:16 UTC  tuomov
+  * trunk: changeset 1821
+  Just testing some settings...
+
+2004-10-09 06:16 UTC  tuomov
+  * trunk: changeset 1804
+  libextl related changes.
+
+2004-10-09 05:56 UTC  tuomov
+  * trunk: changeset 1801
+  Added predist.sh
+
+2004-10-09 05:56 UTC  tuomov
+  * trunk: changeset 1800
+  Fixed a typo.
+
+2004-09-16 22:04 UTC  tuomov
+  * trunk: changeset 1754
+  Source file path updates.
+
+2004-07-31 22:25 UTC  tuomov
+  * trunk: changeset 1697
+  Updated Makefile to point to the new location of mkexports.lua.
+
+2004-07-26 21:57 UTC  tuomov
+  * trunk: changeset 1646
+  Function reference generation updates.
+
+2004-05-14 12:29 UTC  tuomov
+  * trunk: changeset 1485
+  Fixed punctuation.
+
+2004-03-15 16:32 UTC  tuomov
+  * trunk: changeset 1402
+  Changed makefile to account for changes in Ion module directories.
+
+2004-03-15 16:23 UTC  tuomov
+  * trunk: changeset 1400
+  Added install target to Makefile.
+
+2004-03-15 08:35 UTC  tuomov
+  * trunk: changeset 1398
+  Brought document generation up-to-date with module name changes.
+
+2004-03-10 21:57 UTC  tuomov
+  * trunk: changeset 1383
+  Merged omission and other fixes from stable branch.
+
+2004-03-05 23:49 UTC  tuomov
+  * trunk: changeset 1346
+  Some more minor documentation fixes. Just to test this new svn setup.
+
+2004-03-05 23:00 UTC  tuomov
+  * trunk: changeset 1345
+  Minor documentation fixes.
+
+2004-02-16 20:33 UTC  tuomov
+  * trunk: changeset 1323
+  Build process changed for Ion3.
+
+2004-02-07 01:55 UTC  tuomov
+  * trunk: changeset 1255
+  Added documentation on alternative get_winprop implementations.
+
+2004-02-07 01:42 UTC  tuomov
+  * trunk: changeset 1254
+  Removed unobfuscated email addresses.
+
+2004-01-28 22:04 UTC  tuomov
+  * trunk: changeset 1239
+  Removed extra word, added function reference.
+
+2004-01-27 22:30 UTC  tuomov
+  * trunk: changeset 1235
+  Added 'are' in 'that they are transient for'
+
+2004-01-27 22:26 UTC  tuomov
+  * trunk: changeset 1234
+  Improved xprop/transient help and winprop examples.
+
+2004-01-27 13:54 UTC  tuomov
+  * trunk: changeset 1231
+  Minor spelling mistake fix.
+
+2004-01-25 18:42 UTC  tuomov
+  * trunk: changeset 1225
+  Some minor clarifications in a few sentences and put URL:s on their
+  own lines.
+
+2004-01-25 18:05 UTC  tuomov
+  * trunk: changeset 1222
+  Typo and spelling fixes.
+
+2004-01-23 17:32 UTC  tuomov
+  * trunk: changeset 1215
+  Fixed a few typos and added an example.
+
+2004-01-22 21:25 UTC  tuomov
+  * trunk: changeset 1213
+  Added dock documentation.
+
+2004-01-14 22:29 UTC  tuomov
+  * trunk: changeset 1193
+  Minor cleanup.
+
+2004-01-08 22:32 UTC  tuomov
+  * trunk: changeset 1183
+  Updated winprop documentation.
+
+2003-12-22 23:58 UTC  tuomov
+  * trunk: changeset 162
+  Added discussion on modules and improved the main introduction and
+  object hierarchy introduction.
+
+2003-12-21 00:17 UTC  tuomov
+  * trunk: changeset 161
+  Removed duplicate label.
+
+2003-12-20 19:49 UTC  tuomov
+  * trunk: changeset 160
+  Added a list of functions.
+
+2003-12-20 15:18 UTC  tuomov
+  * trunk: changeset 159
+  Fixed a typo.
+
+2003-12-20 15:15 UTC  tuomov
+  * trunk: changeset 158
+  Oops.
+
+2003-12-20 15:14 UTC  tuomov
+  * trunk: changeset 157
+  Added a section on object references.
+
+2003-12-19 22:08 UTC  tuomov
+  * trunk: changeset 156
+  Mention stylemenu.
+
+2003-12-18 21:37 UTC  tuomov
+  * trunk: changeset 155
+  Added a section on special menus.
+
+2003-12-23 20:18 UTC  unknown
+  tagged ion-doc-20031211
+
+2003-12-11 17:29 UTC  tuomov
+  * trunk: changeset 154
+  Updates for 20031211 release.
+
+2003-12-23 20:18 UTC  unknown
+  tagged ion-doc-20031119
+
+2003-11-19 21:57 UTC  tuomov
+  * trunk: changeset 153
+  Removed 'executive' from summary.
+
+2003-11-19 21:57 UTC  tuomov
+  * trunk: changeset 152
+  Removed mplexfns reference.
+
+2003-11-17 00:42 UTC  tuomov
+  * trunk: changeset 151
+  Added an "executive summary" to the object hierarchy chapter.
+
+2003-11-14 18:15 UTC  tuomov
+  * trunk: changeset 150
+  Documented menus. Changes to reflect changes in configuration files.
+
+2003-10-30 10:04 UTC  tuomov
+  * trunk: changeset 149
+  Get documentation from luaextl/*.c as well.
+
+2003-10-29 12:05 UTC  tuomov
+  * trunk: changeset 148
+  LICENSE file changed to GPL.
+
+2003-10-29 11:55 UTC  tuomov
+  * trunk: changeset 147
+  Removed fdl.tex.
+
+2003-10-29 11:55 UTC  tuomov
+  * trunk: changeset 146
+  Changed license to GPL due to problems with the GFDL.
+
+2003-10-29 11:54 UTC  tuomov
+  * trunk: changeset 145
+  Changed \chapter->\xchapter, \section*->\xsectionstar
+
+2003-10-29 11:22 UTC  tuomov
+  * trunk: changeset 144
+  Added gpl.tex; GNU General Public License.
+
+2003-10-29 11:20 UTC  tuomov
+  * trunk: changeset 143
+  Added menu reference and updated drawing engine documentation to
+  reflect the change in style names.
+
+2003-12-23 20:18 UTC  unknown
+  tagged ion-doc-20030811
+
+2003-08-10 23:45 UTC  tuomov
+  * trunk: changeset 142
+  Fixed a few more typos and such.
+
+2003-08-10 23:37 UTC  tuomov
+  * trunk: changeset 141
+  Fixed a typo.
+
+2003-08-10 23:37 UTC  tuomov
+  * trunk: changeset 140
+  The files draw-DISPLAY.SCREEN.lua were still being referenced to.
+
+2003-12-23 20:18 UTC  unknown
+  tagged ion-doc-20030810
+
+2003-08-09 12:48 UTC  tuomov
+  * trunk: changeset 139
+  Added a quote.
+
+2003-08-09 12:45 UTC  tuomov
+  * trunk: changeset 138
+  Added a few spaces.
+
+2003-08-09 12:45 UTC  tuomov
+  * trunk: changeset 137
+  Added a walk-through of ioncore.lua.
+
+2003-08-08 21:56 UTC  tuomov
+  * trunk: changeset 136
+  Added an introduction and some design decision rationale.
+
+2003-08-07 21:45 UTC  tuomov
+  * trunk: changeset 135
+  Added information on winprop name field and improved winprop lookup
+  order explanation.
+
+2003-08-06 15:08 UTC  tuomov
+  * trunk: changeset 134
+  look-cleanviolet.lua was changed and so the example.
+
+2003-08-06 15:06 UTC  tuomov
+  * trunk: changeset 133
+  The 'urgent' attributes was renamed 'activity'.
+
+2003-08-01 05:54 UTC  tuomov
+  * trunk: changeset 132
+  Added mention of ignore_cfgrq.
+
+2003-07-31 21:24 UTC  tuomov
+  * trunk: changeset 131
+  Started a new chapter on assorted tricks.
+
+2003-07-31 15:21 UTC  tuomov
+  * trunk: changeset 130
+  A few fixes.
+
+2003-07-31 15:17 UTC  tuomov
+  * trunk: changeset 129
+  Improved drawing engine and style documentation.
+
+2003-07-30 22:47 UTC  tuomov
+  * trunk: changeset 128
+  Added a \docode kludge to have latex2html interpret figure
+  environments instead of generating images.
+
+2003-07-30 22:27 UTC  tuomov
+  * trunk: changeset 127
+  Started documenting drawing engines.
+
+2003-07-25 20:48 UTC  tuomov
+  * trunk: changeset 126
+  Moved WRootWin under WWindow in class hierarchy.
+
+2003-07-24 19:35 UTC  tuomov
+  * trunk: changeset 125
+  Some bindings setup documentation improvements.
+
+2003-07-13 22:16 UTC  tuomov
+  * trunk: changeset 124
+  Changes to accommodate for more OO bindings.
+
+2003-12-23 20:18 UTC  unknown
+  tagged ion-doc-20030710
+
+2003-07-10 17:18 UTC  tuomov
+  * trunk: changeset 123
+  Class explanations improved.
+
+2003-12-23 20:18 UTC  unknown
+  tagged ion-doc-20030628
+
+2003-06-27 22:58 UTC  tuomov
+  * trunk: changeset 122
+  Typos etc.
+
+2003-06-27 20:56 UTC  tuomov
+  * trunk: changeset 121
+  Fixed QueryLib introduction.
+
+2003-06-17 21:02 UTC  tuomov
+  * trunk: changeset 120
+  Removed mention of region_close and make_current_or_self_fn as this
+  binding does not work.
+
+2003-06-17 10:25 UTC  tuomov
+  * trunk: changeset 119
+  Added notes on C coding style.
+
+2003-12-23 20:18 UTC  unknown
+  tagged ion-doc-20030614
+
+2003-06-14 19:06 UTC  tuomov
+  * trunk: changeset 118
+  Fixed "or"->"are".
+
+2003-06-14 18:01 UTC  tuomov
+  * trunk: changeset 117
+  \date{} setting moved to distribution building script.
+
+2003-06-14 17:54 UTC  tuomov
+  * trunk: changeset 116
+  Minor bug was fixed.
+
+2003-06-14 17:53 UTC  tuomov
+  * trunk: changeset 115
+  Some clarifications were made in a few explanations and a note on
+  anonymous functions was added.
+
+2003-06-14 17:53 UTC  tuomov
+  * trunk: changeset 114
+  Redefined the itemize environment to look better.
+
+2003-06-14 15:10 UTC  tuomov
+  * trunk: changeset 113
+  Updated the documentation to use the new binding setting functions.
+
+2003-06-08 17:58 UTC  tuomov
+  * trunk: changeset 112
+  Added FDL as a plaintext file LICENSE.
+
+2003-06-08 17:56 UTC  tuomov
+  * trunk: changeset 111
+  Documentation updated to mention WMPlexes.
+
+2003-12-23 20:18 UTC  unknown
+  tagged ion-doc-20030531
+
+2003-05-31 15:39 UTC  tuomov
+  * trunk: changeset 110
+  Dates updated.
+
+2003-05-30 21:32 UTC  tuomov
+  * trunk: changeset 109
+  Updated the parts that refer to the files that were moved to SHAREDIR.
+
+2003-05-29 13:11 UTC  tuomov
+  * trunk: changeset 108
+  Added a note on char* and const char *.
+
+2003-05-29 12:51 UTC  tuomov
+  * trunk: changeset 107
+  Added one more note on deferred destroy.
+
+2003-05-29 12:47 UTC  tuomov
+  * trunk: changeset 106
+  Added a note on deferred destroy.
+
+2003-05-17 13:33 UTC  tuomov
+  * trunk: changeset 105
+  Updated the documentation to switch to using WRootWins for X screens
+  and WScreens for physical screens.
+
+2003-05-13 05:22 UTC  tuomov
+  * trunk: changeset 104
+  Some minor fixes.
+
+2003-12-23 20:18 UTC  unknown
+  tagged ion-doc-20030510
+
+2003-05-10 20:09 UTC  tuomov
+  * trunk: changeset 103
+  Removed repeated word.
+
+2003-05-10 20:02 UTC  tuomov
+  * trunk: changeset 102
+  Fixed some typos.
+
+2003-05-10 18:55 UTC  tuomov
+  * trunk: changeset 101
+  Oops. The all-ps rule was broken.
+
+2003-05-10 18:51 UTC  tuomov
+  * trunk: changeset 100
+  License notes changed to use \copyright instead of "(c)"
+
+2003-05-10 18:28 UTC  tuomov
+  * trunk: changeset 99
+  A README was added.
+
+2003-05-10 18:26 UTC  tuomov
+  * trunk: changeset 98
+  File removed.
+
+2003-05-10 18:26 UTC  tuomov
+  * trunk: changeset 97
+  Object system implementation was split out from the chapter/section on
+  object and class hierarchies.
+
+2003-05-10 18:25 UTC  tuomov
+  * trunk: changeset 96
+  Added implementation of artikel3 for latex2html.
+
+2003-05-10 18:24 UTC  tuomov
+  * trunk: changeset 95
+  Implementation of rapport3 for latex2html was added.
+
+2003-05-10 18:24 UTC  tuomov
+  * trunk: changeset 94
+  The macros were cleaned up
+
+2003-05-10 18:24 UTC  tuomov
+  * trunk: changeset 93
+  Better Makefile
+
+2003-05-10 18:23 UTC  tuomov
+  * trunk: changeset 92
+  FDL was modified to use the \xchapter etc. macros to enable embedding
+  it in articles.
+
+2003-05-10 18:23 UTC  tuomov
+  * trunk: changeset 91
+  Clarifications (hopefully) ein the explanation of the object and class
+  hierarchies.
+
+2003-05-10 18:22 UTC  tuomov
+  * trunk: changeset 90
+  The configuration files were documented.
+
+2003-05-10 18:22 UTC  tuomov
+  * trunk: changeset 89
+  The original document "Ion: Objects and extending" was split into
+  separate documents "Ion: Configuring and extending with Lua" and "Ion:
+  notes for the module and patch writer".
+
+2003-05-10 15:50 UTC  tuomov
+  * trunk: changeset 88
+  Added the GNU Free Documentation License.
+
+2003-05-08 18:31 UTC  tuomov
+  * trunk: changeset 87
+  Added more documentation on binding configuration.
+
+2003-05-07 18:43 UTC  tuomov
+  * trunk: changeset 86
+  Added QueryLib and Ioncorelib references. Moved function reference
+  .tex generation code here from ion.
+
+2003-05-06 19:46 UTC  tuomov
+  * trunk: changeset 85
+  Did some reorganization and added links to Lua documentation.
+
+2003-05-06 17:48 UTC  tuomov
+  * trunk: changeset 84
+  Added a \hline in the type table.
+
+2003-05-06 17:35 UTC  tuomov
+  * trunk: changeset 83
+  Added Makefile rules to generate postscript and pdf
+
+2003-05-06 17:33 UTC  tuomov
+  * trunk: changeset 82
+  Added a Makefile
+
+2005-02-16 07:18 UTC  tailor@f281.ttorni.ton.tut.fi
+  * Tailorization of trunk
+  Import of the upstream sources from the repository
+  
+   http://tao.uab.es/ion/svn/ion-doc/trunk
+  
+  as of revision 80
+  

@@ -1,0 +1,95 @@
+\BOOKMARK [0][-]{chapter.1}{ Introduction}{}
+\BOOKMARK [0][-]{chapter.2}{ Preliminaries: Key concepts and relations}{}
+\BOOKMARK [1][-]{section.2.1}{ Modules}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{ Class and object hierarchies}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.2.1}{ Class hierarchy}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.2}{ Object hierarchies: WRegion parents and managers}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.3}{ Summary}{section.2.2}
+\BOOKMARK [0][-]{chapter.3}{ Basic configuration}{}
+\BOOKMARK [1][-]{section.3.1}{ The configuration files}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{ A walk through cfg\137ion.lua}{chapter.3}
+\BOOKMARK [1][-]{section.3.3}{ Keys and rodents}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.3.1}{ Binding handlers and special variables}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.2}{ Guards}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.3}{ Defining the bindings}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.4}{ Examples}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.5}{ Key specifications}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.6}{ Button specifications}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.7}{ A further note on the default binding configuration}{section.3.3}
+\BOOKMARK [1][-]{section.3.4}{ Menus}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.4.1}{ Defining menus}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.2}{ Special menus}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.3}{ Defining context menus}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.4}{ Displaying menus}{section.3.4}
+\BOOKMARK [1][-]{section.3.5}{ Winprops}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.5.1}{ Sizehint winprops}{section.3.5}
+\BOOKMARK [2][-]{subsection.3.5.2}{ Classes, roles and instances}{section.3.5}
+\BOOKMARK [2][-]{subsection.3.5.3}{ Finding window identification}{section.3.5}
+\BOOKMARK [2][-]{subsection.3.5.4}{ Some common examples}{section.3.5}
+\BOOKMARK [1][-]{section.3.6}{ The statusbar}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.6.1}{ The template}{section.3.6}
+\BOOKMARK [2][-]{subsection.3.6.2}{ The systray}{section.3.6}
+\BOOKMARK [2][-]{subsection.3.6.3}{ Monitors}{section.3.6}
+\BOOKMARK [0][-]{chapter.4}{ Graphical styles}{}
+\BOOKMARK [1][-]{section.4.1}{ Drawing engines, style specifications and sub-styles}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.1.1}{ Known styles and substyles}{section.4.1}
+\BOOKMARK [1][-]{section.4.2}{ Defining styles for the default drawing engine}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.2.1}{ The structure of the configuration files}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.2}{ Defining the styles}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.3}{ An example}{section.4.2}
+\BOOKMARK [1][-]{section.4.3}{ Miscellaneous settings}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.3.1}{ Frame user attributes}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.2}{ Extra fields for style `frame'}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.3}{ Extra fields for style `dock'}{section.4.3}
+\BOOKMARK [0][-]{chapter.5}{ Scripting}{}
+\BOOKMARK [1][-]{section.5.1}{ Hooks}{chapter.5}
+\BOOKMARK [1][-]{section.5.2}{ Referring to regions}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.2.1}{ Direct object references}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.2}{ Name-based lookups}{section.5.2}
+\BOOKMARK [1][-]{section.5.3}{ Alternative winprop selection criteria}{chapter.5}
+\BOOKMARK [1][-]{lstlisting.5.-268}{ Writing !ion-statusd! monitors}{chapter.5}
+\BOOKMARK [0][-]{chapter.6}{ Function reference}{}
+\BOOKMARK [1][-]{section.6.1}{ Functions defined in ioncore}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.1.1}{ WClientWin functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.2}{ WFrame functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.3}{ WGroup functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.4}{ WGroupCW functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.5}{ WGroupWS functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.6}{ WHook functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.7}{ WInfoWin functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.8}{ WMPlex functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.9}{ WMoveresMode functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.10}{ WRegion functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.11}{ WRootWin functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.12}{ WScreen functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.13}{ WTimer functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.14}{ WWindow functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.15}{ global functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.16}{ gr functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.17}{ string functions}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.18}{ table functions}{section.6.1}
+\BOOKMARK [1][-]{section.6.2}{ Functions defined in mod\137tiling}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.2.1}{ WSplit functions}{section.6.2}
+\BOOKMARK [2][-]{subsection.6.2.2}{ WSplitInner functions}{section.6.2}
+\BOOKMARK [2][-]{subsection.6.2.3}{ WSplitRegion functions}{section.6.2}
+\BOOKMARK [2][-]{subsection.6.2.4}{ WSplitSplit functions}{section.6.2}
+\BOOKMARK [2][-]{subsection.6.2.5}{ WTiling functions}{section.6.2}
+\BOOKMARK [1][-]{section.6.3}{ Functions defined in mod\137query}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.3.1}{ WComplProxy functions}{section.6.3}
+\BOOKMARK [2][-]{subsection.6.3.2}{ WEdln functions}{section.6.3}
+\BOOKMARK [2][-]{subsection.6.3.3}{ WInput functions}{section.6.3}
+\BOOKMARK [1][-]{section.6.4}{ Functions defined in mod\137menu}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.4.1}{ WMenu functions}{section.6.4}
+\BOOKMARK [1][-]{section.6.5}{ Functions defined in mod\137dock}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.5.1}{ WDock functions}{section.6.5}
+\BOOKMARK [1][-]{section.6.6}{ Functions defined in mod\137sp}{chapter.6}
+\BOOKMARK [1][-]{section.6.7}{ Functions defined in mod\137statusbar}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.7.1}{ WStatusBar functions}{section.6.7}
+\BOOKMARK [1][-]{section.6.8}{ Functions defined in de}{chapter.6}
+\BOOKMARK [1][-]{section.6.9}{ Hooks}{chapter.6}
+\BOOKMARK [1][-]{section.6.10}{ Miscellaneous}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.10.1}{ Size policies}{section.6.10}
+\BOOKMARK [0][-]{appendix.A}{ GNU Free Documentation License}{}
+\BOOKMARK [0][-]{appendix.B}{ Full class hierarchy visible to Lua-side}{}
+\BOOKMARK [0][-]{section*.29}{Index}{}
+\BOOKMARK [0][-]{section*.31}{Bibliography}{}

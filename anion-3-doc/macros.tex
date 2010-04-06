@@ -1,0 +1,164 @@
+\usepackage{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+%\usepackage{ae}
+\usepackage{url}
+%\usepackage{graphicx}
+%\usepackage{color}
+\usepackage{makeidx}
+\usepackage{tabularx}
+%\usepackage{textcomp}
+\usepackage[nottoc]{tocbibind}
+\usepackage{enumerate} % GNU FDL needs this
+\usepackage{calc}
+\usepackage{ifpdf}
+\usepackage[a4paper,margin=3cm]{geometry}
+
+\ifpdf
+\usepackage[pdftex]{hyperref}
+\else
+\usepackage[hypertex]{hyperref}
+\fi
+
+\usepackage{html}
+
+% URL settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\urlstyle{tt}
+
+% listings package
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%begin{latexonly}
+\usepackage{listings}
+
+\lstset{
+  extendedchars=true,
+  breaklines=true,
+  basicstyle=\tt,
+  alsoletter={",},
+  alsoother={\_},
+}
+%end{latexonly}
+
+\sloppy
+
+% Some markup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\note}[1]{\color{red}**#1**}
+\newcommand{\type}[1]{#1}
+\newcommand{\spec}[1]{#1}
+\newcommand{\indextype}[1]{\index{#1@\type{#1}}}
+
+%begin{latexonly}
+\newcommand{\file}[1]{\mbox{\emph{#1}}}
+\newcommand{\key}[1]{\mbox{\textbf{#1}}}
+\newcommand{\code}[1]{\lstinline!#1!}
+\newcommand{\codestr}[1]{`\texttt{#1}'}
+\newcommand{\var}[1]{\lstinline!#1!}
+\newcommand{\command}[1]{\lstinline!#1!}
+
+\newcommand{\hyperlabel}[1]{\hypertarget{#1}{}\label{#1}}
+\newcommand{\fnrefx}[2]{\hyperlink{fn:#1.#2}{\code{#2}}}
+\newcommand{\fnref}[1]{\hyperlink{fn:#1}{\code{#1}}}
+\newcommand{\myhref}[2]{\hyperlink{#1}{#2}}
+
+%end{latexonly}
+\begin{htmlonly}
+    
+\newcommand{\file}[1]{\emph{#1}}
+\newcommand{\key}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\codestr}[1]{`\texttt{#1}'}
+\newcommand{\var}[1]{\texttt{#1}}
+\newcommand{\command}[1]{\texttt{#1}}
+
+\newcommand{\hyperlabel}[1]{\label{#1}}
+\newcommand{\fnref}[1]{\htmlref{\texttt{#1}}{fn:#1}}
+\newcommand{\fnrefx}[2]{\htmlref{\texttt{#2}}{fn:#1.#2}}
+\newcommand{\myhref}[2]{\htmlref{#2}{#1}}
+
+\end{htmlonly}
+
+\newcommand{\tabhead}[1]{\hline #1 \\ \hline}
+
+% function tables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%begin{latexonly}
+
+\newcommand{\funclistlabel}[1]{#1\hfill}
+\newenvironment{function}{
+  \pagebreak[3]
+  \begin{list}{}{
+        \settowidth{\labelwidth}{Description:}
+        \setlength{\leftmargin}{\labelwidth}
+        \addtolength{\leftmargin}{0.5em}
+        \setlength{\labelsep}{0.5em}
+        \setlength{\itemsep}{0pt}
+        \setlength\parsep{0pt}
+        \setlength\topsep{0pt}
+        %\setlength{\itemsep}{-\parskip}
+        %\addtolength{\itemsep}{\lineskip}
+        \let\makelabel\funclistlabel
+  }
+}{
+  \end{list}
+}
+
+%end{latexonly}
+\begin{htmlonly}
+
+\newenvironment{function}{
+  \begin{description}
+}{
+  \end{description}
+}
+
+\end{htmlonly}
+
+
+\newcommand{\synopsis}[1]{
+  \item[Synopsis:] \code{#1}
+}
+\newcommand{\funcname}[1]{
+  \item[Function:] \code{#1}
+}
+\newcommand{\hookname}[1]{
+  \item[Hook name:] \hyperlabel{#1}\code{#1}
+}
+\newcommand{\hookparams}[1]{
+  \item[Parameters:] \code{#1}
+}
+\newenvironment{funcdesc}{
+  \item[Description:]
+}{}
+
+
+% While rapport3/artikel3 are otherwise nice classes, 
+% itemize looks awful.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%begin{latexonly}
+\makeatletter
+\renewenvironment{itemize}{%
+  \ifnum \@itemdepth >3
+    \@toodeep
+  \else
+    \advance\@itemdepth \@ne
+    \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+    \list{\csname\@itemitem\endcsname}%
+         {%
+            \if@revlabel
+              \def\makelabel##1{\hskip .5\unitindent{\hfil ##1}}\else
+	      					    %^^^^^^^^^ Changed
+              \def\makelabel##1{\hfil ##1}
+	      		       %^^^^^^^^^ Changed
+            \fi
+          }%
+  \fi}
+ {\global\@ignoretrue \endlist}
+\makeatletter
+%end{latexonly}

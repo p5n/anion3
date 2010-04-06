@@ -1,0 +1,220 @@
+
+\begin{function}
+    \index{clientwin-do-manage-alt@\code{clientwin_do_manage_alt}}
+    \hookname{clientwin_do_manage_alt}
+    \hookparams{(WClientWin, table)}
+    \begin{funcdesc}
+      Called when we want to manage a new client window.
+      The table argument contains the following fields:
+      
+      \begin{tabularx}{\linewidth}{llX}
+          \tabhead{Field & Type & Description}
+          \var{switchto} & bool & Do we want to switch to the client window. \\
+          \var{jumpto} & bool & Do we want to jump to the client window. \\
+          \var{userpos} & bool & Geometry set by user. \\
+          \var{dockapp} & bool & Client window is a dock-app. \\
+          \var{maprq} & bool & Map request (and not initialisation scan). \\
+          \var{gravity} & number & Window gravity. \\
+          \var{geom} & table & Requested geometry; \var{x}, \var{y}, \var{w}, \var{h}.\\
+          \var{tfor} & WClientWin & Transient for window.
+      \end{tabularx}
+
+      This hook is not called in protected mode and can be used for
+      arbitrary placement policies (deciding in which workspace a new
+      \type{WClientWin} should go). In this case, you can call
+\begin{verbatim}
+reg:attach(cwin)
+\end{verbatim}
+      where \var{reg} is the region where the window should go, and
+      \var{cwin} is the first argument of the function added to the
+      hook.
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{clientwin-mapped-hook@\code{clientwin_mapped_hook}}
+    \hookname{clientwin_mapped_hook}
+    \hookparams{WClientWin}
+    \begin{funcdesc}
+      Called when we have started to manage a client window.
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{clientwin-property-change-hook@\code{clientwin_property_change_hook}}
+    \hookname{clientwin_property_change_hook}
+    \hookparams{(WClientWin, integer)}
+    \begin{funcdesc}
+      Called when the property identified by the parameter atom id
+      (integer) has changed on a client window.
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{clientwin-unmapped-hook@\code{clientwin_unmapped_hook}}
+    \hookname{clientwin_unmapped_hook}
+    \hookparams{number}
+    \begin{funcdesc}
+      Called when we no longer manage a client window. The parameter
+      is the X ID of the window; see \fnref{WClientWin.xid}.
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{frame-managed-changed-hook@\code{frame_managed_changed_hook}}
+    \hookname{frame_managed_changed_hook}
+    \hookparams{table}
+    \begin{funcdesc}
+      Called when there are changes in the objects managed by a frame
+      or their order. The table parameter has the following fields:
+
+      \begin{tabularx}{\linewidth}{llX}
+          \tabhead{Field & Type & Description}
+          \var{reg} & WFrame & The frame in question \\
+          \var{mode} & string & \codestr{switchonly}, \codestr{reorder},
+                                \codestr{add} or \codestr{remove} \\
+          \var{sw} & bool & Switch occurred \\
+          \var{sub} & WRegion & The managed region (primarily) affected \\
+      \end{tabularx}
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{ioncore-sigchld-hook@\code{ioncore_sigchld_hook}}
+    \hookname{ioncore_sigchld_hook}
+    \hookparams{integer}
+    \begin{funcdesc}
+      Called when a child process has exited. The parameter
+      is the PID of the process.
+    \end{funcdesc}
+\end{function}
+
+\begin{function}
+    \index{ioncore-deinit-hook@\code{ioncore_deinit_hook}}
+    \hookname{ioncore_deinit_hook}
+    \hookparams{()}
+    \begin{funcdesc}
+      Called when Ion is deinitialising and about to quit.
+    \end{funcdesc}
+\end{function}
+
+%ioncore_handle_event_alt -- not available to lua side
+
+\begin{function}
+    \index{ioncore-post-layout-setup-hook@\code{ioncore_post_layout_setup_hook}}
+    \hookname{ioncore_post_layout_setup_hook}
+    \hookparams{()}
+    \begin{funcdesc}
+      Called when Ion has done all initialisation and is almost ready to
+      enter the main-loop, except no windows are yet being managed.
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{ioncore-snapshot-hook@\code{ioncore_snapshot_hook}}
+    \hookname{ioncore_snapshot_hook}
+    \hookparams{()}
+    \begin{funcdesc}
+      Called to signal scripts and modules to save their state (if any).
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{ioncore-submap-ungrab-hook@\code{ioncore_submap_ungrab_hook}}
+    \hookname{ioncore_submap_ungrab_hook}
+    \hookparams{()}
+    \begin{funcdesc}
+      This hook is used to signal whenever Ion leaves the submap grab mode.
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{tiling-placement-alt@\code{tiling_placement_alt}}
+    \hookname{tiling_placement_alt}
+    \hookparams{table}
+    \begin{funcdesc}
+      Called when a client window is about to be managed by a \type{WTiling}
+      to allow for alternative placement policies. The table has the
+      following fields:
+      \begin{tabularx}{\linewidth}{llX}
+          \tabhead{Field & Type & Description}
+          \var{tiling} & \type{WTiling} & The tiling \\
+          \var{reg} & \type{WRegion} & The region (always a WClientWin at 
+              the moment) to be placed \\
+          \var{mp} & \type{table} & This table contains the same fields as
+            the parameter of \fnref{clientwin_do_manage_alt} \\
+          \var{res_frame} & \type{WFrame} & A successful handler should 
+            return the target frame here. \\
+      \end{tabularx}
+      This hook is just for placing within a given workspace after the
+      workspace has been decided by the default workspace selection
+      policy. It is called in protected mode. For arbitrary placement
+      policies, \fnref{clientwin_do_manage_alt} should be used; it
+      isn't called in protected mode,
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{region-do-warp-alt@\code{region_do_warp_alt}}
+    \hookname{region_do_warp_alt}
+    \hookparams{WRegion}
+    \begin{funcdesc}
+      This alt-hook exist to allow for alternative pointer warping
+      implementations.
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{screen-managed-changed-hook@\code{screen_managed_changed_hook}}
+    \hookname{screen_managed_changed_hook}
+    \hookparams{table}
+    \begin{funcdesc}
+      Called when there are changes in the objects managed by a screen
+      or their order. The table parameter is similar to that of
+      \fnref{frame_managed_changed_hook}.
+    \end{funcdesc}
+\end{function}
+
+
+\begin{function}
+    \index{region-notify-hook@\code{region_notify_hook}}
+    \hookname{region_notify_hook}
+    \hookparams{(WRegion, string)}
+    \begin{funcdesc}
+      Signalled when something (minor) has changed in relation to 
+      the first parameter region. The string argument gives the
+      change:
+      
+      \begin{tabularx}{\linewidth}{lX}
+          \tabhead{String & Description}
+          \code{deinit} & The region is about to be deinitialised. \\
+          \code{activated} & The region has received focus. \\
+          \code{inactivated} & The region has lost focus. \\
+          \code{activity} & There's been activity in the region itself. \\
+          \code{sub_activity} & There's been activity in some sub-region. \\
+          \code{name} & The name of the region has changed. \\
+          \code{unset_manager} & The region no longer has a manager. \\
+          \code{set_manager} & The region now has a manager. \\
+          \code{tag} & Tagging state has changed. \\
+          \code{pseudoactivated} & The region has become pseudo-active
+                      (see below). \\
+          \code{pseudoinactivated} & The region is no longer pseudo-active. \\
+      \end{tabularx}
+
+      A region is pseudo-active, when a) it is itself not active (does
+      not not have the focus, and may not even have a window that could
+      have it), but b) some region managed by it is active.
+    \end{funcdesc}
+\end{function}
+
+

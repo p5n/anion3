@@ -1,0 +1,244 @@
+
+\section{Class and object hierarchies}
+\label{sec:objects}
+
+While Ion does not not have a truly object-oriented design
+\footnote{the author doesn't like such artificial designs},
+things that appear on the computer screen are, however, quite
+naturally expressed as such ``objects''. Therefore Ion implements
+a rather primitive OO system for these screen objects and some
+other things. 
+
+It is essential for the module writer to learn this object
+system, but also people who write their own binding configuration files
+necessarily come into contact with the class and object hierarchies
+-- you need to know which binding setup routines apply where, 
+and what functions can be used as handlers in which bindings.
+It is the purpose of this section to attempt to explain these 
+hierarchies. If you do not wish the read the full section, at least
+read the summary at the end of it, so that you understand the very
+basic relations.
+
+For simplicity we consider only the essential-for-basic-configuration
+Ioncore, \file{mod\_tiling} and \file{mod\_query} classes. 
+See Appendix \ref{app:fullhierarchy} for the full class hierarchy visible
+to Lua side.
+
+\subsection{Class hierarchy}
+
+One of the most important principles of object-oriented design methodology
+is inheritance; roughly how classes (objects are instances of classes)
+extend on others' features. Inheritance gives rise to class hierarchy.
+In the case of single-inheritance this hierarchy can be expressed as a
+tree where the class at the root is inherited by all others below it
+and so on. Figure \ref{fig:classhierarchy} lists out the Ion class 
+hierarchy and below we explain what features of Ion the classes 
+implement.
+
+\begin{figure}
+\begin{htmlonly}
+\docode % latex2html kludge
+\end{htmlonly}
+\begin{verbatim}
+    Obj
+     |-->WRegion
+     |    |-->WClientWin
+     |    |-->WWindow
+     |    |    |-->WMPlex
+     |    |    |    |-->WFrame
+     |    |    |    `-->WScreen
+     |    |    |         `-->WRootWin
+     |    |    `-->WInput (mod_query)
+     |    |         |-->WEdln (mod_query)
+     |    |         `-->WMessage (mod_query)
+     |    |-->WGroup
+     |    |    |-->WGroupWS
+     |    |    `-->WGroupCW
+     |    `-->WTiling (mod_tiling)
+     `-->WSplit (mod_tiling)
+\end{verbatim}
+\caption{Partial Ioncore, \file{mod\_tiling} and \file{mod\_query} 
+    class hierarchy.}
+\label{fig:classhierarchy}
+\end{figure}
+
+The core classes:
+
+\begin{description}
+  \item[\type{Obj}]\indextype{Obj}
+    Is the base of Ion's object system.
+
+  \item[\type{WRegion}]\indextype{WRegion}
+    is the base class for everything corresponding to something on the
+    screen. Each object of type \type{WRegion} has a size and  position
+    relative to the parent \type{WRegion}. While a big part of Ion 
+    operates on these instead of more specialised classes, \type{WRegion}
+    is a ``virtual''  base class in that there are no objects of ``pure''
+    type \type{WRegion}; all concrete regions are objects of some class 
+    that inherits \type{WRegion}.
+
+  \item[\type{WClientWin}]\indextype{WClientWin} is a class for
+    client window objects, the objects that window managers are
+    supposed to manage.
+
+  \item[\type{WWindow}]\indextype{WWindow} is the base class for all
+    internal objects having an X window associated to them
+    (\type{WClientWins} also have X windows associated to them).
+    
+  \item[\type{WMPlex}] is a base class for all regions that ``multiplex'' 
+    other regions. This means that of the regions managed by the multiplexer,
+    only one can be displayed at a time. 
+  
+  \item[\type{WScreen}]\indextype{WScreen} is an instance of \type{WMPlex}
+    for screens.
+    
+  \item[\type{WRootWin}]\indextype{WRootWin} is the class for
+    root windows\index{root window} of X screens\index{screen!X}.
+    It is an instance of \type{WScreen}.
+    Note that an ``X screen'' or root window is not necessarily a
+    single physical screen\index{screen!physical} as a root window
+    may be split over multiple screens when ugly hacks such as 
+    Xinerama\index{Xinerama} are used. (Actually there can be only 
+    one root window when Xinerama is used.) 
+    
+  \item[\type{WFrame}]\indextype{WFrame} is the class for frames.
+    While most Ion's objects have no graphical presentation, frames 
+    basically add to \type{WMPlex}es the decorations around client 
+    windows (borders, tabs).
+    
+  \item[\type{WGroup}]\indextype{WGroup} is the base class for groups.
+    Particular types of groups are workspaces 
+    (\type{WGroupWS}\indextype{WGroupWS})
+    and groups of client windows
+    (\type{WGroupCW}\indextype{WGroupCW}).
+\end{description}
+
+
+Classes implemented by the \file{mod\_tiling} module:
+
+\begin{description}
+  \item[\type{WTiling}]\indextype{WTiling} is the class for tilings
+    of frames.
+  \item[\type{WSplit}]\indextype{WSplit} (or, more specifically, classes
+    that inherit it) encode the \type{WTiling} tree structure.
+\end{description}
+
+
+Classes implemented by the \file{mod\_query} module:
+
+\begin{description}
+  \item[\type{WInput}]\indextype{WInput} is a virtual base class for the
+    two classes below.
+  \item[\type{WEdln}]\indextype{WEdln} is the class for the ``queries'',
+    the text inputs that usually appear at bottoms of frames and sometimes
+    screens. Queries are the functional equivalent of ``mini buffers'' in
+    many text editors.
+  \item[\type{WMessage}]\indextype{WMessage} implements the boxes for 
+    warning and other messages that Ion may wish to display to the user. 
+    These also usually appear at bottoms of frames.
+\end{description}
+
+There are also some other ``proxy'' classes that do not refer
+to objects on the screen. The only important one of these for
+basic configuration is \type{WMoveresMode} that is used for
+binding callbacks in the move and resize mode.
+
+
+\subsection{Object hierarchies: \type{WRegion} parents and managers}
+
+\subsubsection{Parent--child relations}
+Each object of type \type{WRegion} has a parent and possibly a manager
+associated to it. The parent\index{parent} for an object is always a 
+\type{WWindow} and for \type{WRegion} with an X window (\type{WClientWin},
+\type{WWindow}) the parent \type{WWindow} is given by the same relation of
+the X windows. For other \type{WRegion}s the relation is not as clear.
+There is generally very few restrictions other than the above on the
+parent---child relation but the most common is as described in
+Figure \ref{fig:parentship}.
+
+\begin{figure}
+\begin{htmlonly}
+\docode % latex2html kludge
+\end{htmlonly}
+\begin{verbatim}
+    WRootWins
+     |-->WGroupWSs
+     |-->WTilings
+     |-->WClientWins in full screen mode
+     `-->WFrames
+          |-->WGroupCWs
+          |-->WClientWins
+          |-->WFrames for transients
+          `-->a possible WEdln or WMessage
+\end{verbatim}
+\caption{Most common parent--child relations}
+\label{fig:parentship}
+\end{figure}
+
+\type{WRegion}s have very little control over their children as a parent.
+The manager\index{manager} \type{WRegion} has much more control over its
+managed \type{WRegion}s. Managers, for example, handle resize requests,
+focusing and displaying of the managed regions. Indeed the manager---managed
+relationship gives a better picture of the logical ordering of objects on
+the screen. Again, there are generally few limits, but the most common
+hierarchy is given in Figure \ref{fig:managership}. Note that sometimes
+the parent and manager are the same object and not all regions may have
+a manager, but all non-screen regions have a parent---a screen if not 
+anything else.
+
+\subsubsection{Manager--managed relations}
+
+\begin{figure}
+\begin{htmlonly}
+\docode % latex2html kludge
+\end{htmlonly}
+\begin{verbatim}
+    WRootWins
+     |-->WGroupCWs for full screen WClientWins
+     |    |-->WClientWins
+     |    `-->WFrames for transients (dialogs)
+     |         `--> WClientWin
+     |-->WGroupWSs for workspaces
+     |    |-->WTiling
+     |    |    |-->WFrames
+     |    |    |    `-->WGroupCWs (with contents as above)
+     |    |    `-->possibly a WStatusBar or WDock
+     |    |-->WFrames for floating content
+     |    |-->possibly a WEdln, WMessage or WMenu
+     |    `-->possibly a WStatusBar or WDock (if no tiling)
+     `-->WFrames for sticky stuff, such as the scratchpad
+\end{verbatim}
+\caption{Most common manager--managed relations}
+\label{fig:managership}
+\end{figure}
+
+Note that a workspace can manage another workspace. This can be
+achieved with the \fnref{attach_new} function, and allows you to nest
+workspaces as deep as you want.
+
+%Note how the \type{WClientWin}s managed by \type{WFloatFrame}s don't have
+%transients managed by them. This is because WFloatWSs choose to handle
+%transients differently (transients are put in separate frames like normal
+%windows).
+
+\subsection{Summary}
+
+In the standard setup, keeping queries, messages and menus out of
+consideration:
+
+\begin{itemize}
+  \item The top-level objects that matter are screens and they correspond
+    to physical screens. The class for screens is \type{WScreen}.
+  \item Screens contain (multiplex) groups (\type{WGroup}) and other 
+    objects, such as \type{WFrames}. Some of these are mutually exclusive
+    to be viewed at a time.
+  \item Groups of the specific kind \type{WGroupWS} often contain a
+    \type{WTiling} tiling for tiling frames (\type{WFrame}), but 
+    groups may also directly contain floating frames.
+  \item Frames are the objects with decorations such as tabs and borders.
+    Frames contain (multiplex) among others (groups of) client windows, 
+    to each of which corresponds a tab in the frame's decoration. Only 
+    one client window (or other object) can be shown at a time in each 
+    frame. The class for client windows is \type{WClientWin}.
+\end{itemize}
+

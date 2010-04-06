@@ -1,0 +1,75 @@
+\documentclass[english,a4paper,11pt,oldtoc,mctitle]{rapport3}
+\input{macros}
+
+% For including some files from articles
+\newcommand{\xchapter}[1]{\chapter{#1}}
+\newcommand{\xsection}[1]{\section{#1}}
+\newcommand{\xsectionstar}[1]{\section*{#1}}
+\newcommand{\xsubsection}[1]{\subsection{#1}}
+
+
+\title{Configuring and extending Ion3 with Lua}
+\author{Tuomo Valkonen \\ tuomov at iki.fi}
+\date{2009-01-10}
+
+\makeindex
+
+
+\begin{document}
+
+\maketitle
+
+Configuring and extending Ion3 with Lua\\
+Copyright \copyright\  2003--2009 Tuomo Valkonen.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2
+published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled ``GNU
+Free Documentation License''.
+
+\tableofcontents
+
+\input{confintro}
+
+\input{prelim}
+
+\input{conf}
+
+\input{de}
+
+\input{tricks}
+
+\input{fnref}
+
+\appendix
+
+\input{fdl}
+
+\input{fullhierarchy}
+
+\chapter*{List of functions}
+\markboth{\MakeUppercase{List of functions}}%
+         {\MakeUppercase{List of functions}}%
+
+%begin{latexonly}
+\makeatletter
+\def\fnlisti#1{\@dottedtocline{1}{0em}{1.5em}{\lstinline!#1!}{\pageref{fn:#1}}}
+{\parskip\z@\input{fnlist}}
+\makeatother
+%end{latexonly}
+
+\begin{htmlonly}
+\newcommand{\fnlisti}[1]{\fnref{#1}\\}
+\input{fnlist}
+\end{htmlonly}
+
+\printindex
+
+\begin{thebibliography}{9}
+    \bibitem{scripts} The Ion 3 scripts repository,
+        \url{http://iki.fi/tuomov/repos/ion-scripts-3/}.
+\end{thebibliography}
+
+\end{document}

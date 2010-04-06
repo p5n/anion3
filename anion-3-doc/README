@@ -1,0 +1,19 @@
+
+Ion-doc
+
+Tuomo Valkonen <tuomov at iki.fi>
+
+
+This package contains some (advanced user and module writer)
+documentation for the Ion window manager.
+
+How to build:
+
+ 1. Get rubber <http://www.pps.jussieu.fr/~beffara/soft/rubber/>.
+    Get Latex2HTML if you want HTML versions of the documents.
+
+ 2. Modify TOPDIR in Makefile point to your top-level Ion source
+    directory, containing a working system.mk (or system-ac.mk).
+
+ 3. After the above has been done, you may run 'make all' to build all
+    versions of the documents. You may have increase TeX pool size.
