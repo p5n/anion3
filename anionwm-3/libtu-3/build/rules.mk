@@ -196,7 +196,7 @@ endif# !MODULE
 ######################################
 
 _clean:
-	$(RM) -f $(TO_CLEAN) core $(DEPEND_FILE) $(OBJS)
+	$(RM) -f $(TO_CLEAN) core $(DEPEND_FILE) $(OBJS) *.so *.lc *.a
 
 _realclean:
 	$(RM) -f $(TO_REALCLEAN) $(TARGETS)
