@@ -33,7 +33,7 @@ POTDIRS=../ioncore \
 
 EXTRA_POTFILES_LUA=../build/mkman.lua
 
-POTFILE=ion3.pot
+POTFILE=anion3.pot
 
 TARGETS = $(MO_FILES)
 
@@ -80,7 +80,7 @@ $(POTFILE): $(POTFILE)_c $(POTFILE)_lua
 _install:
 	for i in $(TRANSLATIONS); do \
 		$(INSTALLDIR) $(LOCALEDIR)/$$i/LC_MESSAGES ; \
-		$(INSTALL) -m $(DATA_MODE) $$i.mo $(LOCALEDIR)/$$i/LC_MESSAGES/ion3.mo ; \
+		$(INSTALL) -m $(DATA_MODE) $$i.mo $(LOCALEDIR)/$$i/LC_MESSAGES/anion3.mo ; \
 	done
 
 update_fi: pot
@@ -95,3 +95,5 @@ update_fr: pot
 update_de: pot
 	$(MSGMERGE) -U de.po $(POTFILE)
 
+clean:
+	rm *.mo
