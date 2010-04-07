@@ -29,7 +29,11 @@ include build/rules.mk
 
 ######################################
 
-_install:
+_contrib-install:
+	mkdir -p $(ETCDIR)
+	find contrib -name '*.lua' -exec install -D -m0644 {} $(ETCDIR) \;
+
+_install: _contrib-install
 	$(INSTALLDIR) $(DOCDIR)
 	for i in $(DOCS); do \
 		$(INSTALL) -m $(DATA_MODE) $$i $(DOCDIR); \
