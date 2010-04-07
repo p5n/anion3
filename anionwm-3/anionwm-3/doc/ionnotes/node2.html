@@ -1,6 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 
-<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+<!--Converted with LaTeX2HTML 2008 (1.71)
 original version by:  Nikos Drakos, CBLU, University of Leeds
 * revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
 * with significant contributions from:
@@ -14,7 +14,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <META NAME="distribution" CONTENT="global">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
 <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
 
 <LINK REL="STYLESHEET" HREF="ionnotes.css">
@@ -26,8 +26,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </HEAD>
 
 <BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
+<!--Navigation Panel-->
 <A NAME="tex2html81"
   HREF="node3.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
@@ -55,25 +54,25 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  &nbsp; <B>  <A NAME="tex2html80"
   HREF="node8.html">Index</A></B> 
 <BR>
-<BR></DIV>
+<BR>
 <!--End of Navigation Panel-->
 <!--Table of Child-Links-->
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<UL CLASS="ChildLinks">
+<UL>
 <LI><A NAME="tex2html83"
-  HREF="node2.html#SECTION00021000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Class hierarchy</A>
+  HREF="node2.html#SECTION00021000000000000000">1.1 Class hierarchy</A>
 <LI><A NAME="tex2html84"
-  HREF="node2.html#SECTION00022000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Object hierarchies: WRegion parents and managers</A>
+  HREF="node2.html#SECTION00022000000000000000">1.2 Object hierarchies: WRegion parents and managers</A>
 <UL>
 <LI><A NAME="tex2html85"
-  HREF="node2.html#SECTION00022100000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Parent-child relations</A>
+  HREF="node2.html#SECTION00022100000000000000">1.2.1 Parent-child relations</A>
 <LI><A NAME="tex2html86"
-  HREF="node2.html#SECTION00022200000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Manager-managed relations</A>
+  HREF="node2.html#SECTION00022200000000000000">1.2.2 Manager-managed relations</A>
 </UL>
 <BR>
 <LI><A NAME="tex2html87"
-  HREF="node2.html#SECTION00023000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Summary</A>
+  HREF="node2.html#SECTION00023000000000000000">1.3 Summary</A>
 </UL>
 <!--End of Table of Child-Links-->
 <HR>
@@ -81,13 +80,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <H1><A NAME="SECTION00020000000000000000"></A>
 <A NAME="sec:objects"></A>
 <BR>
-<SPAN CLASS="arabic">1</SPAN> Class and object hierarchies
+1 Class and object hierarchies
 </H1>
 
 <P>
 While Ion does not not have a truly object-oriented design
 <A NAME="tex2html1"
-  HREF="#foot216"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A>,
+  HREF="#foot216"><SUP>1</SUP></A>,
 things that appear on the computer screen are, however, quite
 naturally expressed as such ``objects''. Therefore Ion implements
 a rather primitive OO system for these screen objects and some
@@ -106,14 +105,14 @@ basic relations.
 
 <P>
 For simplicity we consider only the essential-for-basic-configuration
-Ioncore, <SPAN  CLASS="textit">mod_tiling</SPAN> and <SPAN  CLASS="textit">mod_query</SPAN> classes. 
+Ioncore, <I>mod_tiling</I> and <I>mod_query</I> classes. 
 See Appendix <A HREF="#app:fullhierarchy"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A> for the full class hierarchy visible
 to Lua side.
 
 <P>
 
 <H2><A NAME="SECTION00021000000000000000">
-<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Class hierarchy</A>
+1.1 Class hierarchy</A>
 </H2>
 
 <P>
@@ -131,7 +130,7 @@ implement.
 <DIV ALIGN="CENTER"><A NAME="fig:classhierarchy"></A><A NAME="323"></A>
 <TABLE>
 <CAPTION ALIGN="BOTTOM"><STRONG>Figure 1:</STRONG>
-Partial Ioncore, <SPAN  CLASS="textit">mod_tiling</SPAN> and <SPAN  CLASS="textit">mod_query</SPAN> 
+Partial Ioncore, <I>mod_tiling</I> and <I>mod_query</I> 
     class hierarchy.</CAPTION>
 <TR><TD><PRE>
     Obj
@@ -234,7 +233,7 @@ The core classes:
 </DL>
 
 <P>
-Classes implemented by the <SPAN  CLASS="textit">mod_tiling</SPAN> module:
+Classes implemented by the <I>mod_tiling</I> module:
 
 <P>
 <DL>
@@ -250,7 +249,7 @@ Classes implemented by the <SPAN  CLASS="textit">mod_tiling</SPAN> module:
 </DL>
 
 <P>
-Classes implemented by the <SPAN  CLASS="textit">mod_query</SPAN> module:
+Classes implemented by the <I>mod_query</I> module:
 
 <P>
 <DL>
@@ -282,13 +281,13 @@ binding callbacks in the move and resize mode.
 <P>
 
 <H2><A NAME="SECTION00022000000000000000">
-<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Object hierarchies: WRegion parents and managers</A>
+1.2 Object hierarchies: WRegion parents and managers</A>
 </H2>
 
 <P>
 
 <H3><A NAME="SECTION00022100000000000000">
-<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Parent-child relations</A>
+1.2.1 Parent-child relations</A>
 </H3>
 Each object of type WRegion has a parent and possibly a manager
 associated to it. The parent<A NAME="286"></A> for an object is always a 
@@ -334,7 +333,7 @@ anything else.
 <P>
 
 <H3><A NAME="SECTION00022200000000000000">
-<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Manager-managed relations</A>
+1.2.2 Manager-managed relations</A>
 </H3>
 
 <P>
@@ -370,7 +369,7 @@ workspaces as deep as you want.
 <P>
 
 <H2><A NAME="SECTION00023000000000000000">
-<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Summary</A>
+1.3 Summary</A>
 </H2>
 
 <P>
@@ -403,12 +402,11 @@ consideration:
 <BR><HR><H4>Footnotes</H4>
 <DL>
 <DT><A NAME="foot216">... design</A><A
- HREF="node2.html#tex2html1"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
+ HREF="node2.html#tex2html1"><SUP>1</SUP></A></DT>
 <DD>the author doesn't like such artificial designs
 
 </DD>
-</DL>
-<DIV CLASS="navigation"><HR>
+</DL><HR>
 <!--Navigation Panel-->
 <A NAME="tex2html81"
   HREF="node3.html">
@@ -435,7 +433,7 @@ consideration:
  &nbsp; <B>  <A NAME="tex2html78"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html80"
-  HREF="node8.html">Index</A></B> </DIV>
+  HREF="node8.html">Index</A></B> 
 <!--End of Navigation Panel-->
 
 </BODY>

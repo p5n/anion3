@@ -1,4 +1,4 @@
-# LaTeX2HTML 2002-2-1 (1.71)
+# LaTeX2HTML 2008 (1.71)
 # Associate labels original text with physical files.
 
 
@@ -798,6 +798,10 @@ $key = q/fn:WGroupWS.attach_framed/;
 $external_labels{$key} = "$URL/" . q|node7.html|; 
 $noresave{$key} = "$nosave";
 
+$key = q/fn:WFrame.is_grattr/;
+$external_labels{$key} = "$URL/" . q|node7.html|; 
+$noresave{$key} = "$nosave";
+
 $key = q/sec:dockref/;
 $external_labels{$key} = "$URL/" . q|node7.html|; 
 $noresave{$key} = "$nosave";
@@ -1022,11 +1026,11 @@ $key = q/fn:ioncore.mdblclick/;
 $external_labels{$key} = "$URL/" . q|node7.html|; 
 $noresave{$key} = "$nosave";
 
-$key = q/fn:WSplitSplit.flip/;
+$key = q/fn:WTiling.split_top/;
 $external_labels{$key} = "$URL/" . q|node7.html|; 
 $noresave{$key} = "$nosave";
 
-$key = q/fn:WTiling.split_top/;
+$key = q/fn:WSplitSplit.flip/;
 $external_labels{$key} = "$URL/" . q|node7.html|; 
 $noresave{$key} = "$nosave";
 
@@ -1457,7 +1461,7 @@ $noresave{$key} = "$nosave";
 1;
 
 
-# LaTeX2HTML 2002-2-1 (1.71)
+# LaTeX2HTML 2008 (1.71)
 # labels from external_latex_labels array.
 
 
@@ -2251,6 +2255,10 @@ $noresave{$key} = "$nosave";
 
 $key = q/fn:WGroupWS.attach_framed/;
 $external_latex_labels{$key} = q|6.1.5|; 
+$noresave{$key} = "$nosave";
+
+$key = q/fn:WFrame.is_grattr/;
+$external_latex_labels{$key} = q|6.1.2|; 
 $noresave{$key} = "$nosave";
 
 $key = q/sec:dockref/;

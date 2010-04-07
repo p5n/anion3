@@ -1,6 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 
-<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+<!--Converted with LaTeX2HTML 2008 (1.71)
 original version by:  Nikos Drakos, CBLU, University of Leeds
 * revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
 * with significant contributions from:
@@ -14,7 +14,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <META NAME="distribution" CONTENT="global">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
 <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
 
 <LINK REL="STYLESHEET" HREF="ionnotes.css">
@@ -26,8 +26,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </HEAD>
 
 <BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
+<!--Navigation Panel-->
 <A NAME="tex2html114"
   HREF="node5.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
@@ -55,26 +54,26 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  &nbsp; <B>  <A NAME="tex2html113"
   HREF="node8.html">Index</A></B> 
 <BR>
-<BR></DIV>
+<BR>
 <!--End of Navigation Panel-->
 <!--Table of Child-Links-->
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<UL CLASS="ChildLinks">
+<UL>
 <LI><A NAME="tex2html116"
-  HREF="node4.html#SECTION00041000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Supported types</A>
+  HREF="node4.html#SECTION00041000000000000000">3.1 Supported types</A>
 <LI><A NAME="tex2html117"
-  HREF="node4.html#SECTION00042000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Exporting functions</A>
+  HREF="node4.html#SECTION00042000000000000000">3.2 Exporting functions</A>
 <LI><A NAME="tex2html118"
-  HREF="node4.html#SECTION00043000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Calling Lua functions and code</A>
+  HREF="node4.html#SECTION00043000000000000000">3.3 Calling Lua functions and code</A>
 <LI><A NAME="tex2html119"
-  HREF="node4.html#SECTION00044000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Miscellaneous notes</A>
+  HREF="node4.html#SECTION00044000000000000000">3.4 Miscellaneous notes</A>
 </UL>
 <!--End of Table of Child-Links-->
 <HR>
 
 <H1><A NAME="SECTION00040000000000000000">
-<SPAN CLASS="arabic">3</SPAN> The Lua interface</A>
+3 The Lua interface</A>
 </H1>
 
 <P>
@@ -91,7 +90,7 @@ method for calling Lua functions is explained.
 <H2><A NAME="SECTION00041000000000000000"></A>
 <A NAME="sec:supptypes"></A>
 <BR>
-<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Supported types
+3.1 Supported types
 </H2>
 
 <P>
@@ -176,19 +175,19 @@ name for a WObj.
 <H2><A NAME="SECTION00042000000000000000"></A>
 <A NAME="sec:exporting"></A>
 <BR>
-<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Exporting functions
+3.2 Exporting functions
 </H2>
 
 <P>
 Exported functions (those available to the extension language) are
 defined by placing <TT>EXTL_EXPORT</TT> before the function implementation
 in the C source. The script mkexports.pl is then used to automatically
-generate <SPAN  CLASS="textit">exports.c</SPAN> from the source files if
+generate <I>exports.c</I> from the source files if
 <TT>MAKE_EXPORTS=modulename</TT>
 is specified in the Makefile. All pointers with type beginning with a 'W'
 are assumed to be pointers to something inheriting WObj. In
 addition to a table of exported functions and second level call handlers
-for these, <SPAN  CLASS="textit">exports.c</SPAN> will contain two functions
+for these, <I>exports.c</I> will contain two functions
 <TT>module_register_exports()</TT> and
 <TT>module_unregister_exports()</TT> that should then be called in module
 initialisation and deinitialisation code.
@@ -225,7 +224,7 @@ supported by the generated L2 call handlers).
 <H2><A NAME="SECTION00043000000000000000"></A>
 <A NAME="sec:calling"></A>
 <BR>
-<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Calling Lua functions and code
+3.3 Calling Lua functions and code
 </H2>
 
 <P>
@@ -258,7 +257,7 @@ calls to all exported functions.
 <P>
 
 <H2><A NAME="SECTION00044000000000000000">
-<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Miscellaneous notes</A>
+3.4 Miscellaneous notes</A>
 </H2>
 
 <P>
@@ -275,8 +274,7 @@ and properties may be read with the <TT>extl_table_gets</TT> functions.
 <TT>extl_table_get*</TT>.)
 
 <P>
-
-<DIV CLASS="navigation"><HR>
+<HR>
 <!--Navigation Panel-->
 <A NAME="tex2html114"
   HREF="node5.html">
@@ -303,7 +301,7 @@ and properties may be read with the <TT>extl_table_gets</TT> functions.
  &nbsp; <B>  <A NAME="tex2html111"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html113"
-  HREF="node8.html">Index</A></B> </DIV>
+  HREF="node8.html">Index</A></B> 
 <!--End of Navigation Panel-->
 
 </BODY>

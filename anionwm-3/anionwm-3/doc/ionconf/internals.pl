@@ -1,4 +1,4 @@
-# LaTeX2HTML 2002-2-1 (1.71)
+# LaTeX2HTML 2008 (1.71)
 # Associate internals original text with physical files.
 
 
@@ -798,6 +798,10 @@ $key = q/fn:WGroupWS.attach_framed/;
 $ref_files{$key} = "$dir".q|node7.html|; 
 $noresave{$key} = "$nosave";
 
+$key = q/fn:WFrame.is_grattr/;
+$ref_files{$key} = "$dir".q|node7.html|; 
+$noresave{$key} = "$nosave";
+
 $key = q/sec:dockref/;
 $ref_files{$key} = "$dir".q|node7.html|; 
 $noresave{$key} = "$nosave";
@@ -1022,11 +1026,11 @@ $key = q/fn:ioncore.mdblclick/;
 $ref_files{$key} = "$dir".q|node7.html|; 
 $noresave{$key} = "$nosave";
 
-$key = q/fn:WSplitSplit.flip/;
+$key = q/fn:WTiling.split_top/;
 $ref_files{$key} = "$dir".q|node7.html|; 
 $noresave{$key} = "$nosave";
 
-$key = q/fn:WTiling.split_top/;
+$key = q/fn:WSplitSplit.flip/;
 $ref_files{$key} = "$dir".q|node7.html|; 
 $noresave{$key} = "$nosave";
 

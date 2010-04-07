@@ -1,6 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 
-<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+<!--Converted with LaTeX2HTML 2008 (1.71)
 original version by:  Nikos Drakos, CBLU, University of Leeds
 * revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
 * with significant contributions from:
@@ -14,7 +14,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <META NAME="distribution" CONTENT="global">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
 <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
 
 <LINK REL="STYLESHEET" HREF="ionconf.css">
@@ -23,8 +23,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </HEAD>
 
 <BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
+<!--Navigation Panel-->
 <A NAME="tex2html18"
   HREF="node1.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
@@ -48,12 +47,12 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  &nbsp; <B>  <A NAME="tex2html17"
   HREF="node11.html">Index</A></B> 
 <BR>
-<BR></DIV>
+<BR>
 <!--End of Navigation Panel-->
 
 <P>
 <H1 ALIGN="CENTER">Configuring and extending Ion3 with Lua</H1>
-<DIV CLASS="author_info">
+<DIV>
 
 <P ALIGN="CENTER"><STRONG>Tuomo Valkonen</STRONG></P>
 <P ALIGN="CENTER"><I>tuomov at iki.fi</I></P>
@@ -78,275 +77,275 @@ Free Documentation License''.
 <!--Table of Child-Links-->
 <A NAME="CHILD_LINKS"></A>
 
-<UL CLASS="ChildLinks">
+<UL>
 <LI><A NAME="tex2html20"
   HREF="node1.html">Contents</A>
 <LI><A NAME="tex2html21"
-  HREF="node2.html"><SPAN CLASS="arabic">1</SPAN>. Introduction</A>
+  HREF="node2.html">1. Introduction</A>
 <LI><A NAME="tex2html22"
-  HREF="node3.html"><SPAN CLASS="arabic">2</SPAN>. Preliminaries: Key concepts and relations</A>
+  HREF="node3.html">2. Preliminaries: Key concepts and relations</A>
 <UL>
 <LI><A NAME="tex2html23"
-  HREF="node3.html#SECTION00310000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Modules</A>
+  HREF="node3.html#SECTION00310000000000000000">2.1 Modules</A>
 <LI><A NAME="tex2html24"
-  HREF="node3.html#SECTION00320000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class and object hierarchies</A>
+  HREF="node3.html#SECTION00320000000000000000">2.2 Class and object hierarchies</A>
 <UL>
 <LI><A NAME="tex2html25"
-  HREF="node3.html#SECTION00321000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Class hierarchy</A>
+  HREF="node3.html#SECTION00321000000000000000">2.2.1 Class hierarchy</A>
 <LI><A NAME="tex2html26"
-  HREF="node3.html#SECTION00322000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Object hierarchies: WRegion parents and managers</A>
+  HREF="node3.html#SECTION00322000000000000000">2.2.2 Object hierarchies: WRegion parents and managers</A>
 <UL>
 <LI><A NAME="tex2html27"
-  HREF="node3.html#SECTION00322100000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Parent-child relations</A>
+  HREF="node3.html#SECTION00322100000000000000">2.2.2.1 Parent-child relations</A>
 <LI><A NAME="tex2html28"
-  HREF="node3.html#SECTION00322200000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Manager-managed relations</A>
+  HREF="node3.html#SECTION00322200000000000000">2.2.2.2 Manager-managed relations</A>
 </UL>
 <LI><A NAME="tex2html29"
-  HREF="node3.html#SECTION00323000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Summary</A>
+  HREF="node3.html#SECTION00323000000000000000">2.2.3 Summary</A>
 </UL>
 </UL>
 <BR>
 <LI><A NAME="tex2html30"
-  HREF="node4.html"><SPAN CLASS="arabic">3</SPAN>. Basic configuration</A>
+  HREF="node4.html">3. Basic configuration</A>
 <UL>
 <LI><A NAME="tex2html31"
-  HREF="node4.html#SECTION00410000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> The configuration files</A>
+  HREF="node4.html#SECTION00410000000000000000">3.1 The configuration files</A>
 <LI><A NAME="tex2html32"
-  HREF="node4.html#SECTION00420000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> A walk through <SPAN  CLASS="textit">cfg_ion.lua</SPAN></A>
+  HREF="node4.html#SECTION00420000000000000000">3.2 A walk through <I>cfg_ion.lua</I></A>
 <LI><A NAME="tex2html33"
-  HREF="node4.html#SECTION00430000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Keys and rodents</A>
+  HREF="node4.html#SECTION00430000000000000000">3.3 Keys and rodents</A>
 <UL>
 <LI><A NAME="tex2html34"
-  HREF="node4.html#SECTION00431000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Binding handlers and special variables</A>
+  HREF="node4.html#SECTION00431000000000000000">3.3.1 Binding handlers and special variables</A>
 <LI><A NAME="tex2html35"
-  HREF="node4.html#SECTION00432000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Guards</A>
+  HREF="node4.html#SECTION00432000000000000000">3.3.2 Guards</A>
 <LI><A NAME="tex2html36"
-  HREF="node4.html#SECTION00433000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Defining the bindings</A>
+  HREF="node4.html#SECTION00433000000000000000">3.3.3 Defining the bindings</A>
 <LI><A NAME="tex2html37"
-  HREF="node4.html#SECTION00434000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Examples</A>
+  HREF="node4.html#SECTION00434000000000000000">3.3.4 Examples</A>
 <LI><A NAME="tex2html38"
-  HREF="node4.html#SECTION00435000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Key specifications</A>
+  HREF="node4.html#SECTION00435000000000000000">3.3.5 Key specifications</A>
 <LI><A NAME="tex2html39"
-  HREF="node4.html#SECTION00436000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Button specifications</A>
+  HREF="node4.html#SECTION00436000000000000000">3.3.6 Button specifications</A>
 <LI><A NAME="tex2html40"
-  HREF="node4.html#SECTION00437000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> A further note on the default binding configuration</A>
+  HREF="node4.html#SECTION00437000000000000000">3.3.7 A further note on the default binding configuration</A>
 </UL>
 <LI><A NAME="tex2html41"
-  HREF="node4.html#SECTION00440000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Menus</A>
+  HREF="node4.html#SECTION00440000000000000000">3.4 Menus</A>
 <UL>
 <LI><A NAME="tex2html42"
-  HREF="node4.html#SECTION00441000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Defining menus</A>
+  HREF="node4.html#SECTION00441000000000000000">3.4.1 Defining menus</A>
 <LI><A NAME="tex2html43"
-  HREF="node4.html#SECTION00442000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Special menus</A>
+  HREF="node4.html#SECTION00442000000000000000">3.4.2 Special menus</A>
 <LI><A NAME="tex2html44"
-  HREF="node4.html#SECTION00443000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> Defining context menus</A>
+  HREF="node4.html#SECTION00443000000000000000">3.4.3 Defining context menus</A>
 <LI><A NAME="tex2html45"
-  HREF="node4.html#SECTION00444000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">4</SPAN> Displaying menus</A>
+  HREF="node4.html#SECTION00444000000000000000">3.4.4 Displaying menus</A>
 </UL>
 <LI><A NAME="tex2html46"
-  HREF="node4.html#SECTION00450000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Winprops</A>
+  HREF="node4.html#SECTION00450000000000000000">3.5 Winprops</A>
 <UL>
 <LI><A NAME="tex2html47"
-  HREF="node4.html#SECTION00451000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> Sizehint winprops</A>
+  HREF="node4.html#SECTION00451000000000000000">3.5.1 Sizehint winprops</A>
 <LI><A NAME="tex2html48"
-  HREF="node4.html#SECTION00452000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN> Classes, roles and instances</A>
+  HREF="node4.html#SECTION00452000000000000000">3.5.2 Classes, roles and instances</A>
 <LI><A NAME="tex2html49"
-  HREF="node4.html#SECTION00453000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN> Finding window identification</A>
+  HREF="node4.html#SECTION00453000000000000000">3.5.3 Finding window identification</A>
 <LI><A NAME="tex2html50"
-  HREF="node4.html#SECTION00454000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">4</SPAN> Some common examples</A>
+  HREF="node4.html#SECTION00454000000000000000">3.5.4 Some common examples</A>
 <UL>
 <LI><A NAME="tex2html51"
-  HREF="node4.html#SECTION00454100000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Acrobat Reader</A>
+  HREF="node4.html#SECTION00454100000000000000">3.5.4.1 Acrobat Reader</A>
 <LI><A NAME="tex2html52"
-  HREF="node4.html#SECTION00454200000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Forcing newly created windows in named frames</A>
+  HREF="node4.html#SECTION00454200000000000000">3.5.4.2 Forcing newly created windows in named frames</A>
 </UL>
 </UL>
 <LI><A NAME="tex2html53"
-  HREF="node4.html#SECTION00460000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> The statusbar</A>
+  HREF="node4.html#SECTION00460000000000000000">3.6 The statusbar</A>
 <UL>
 <LI><A NAME="tex2html54"
-  HREF="node4.html#SECTION00461000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> The template</A>
+  HREF="node4.html#SECTION00461000000000000000">3.6.1 The template</A>
 <LI><A NAME="tex2html55"
-  HREF="node4.html#SECTION00462000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN> The systray</A>
+  HREF="node4.html#SECTION00462000000000000000">3.6.2 The systray</A>
 <LI><A NAME="tex2html56"
-  HREF="node4.html#SECTION00463000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN> Monitors</A>
+  HREF="node4.html#SECTION00463000000000000000">3.6.3 Monitors</A>
 <UL>
 <LI><A NAME="tex2html57"
-  HREF="node4.html#SECTION00463100000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Date</A>
+  HREF="node4.html#SECTION00463100000000000000">3.6.3.1 Date</A>
 <LI><A NAME="tex2html58"
-  HREF="node4.html#SECTION00463200000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Load</A>
+  HREF="node4.html#SECTION00463200000000000000">3.6.3.2 Load</A>
 <LI><A NAME="tex2html59"
-  HREF="node4.html#SECTION00463300000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Mail</A>
+  HREF="node4.html#SECTION00463300000000000000">3.6.3.3 Mail</A>
 </UL>
 </UL>
 </UL>
 <BR>
 <LI><A NAME="tex2html60"
-  HREF="node5.html"><SPAN CLASS="arabic">4</SPAN>. Graphical styles</A>
+  HREF="node5.html">4. Graphical styles</A>
 <UL>
 <LI><A NAME="tex2html61"
-  HREF="node5.html#SECTION00510000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Drawing engines, style specifications and sub-styles</A>
+  HREF="node5.html#SECTION00510000000000000000">4.1 Drawing engines, style specifications and sub-styles</A>
 <UL>
 <LI><A NAME="tex2html62"
-  HREF="node5.html#SECTION00511000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Known styles and substyles</A>
+  HREF="node5.html#SECTION00511000000000000000">4.1.1 Known styles and substyles</A>
 <UL>
 <LI><A NAME="tex2html63"
-  HREF="node5.html#SECTION00511100000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Frames</A>
+  HREF="node5.html#SECTION00511100000000000000">4.1.1.1 Frames</A>
 <LI><A NAME="tex2html64"
-  HREF="node5.html#SECTION00511200000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Tabs and menu entries</A>
+  HREF="node5.html#SECTION00511200000000000000">4.1.1.2 Tabs and menu entries</A>
 <LI><A NAME="tex2html65"
-  HREF="node5.html#SECTION00511300000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> The rest</A>
+  HREF="node5.html#SECTION00511300000000000000">4.1.1.3 The rest</A>
 </UL>
 </UL>
 <LI><A NAME="tex2html66"
-  HREF="node5.html#SECTION00520000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Defining styles for the default drawing engine</A>
+  HREF="node5.html#SECTION00520000000000000000">4.2 Defining styles for the default drawing engine</A>
 <UL>
 <LI><A NAME="tex2html67"
-  HREF="node5.html#SECTION00521000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> The structure of the configuration files</A>
+  HREF="node5.html#SECTION00521000000000000000">4.2.1 The structure of the configuration files</A>
 <LI><A NAME="tex2html68"
-  HREF="node5.html#SECTION00522000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Defining the styles</A>
+  HREF="node5.html#SECTION00522000000000000000">4.2.2 Defining the styles</A>
 <UL>
 <LI><A NAME="tex2html69"
-  HREF="node5.html#SECTION00522100000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Colours</A>
+  HREF="node5.html#SECTION00522100000000000000">4.2.2.1 Colours</A>
 <LI><A NAME="tex2html70"
-  HREF="node5.html#SECTION00522200000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Borders and widths</A>
+  HREF="node5.html#SECTION00522200000000000000">4.2.2.2 Borders and widths</A>
 <LI><A NAME="tex2html71"
-  HREF="node5.html#SECTION00522300000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Text</A>
+  HREF="node5.html#SECTION00522300000000000000">4.2.2.3 Text</A>
 <LI><A NAME="tex2html72"
-  HREF="node5.html#SECTION00522400000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Miscellaneous</A>
+  HREF="node5.html#SECTION00522400000000000000">4.2.2.4 Miscellaneous</A>
 <LI><A NAME="tex2html73"
-  HREF="node5.html#SECTION00522500000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Substyles</A>
+  HREF="node5.html#SECTION00522500000000000000">4.2.2.5 Substyles</A>
 </UL>
 <LI><A NAME="tex2html74"
-  HREF="node5.html#SECTION00523000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> An example</A>
+  HREF="node5.html#SECTION00523000000000000000">4.2.3 An example</A>
 </UL>
 <LI><A NAME="tex2html75"
-  HREF="node5.html#SECTION00530000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> Miscellaneous settings</A>
+  HREF="node5.html#SECTION00530000000000000000">4.3 Miscellaneous settings</A>
 <UL>
 <LI><A NAME="tex2html76"
-  HREF="node5.html#SECTION00531000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Frame user attributes</A>
+  HREF="node5.html#SECTION00531000000000000000">4.3.1 Frame user attributes</A>
 <LI><A NAME="tex2html77"
-  HREF="node5.html#SECTION00532000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Extra fields for style `<TT>frame</TT>'</A>
+  HREF="node5.html#SECTION00532000000000000000">4.3.2 Extra fields for style `<TT>frame</TT>'</A>
 <LI><A NAME="tex2html78"
-  HREF="node5.html#SECTION00533000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Extra fields for style `<TT>dock</TT>'</A>
+  HREF="node5.html#SECTION00533000000000000000">4.3.3 Extra fields for style `<TT>dock</TT>'</A>
 </UL>
 </UL>
 <BR>
 <LI><A NAME="tex2html79"
-  HREF="node6.html"><SPAN CLASS="arabic">5</SPAN>. Scripting</A>
+  HREF="node6.html">5. Scripting</A>
 <UL>
 <LI><A NAME="tex2html80"
-  HREF="node6.html#SECTION00610000000000000000"><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> Hooks</A>
+  HREF="node6.html#SECTION00610000000000000000">5.1 Hooks</A>
 <LI><A NAME="tex2html81"
-  HREF="node6.html#SECTION00620000000000000000"><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN> Referring to regions</A>
+  HREF="node6.html#SECTION00620000000000000000">5.2 Referring to regions</A>
 <UL>
 <LI><A NAME="tex2html82"
-  HREF="node6.html#SECTION00621000000000000000"><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Direct object references</A>
+  HREF="node6.html#SECTION00621000000000000000">5.2.1 Direct object references</A>
 <LI><A NAME="tex2html83"
-  HREF="node6.html#SECTION00622000000000000000"><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Name-based lookups</A>
+  HREF="node6.html#SECTION00622000000000000000">5.2.2 Name-based lookups</A>
 </UL>
 <LI><A NAME="tex2html84"
-  HREF="node6.html#SECTION00630000000000000000"><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN> Alternative winprop selection criteria</A>
+  HREF="node6.html#SECTION00630000000000000000">5.3 Alternative winprop selection criteria</A>
 <LI><A NAME="tex2html85"
-  HREF="node6.html#SECTION00640000000000000000"><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">4</SPAN> Writing <TT>ion-statusd</TT> monitors</A>
+  HREF="node6.html#SECTION00640000000000000000">5.4 Writing <TT>ion-statusd</TT> monitors</A>
 </UL>
 <BR>
 <LI><A NAME="tex2html86"
-  HREF="node7.html"><SPAN CLASS="arabic">6</SPAN>. Function reference</A>
+  HREF="node7.html">6. Function reference</A>
 <UL>
 <LI><A NAME="tex2html87"
-  HREF="node7.html#SECTION00710000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> Functions defined in <SPAN  CLASS="textit">ioncore</SPAN></A>
+  HREF="node7.html#SECTION00710000000000000000">6.1 Functions defined in <I>ioncore</I></A>
 <UL>
 <LI><A NAME="tex2html88"
-  HREF="node7.html#SECTION00711000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> WClientWin functions</A>
+  HREF="node7.html#SECTION00711000000000000000">6.1.1 WClientWin functions</A>
 <LI><A NAME="tex2html89"
-  HREF="node7.html#SECTION00712000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> WFrame functions</A>
+  HREF="node7.html#SECTION00712000000000000000">6.1.2 WFrame functions</A>
 <LI><A NAME="tex2html90"
-  HREF="node7.html#SECTION00713000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> WGroup functions</A>
+  HREF="node7.html#SECTION00713000000000000000">6.1.3 WGroup functions</A>
 <LI><A NAME="tex2html91"
-  HREF="node7.html#SECTION00714000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> WGroupCW functions</A>
+  HREF="node7.html#SECTION00714000000000000000">6.1.4 WGroupCW functions</A>
 <LI><A NAME="tex2html92"
-  HREF="node7.html#SECTION00715000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">5</SPAN> WGroupWS functions</A>
+  HREF="node7.html#SECTION00715000000000000000">6.1.5 WGroupWS functions</A>
 <LI><A NAME="tex2html93"
-  HREF="node7.html#SECTION00716000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">6</SPAN> WHook functions</A>
+  HREF="node7.html#SECTION00716000000000000000">6.1.6 WHook functions</A>
 <LI><A NAME="tex2html94"
-  HREF="node7.html#SECTION00717000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">7</SPAN> WInfoWin functions</A>
+  HREF="node7.html#SECTION00717000000000000000">6.1.7 WInfoWin functions</A>
 <LI><A NAME="tex2html95"
-  HREF="node7.html#SECTION00718000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">8</SPAN> WMPlex functions</A>
+  HREF="node7.html#SECTION00718000000000000000">6.1.8 WMPlex functions</A>
 <LI><A NAME="tex2html96"
-  HREF="node7.html#SECTION00719000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">9</SPAN> WMoveresMode functions</A>
+  HREF="node7.html#SECTION00719000000000000000">6.1.9 WMoveresMode functions</A>
 <LI><A NAME="tex2html97"
-  HREF="node7.html#SECTION007110000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">10</SPAN> WRegion functions</A>
+  HREF="node7.html#SECTION007110000000000000000">6.1.10 WRegion functions</A>
 <LI><A NAME="tex2html98"
-  HREF="node7.html#SECTION007111000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">11</SPAN> WRootWin functions</A>
+  HREF="node7.html#SECTION007111000000000000000">6.1.11 WRootWin functions</A>
 <LI><A NAME="tex2html99"
-  HREF="node7.html#SECTION007112000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">12</SPAN> WScreen functions</A>
+  HREF="node7.html#SECTION007112000000000000000">6.1.12 WScreen functions</A>
 <LI><A NAME="tex2html100"
-  HREF="node7.html#SECTION007113000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">13</SPAN> WTimer functions</A>
+  HREF="node7.html#SECTION007113000000000000000">6.1.13 WTimer functions</A>
 <LI><A NAME="tex2html101"
-  HREF="node7.html#SECTION007114000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">14</SPAN> WWindow functions</A>
+  HREF="node7.html#SECTION007114000000000000000">6.1.14 WWindow functions</A>
 <LI><A NAME="tex2html102"
-  HREF="node7.html#SECTION007115000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">15</SPAN> global functions</A>
+  HREF="node7.html#SECTION007115000000000000000">6.1.15 global functions</A>
 <LI><A NAME="tex2html103"
-  HREF="node7.html#SECTION007116000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">16</SPAN> gr functions</A>
+  HREF="node7.html#SECTION007116000000000000000">6.1.16 gr functions</A>
 <LI><A NAME="tex2html104"
-  HREF="node7.html#SECTION007117000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">17</SPAN> string functions</A>
+  HREF="node7.html#SECTION007117000000000000000">6.1.17 string functions</A>
 <LI><A NAME="tex2html105"
-  HREF="node7.html#SECTION007118000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">18</SPAN> table functions</A>
+  HREF="node7.html#SECTION007118000000000000000">6.1.18 table functions</A>
 </UL>
 <LI><A NAME="tex2html106"
-  HREF="node7.html#SECTION00720000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN> Functions defined in <SPAN  CLASS="textit">mod_tiling</SPAN></A>
+  HREF="node7.html#SECTION00720000000000000000">6.2 Functions defined in <I>mod_tiling</I></A>
 <UL>
 <LI><A NAME="tex2html107"
-  HREF="node7.html#SECTION00721000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> WSplit functions</A>
+  HREF="node7.html#SECTION00721000000000000000">6.2.1 WSplit functions</A>
 <LI><A NAME="tex2html108"
-  HREF="node7.html#SECTION00722000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> WSplitInner functions</A>
+  HREF="node7.html#SECTION00722000000000000000">6.2.2 WSplitInner functions</A>
 <LI><A NAME="tex2html109"
-  HREF="node7.html#SECTION00723000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> WSplitRegion functions</A>
+  HREF="node7.html#SECTION00723000000000000000">6.2.3 WSplitRegion functions</A>
 <LI><A NAME="tex2html110"
-  HREF="node7.html#SECTION00724000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> WSplitSplit functions</A>
+  HREF="node7.html#SECTION00724000000000000000">6.2.4 WSplitSplit functions</A>
 <LI><A NAME="tex2html111"
-  HREF="node7.html#SECTION00725000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> WTiling functions</A>
+  HREF="node7.html#SECTION00725000000000000000">6.2.5 WTiling functions</A>
 </UL>
 <LI><A NAME="tex2html112"
-  HREF="node7.html#SECTION00730000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN> Functions defined in <SPAN  CLASS="textit">mod_query</SPAN></A>
+  HREF="node7.html#SECTION00730000000000000000">6.3 Functions defined in <I>mod_query</I></A>
 <UL>
 <LI><A NAME="tex2html113"
-  HREF="node7.html#SECTION00731000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> WComplProxy functions</A>
+  HREF="node7.html#SECTION00731000000000000000">6.3.1 WComplProxy functions</A>
 <LI><A NAME="tex2html114"
-  HREF="node7.html#SECTION00732000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> WEdln functions</A>
+  HREF="node7.html#SECTION00732000000000000000">6.3.2 WEdln functions</A>
 <LI><A NAME="tex2html115"
-  HREF="node7.html#SECTION00733000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> WInput functions</A>
+  HREF="node7.html#SECTION00733000000000000000">6.3.3 WInput functions</A>
 </UL>
 <LI><A NAME="tex2html116"
-  HREF="node7.html#SECTION00740000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">4</SPAN> Functions defined in <SPAN  CLASS="textit">mod_menu</SPAN></A>
+  HREF="node7.html#SECTION00740000000000000000">6.4 Functions defined in <I>mod_menu</I></A>
 <UL>
 <LI><A NAME="tex2html117"
-  HREF="node7.html#SECTION00741000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> WMenu functions</A>
+  HREF="node7.html#SECTION00741000000000000000">6.4.1 WMenu functions</A>
 </UL>
 <LI><A NAME="tex2html118"
-  HREF="node7.html#SECTION00750000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">5</SPAN> Functions defined in <SPAN  CLASS="textit">mod_dock</SPAN></A>
+  HREF="node7.html#SECTION00750000000000000000">6.5 Functions defined in <I>mod_dock</I></A>
 <UL>
 <LI><A NAME="tex2html119"
-  HREF="node7.html#SECTION00751000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> WDock functions</A>
+  HREF="node7.html#SECTION00751000000000000000">6.5.1 WDock functions</A>
 </UL>
 <LI><A NAME="tex2html120"
-  HREF="node7.html#SECTION00760000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">6</SPAN> Functions defined in <SPAN  CLASS="textit">mod_sp</SPAN></A>
+  HREF="node7.html#SECTION00760000000000000000">6.6 Functions defined in <I>mod_sp</I></A>
 <LI><A NAME="tex2html121"
-  HREF="node7.html#SECTION00770000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">7</SPAN> Functions defined in <SPAN  CLASS="textit">mod_statusbar</SPAN></A>
+  HREF="node7.html#SECTION00770000000000000000">6.7 Functions defined in <I>mod_statusbar</I></A>
 <UL>
 <LI><A NAME="tex2html122"
-  HREF="node7.html#SECTION00771000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">1</SPAN> WStatusBar functions</A>
+  HREF="node7.html#SECTION00771000000000000000">6.7.1 WStatusBar functions</A>
 </UL>
 <LI><A NAME="tex2html123"
-  HREF="node7.html#SECTION00780000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">8</SPAN> Functions defined in <SPAN  CLASS="textit">de</SPAN></A>
+  HREF="node7.html#SECTION00780000000000000000">6.8 Functions defined in <I>de</I></A>
 <LI><A NAME="tex2html124"
-  HREF="node7.html#SECTION00790000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">9</SPAN> Hooks</A>
+  HREF="node7.html#SECTION00790000000000000000">6.9 Hooks</A>
 <LI><A NAME="tex2html125"
-  HREF="node7.html#SECTION007100000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">10</SPAN> Miscellaneous</A>
+  HREF="node7.html#SECTION007100000000000000000">6.10 Miscellaneous</A>
 <UL>
 <LI><A NAME="tex2html126"
-  HREF="node7.html#SECTION007101000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">1</SPAN> Size policies</A>
+  HREF="node7.html#SECTION007101000000000000000">6.10.1 Size policies</A>
 </UL>
 </UL>
 <BR>

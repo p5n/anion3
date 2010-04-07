@@ -5,8 +5,8 @@ pkgdesc="anion wm 3"
 arch=(i686 x86_64)
 url="http://code.google.com/p/anion3/"
 license=('GPL2')
-depends=(libextl-3)
-makedepends=('mercurial' 'rubber')
+depends=('libextl-3')
+makedepends=('mercurial' 'rubber' 'texlive-latexextra' 'latex2html')
 
 _hgroot="https://anion3.googlecode.com/hg/"
 _hgrepo="anion3"
