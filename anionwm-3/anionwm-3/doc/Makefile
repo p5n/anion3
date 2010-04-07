@@ -25,6 +25,8 @@ RUBBER_PDF=rubber -d
 
 TARGETS = ionconf ionnotes
 
+TO_CLEAN=*.ps *.ps.gz *.dvi *.dvi.gz *.pdf *.out *.log
+
 # Generic rules
 ######################################
 
