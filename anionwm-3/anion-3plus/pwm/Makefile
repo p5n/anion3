@@ -42,6 +42,8 @@ endif
 
 CFLAGS += $(XOPEN_SOURCE) $(C99_SOURCE)
 
+TO_CLEAN=pwm3plus
+
 ######################################
 
 include $(TOPDIR)/build/rules.mk

@@ -34,6 +34,8 @@ DEFINES += -DETCDIR=\"$(ETCDIR)\" -DSHAREDIR=\"$(SHAREDIR)\" \
 
 CFLAGS += $(XOPEN_SOURCE) $(C99_SOURCE)
 
+TO_CLEAN=ion3plus
+
 ######################################
 
 include $(TOPDIR)/build/rules.mk

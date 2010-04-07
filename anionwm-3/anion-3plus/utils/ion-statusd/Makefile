@@ -25,6 +25,8 @@ LUA_SOURCES = statusd_date.lua statusd_mail.lua statusd_load.lua
 
 MAKE_EXPORTS = statusd
 
+TO_CLEAN=ion-statusd
+
 include $(TOPDIR)/libmainloop/rx.mk
 
 ######################################
