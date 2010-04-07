@@ -25,7 +25,6 @@ RUBBER_PDF=rubber -d
 
 TARGETS = ionconf ionnotes
 
-TO_CLEAN=*.ps *.ps.gz *.dvi *.dvi.gz *.pdf *.out *.log
 
 # Generic rules
 ######################################
@@ -94,8 +93,10 @@ all-html: $(patsubst %, %-html, $(TARGETS))
 
 clean:
 	rm -f $(FNTEXES) fnlist.tex
-	rm -f *.aux *.toc *.log
+	rm -f *.aux *.toc *.log *.out
 	rm -f *.idx *.ild *.ilg *.ind
+	rm -f *.ps *.ps.gz *.dvi *.dvi.gz *.pdf
+	rm -rf ionconf ionnotes
         
 realclean: clean
 	rm -f *.ps *.pdf *.dvi
