@@ -410,7 +410,7 @@ VIZ TAKÉ
 
        Dokument "Configuring and extending Ion3 with Lua" k nalezení tamté¾.
 
-       //usr/local/share/doc/anion3/
+       //usr/share/doc/anion3/
 
        X(7x), pwm3(1), joe(1)
 

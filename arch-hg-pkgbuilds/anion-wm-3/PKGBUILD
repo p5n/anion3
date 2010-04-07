@@ -1,5 +1,5 @@
 pkgname=anion-wm-3-hg
-pkgver=12
+pkgver=22
 pkgrel=1
 pkgdesc="anion wm 3"
 arch=(i686 x86_64)
@@ -36,6 +36,6 @@ fi
   # BUILD HERE
   #
   cd anionwm-3/anionwm-3
-  make PREFIX=/usr || return 1
+  make -j1 PREFIX=/usr || return 1
   make DESTDIR="$pkgdir/" PREFIX=/usr install || return 1
 }

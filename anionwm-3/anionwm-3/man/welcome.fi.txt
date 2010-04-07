@@ -415,7 +415,7 @@ KATSO MYÖS
        Dokumentti "Configuring and  extending  Ion3  with  Lua"  (englanniksi)
        nähtävissä Ionin kotisivulla.
 
-       //usr/local/share/doc/anion3/
+       //usr/share/doc/anion3/
 
        X(7x), pwm3(1), joe(1)
 
