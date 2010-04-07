@@ -74,7 +74,7 @@ WGlobal ioncore_g;
 static const char *progname="ion";
 
 static const char ioncore_copy[]=
-    "Ion " ION_VERSION ", copyright (c) Tuomo Valkonen 1999-2009.";
+    "Anion " ION_VERSION ", copyright (c) Sergej Pupykin 2010, Tuomo Valkonen 1999-2009.";
 
 static const char ioncore_license[]=DUMMY_TR(
     "This software is licensed under the GNU Lesser General Public License\n"
