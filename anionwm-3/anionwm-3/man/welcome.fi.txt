@@ -393,13 +393,13 @@ SIDONNAT
 
 
 TIEDOSTOT JA HAKEMISTOT
-       /etc/ion3plus/cfg_ion.lua
+       /etc/anion3/cfg_ion.lua
               Järjestelmän oletusarvoinen pääasetustiedosto.
 
-       /etc/ion3plus/cfg_*.lua
+       /etc/anion3/cfg_*.lua
               Muita asetustiedostoja.
 
-       /etc/ion3plus/look_*.lua
+       /etc/anion3/look_*.lua
               Ulkonäön asetustiedostoja.
 
        ~/.ion3/
@@ -415,7 +415,7 @@ KATSO MYÖS
        Dokumentti "Configuring and  extending  Ion3  with  Lua"  (englanniksi)
        nähtävissä Ionin kotisivulla.
 
-       //usr/local/ion-3plus/share/doc/ion3plus/
+       //usr/local/share/doc/anion3/
 
        X(7x), pwm3(1), joe(1)
 

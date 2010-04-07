@@ -11,7 +11,7 @@ include $(TOPDIR)/modulelist.mk
 
 ######################################
 
-EXECUTABLE = pwm3plus
+EXECUTABLE = anion-pwm3
 
 SOURCES = pwm.c
 
@@ -42,7 +42,7 @@ endif
 
 CFLAGS += $(XOPEN_SOURCE) $(C99_SOURCE)
 
-TO_CLEAN=pwm3plus
+TO_CLEAN=anion-pwm3
 
 ######################################
 

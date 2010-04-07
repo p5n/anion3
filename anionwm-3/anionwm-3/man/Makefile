@@ -14,8 +14,8 @@ WELCOME_TARGETS=\
 	welcome.txt \
 	$(foreach tr, $(TRANSLATIONS), welcome.$(tr).txt)
 
-TARGETS=ion3.1 $(foreach tr, $(TRANSLATIONS), ion3.$(tr).1) \
-	pwm3.1 $(foreach tr, $(TRANSLATIONS), pwm3.$(tr).1) \
+TARGETS=anion3.1 $(foreach tr, $(TRANSLATIONS), anion3.$(tr).1) \
+	anion-pwm3.1 $(foreach tr, $(TRANSLATIONS), anion-pwm3.$(tr).1) \
 	$(WELCOME_TARGETS)
 
 MKMAN=$(LUA) ../build/mkman.lua $(MKMAN_DEFS)
@@ -40,36 +40,38 @@ PWM_CONFIGS=\
 	../etc/cfg_menu.lua \
 	../pwm/cfg_pwm.lua
 
+TO_CLEAN=*.1
+
 ######################################
 
 include $(TOPDIR)/build/rules.mk
 
 ######################################
 
-ion3.1: ion3.in $(CONFIGS)
+anion3.1: anion3.in $(CONFIGS)
 	$(MKMAN) -i $< -o $@ $(CONFIGS)
 
-pwm3.1: pwm3.in $(PWM_CONFIGS)
+anion-pwm3.1: anion-pwm3.in $(PWM_CONFIGS)
 	$(MKMAN) -i $< -o $@ $(PWM_CONFIGS)
 
-ion3.%.1: ion3.%.in $(CONFIGS) ../po/%.po
+anion3.%.1: anion3.%.in $(CONFIGS) ../po/%.po
 	$(MKMAN) -po ../po/$*.po -i $< -o $@ $(CONFIGS)
 
-pwm3.%.1: pwm3.%.in $(PWM_CONFIGS) ../po/%.po
+anion-pwm3.%.1: anion-pwm3.%.in $(PWM_CONFIGS) ../po/%.po
 	$(MKMAN) -po ../po/$*.po -i $< -o $@ $(PWM_CONFIGS)
 
-welcome%txt: welcome%head ion3%1
+welcome%txt: welcome%head anion3%1
 	(cat welcome$*head; \
-	$(NROFF) ion3$*1 | $(FILTERCRAP)) > $@
+	$(NROFF) anion3$*1 | $(FILTERCRAP)) > $@
 
 _install:
 	$(INSTALLDIR) $(MANDIR)/man1
-	$(INSTALL) -m $(DATA_MODE) ion3.1 $(MANDIR)/man1
-	$(INSTALL) -m $(DATA_MODE) pwm3.1 $(MANDIR)/man1
+	$(INSTALL) -m $(DATA_MODE) anion3.1 $(MANDIR)/man1
+	$(INSTALL) -m $(DATA_MODE) anion-pwm3.1 $(MANDIR)/man1
 	for tr in $(TRANSLATIONS); do \
 		$(INSTALLDIR) $(MANDIR)/$$tr/man1 ; \
-		$(INSTALL) -m $(DATA_MODE) ion3.$$tr.1 $(MANDIR)/$$tr/man1/ion3.1 ; \
-		$(INSTALL) -m $(DATA_MODE) pwm3.$$tr.1 $(MANDIR)/$$tr/man1/pwm3.1 ; \
+		$(INSTALL) -m $(DATA_MODE) anion3.$$tr.1 $(MANDIR)/$$tr/man1/anion3.1 ; \
+		$(INSTALL) -m $(DATA_MODE) anion-pwm3.$$tr.1 $(MANDIR)/$$tr/man1/anion-pwm3.1 ; \
 	done
 	$(INSTALLDIR) $(SHAREDIR)
 	for i in $(WELCOME_TARGETS); do \

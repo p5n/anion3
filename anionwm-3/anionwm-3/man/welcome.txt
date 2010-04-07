@@ -382,13 +382,13 @@ BINDINGS
 
 
 FILES AND DIRECTORIES
-       /etc/ion3plus/cfg_ion.lua
+       /etc/anion3/cfg_ion.lua
               System default main configuration files
 
-       /etc/ion3plus/cfg_*.lua
+       /etc/anion3/cfg_*.lua
               Other configuration files.
 
-       /etc/ion3plus/look_*.lua
+       /etc/anion3/look_*.lua
               Colour scheme configuration files
 
        ~/.ion3/
@@ -404,7 +404,7 @@ SEE ALSO
        The document "Configuring and extending Ion3 with Lua" found on the Ion
        home page.
 
-       //usr/local/ion-3plus/share/doc/ion3plus/
+       //usr/local/share/doc/anion3/
 
        X(7x), pwm3(1), joe(1)
 

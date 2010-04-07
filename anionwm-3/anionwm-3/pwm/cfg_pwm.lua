@@ -69,7 +69,7 @@ defbindings("WMPlex.toplevel", {
     kpress(META.."G", nil),
     
     bdoc("Show the PWM manual page."),
-    kpress(META..   "F1", "ioncore.exec_on(_, ':man pwm3')"),
+    kpress(META..   "F1", "ioncore.exec_on(_, ':man anion-pwm3')"),
     
     bdoc("Display context menu."),
     kpress(META.."M", "mod_menu.menu(_, _sub, 'ctxmenu')"),
@@ -84,7 +84,7 @@ defbindings("WFrame.toplevel", {
 defmenu("mainmenu", {
     submenu("Programs",      "appmenu"),
     menuentry("Lock screen", "ioncore.exec_on(_, 'xlock')"),
-    menuentry("Help",        "ioncore.exec_on(_, ':man pwm3')"),
+    menuentry("Help",        "ioncore.exec_on(_, ':man anion-pwm3')"),
     submenu("Workspaces",    "wsmenu"),
     submenu("Styles",        "stylemenu"),
     submenu("Session",       "sessionmenu"),
