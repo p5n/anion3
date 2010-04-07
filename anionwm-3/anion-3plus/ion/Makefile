@@ -11,7 +11,7 @@ include $(TOPDIR)/modulelist.mk
 
 ######################################
 
-EXECUTABLE = ion3plus
+EXECUTABLE = anion3
 
 SOURCES = ion.c
 
@@ -34,7 +34,7 @@ DEFINES += -DETCDIR=\"$(ETCDIR)\" -DSHAREDIR=\"$(SHAREDIR)\" \
 
 CFLAGS += $(XOPEN_SOURCE) $(C99_SOURCE)
 
-TO_CLEAN=ion3plus
+TO_CLEAN=anion3
 
 ######################################
 

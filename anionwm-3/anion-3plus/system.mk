@@ -17,25 +17,25 @@ PREFIX=/usr/local
 # Main binaries
 BINDIR=$(DESTDIR)/$(PREFIX)/bin
 # Configuration .lua files
-ETCDIR=$(DESTDIR)/etc/ion3plus
+ETCDIR=$(DESTDIR)/etc/anion3
 # Some .lua files and ion-* shell scripts
-SHAREDIR=$(DESTDIR)/$(PREFIX)/share/ion3plus
+SHAREDIR=$(DESTDIR)/$(PREFIX)/share/anion3
 # Manual pages
 MANDIR=$(DESTDIR)/$(PREFIX)/share/man
 # Some documents
-DOCDIR=$(DESTDIR)/$(PREFIX)/share/doc/ion3plus
+DOCDIR=$(DESTDIR)/$(PREFIX)/share/doc/anion3
 # Nothing at the moment
-INCDIR=$(DESTDIR)/$(PREFIX)/include/ion3plus
+INCDIR=$(DESTDIR)/$(PREFIX)/include/anion3
 # Nothing at the moment
 LIBDIR=$(DESTDIR)/$(PREFIX)/lib
 # Modules
-MODULEDIR=$(DESTDIR)/$(PREFIX)/lib/ion3plus/mod
+MODULEDIR=$(DESTDIR)/$(PREFIX)/lib/anion3/mod
 # Compiled Lua source code
-LCDIR=$(DESTDIR)/$(PREFIX)/lib/ion3plus/lc
+LCDIR=$(DESTDIR)/$(PREFIX)/lib/anion3/lc
 # ion-completefile (does not belong in SHAREDIR being a binary file)
-EXTRABINDIR=$(DESTDIR)/$(PREFIX)/lib/ion3plus/bin
+EXTRABINDIR=$(DESTDIR)/$(PREFIX)/lib/anion3/bin
 # For ion-completeman system-wide cache
-VARDIR=$(DESTDIR)/var/cache/ion3plus
+VARDIR=$(DESTDIR)/var/cache/anion3
 # Message catalogs
 LOCALEDIR=$(DESTDIR)/$(PREFIX)/share/locale
 

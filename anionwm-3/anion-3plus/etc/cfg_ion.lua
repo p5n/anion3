@@ -6,7 +6,7 @@
 -- configuration files (cfg_modulename.lua). 
 --
 -- When any binding and other customisations that you want are minor, it is 
--- recommended that you include them in a copy of this file in ~/.ion3/.
+-- recommended that you include them in a copy of this file in ~/.anion3/.
 -- Simply create or copy the relevant settings at the end of this file (from
 -- the other files), recalling that a key can be unbound by passing 'nil' 
 -- (without the quotes) as the callback. For more information, please see 

@@ -16,6 +16,8 @@ LIBS += $(LIBTU_LIBS)
 INCLUDES += $(LIBTU_INCLUDES)
 CFLAGS += $(XOPEN_SOURCE) $(C99_SOURCE)
 
+TO_CLEAN=ion-completefile
+
 ######################################
 
 include $(TOPDIR)/build/rules.mk

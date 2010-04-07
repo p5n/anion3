@@ -7,7 +7,7 @@
 
 --[[
 
--- This script allows you to use independent keyboard layouts for different windows in Ion3.
+-- This script allows you to use independent keyboard layouts for different windows in Anion3.
 -- It uses a window property to store the XKB groups, so you can restart Ion without losing
 -- settings for each window.
 
