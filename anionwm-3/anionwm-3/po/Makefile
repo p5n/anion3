@@ -77,7 +77,7 @@ $(POTFILE): $(POTFILE)_c $(POTFILE)_lua
 %.mo: %.po
 	$(MSGFMT) -o $@ $<
 
-_install:
+_install: $(MO_FILES)
 	for i in $(TRANSLATIONS); do \
 		$(INSTALLDIR) $(LOCALEDIR)/$$i/LC_MESSAGES ; \
 		$(INSTALL) -m $(DATA_MODE) $$i.mo $(LOCALEDIR)/$$i/LC_MESSAGES/anion3.mo ; \
