@@ -54,6 +54,12 @@ install:
             for i in $$d/*; do \
                 $(INSTALL) -m $(DATA_MODE) $$i $(DOCDIR)/$$i; \
 	    done; \
+	    rm -f $(DOCDIR)/$$d/*.log; \
+	    rm -f $(DOCDIR)/$$d/WARNINGS; \
+	    rm -f $(DOCDIR)/$$d/*.aux; \
+	    rm -f $(DOCDIR)/$$d/*.idx; \
+	    rm -f $(DOCDIR)/$$d/*.tex; \
+	    rm -f $(DOCDIR)/$$d/*.pl; \
         done
 
 # ionconf rules
