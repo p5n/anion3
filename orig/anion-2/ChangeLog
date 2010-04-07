@@ -1,0 +1,2034 @@
+2004-07-29:
+
+  * Added one missing set_previous_of call.
+  * Ensure FD_CLOEXEC is set on all the file descriptors that we keep
+    open for a longer time.
+
+2004-06-19:
+
+  * Fixed linking problems in the de module.
+  * Export WScreen.set_managed_offset.
+
+2004-06-05:
+
+  * Added Xinerama sanity check.
+
+2004-06-01:
+
+  * Changed default install program to install-sh.
+
+2004-05-22:
+
+  * Removed 'exec' from /bin/sh call to execute command so that more
+    complex commands can be entered.
+
+2004-05-18:
+
+  * Merged dock kde systray support patch.
+  * Fixed couple XFree calls in dock module.
+
+2004-05-09:
+
+  * WM_COLORMAP_WINDOWS handling fixes. (Does something still use
+    this/bother supporting indexed colour models at all?)
+
+2004-05-03:
+
+  * Fixed stippled tab font when -i18n was not set.
+
+2004-04-28:
+
+  * Only kill active grab when esc is pressed, not released.
+
+2004-04-11:
+
+  * Oops, there was an off-by-one bug in _NET_VIRTUAL_ROOTS setting.
+
+2004-04-05:
+
+  * Added a kludge to deal with waitrelease when modifiers have
+    already been released.
+
+2004-04-02:
+
+  * Changed compiled .lc files' path to LIBDIR/ion/lc.
+
+2004-03-31:
+
+  * Fixed assert-crash when attempting to split a frame not managed
+    by a WIonWS.
+
+2004-03-24:
+
+  * Don't put input method failure complaints in startup error log.
+
+2004-03-23:
+
+  * Client window unmap handling fixes (?).
+
+2004-03-18:
+
+  * Made drawing engine objects inheritable and initialisation code
+    reusable.
+  * Improvements and fixes in keyboard mapping changes handling.
+
+2004-03-10:
+
+  * Slightly reduce flicker with apps that update title too often by
+    removing a redundant change notify call.
+
+2004-03-08:
+
+  * Added a check in layout loading code to detect corrupt files with
+    multiple instances of the same client window.
+
+2004-02-26:
+
+  * Updated Mozilla Firebird entries in menu configuration files to
+    Mozilla Firefox.
+  * Added important missing function WFloatWS.attach.
+  * Take gravity better into account when reparenting windows on
+    exit.
+
+2004-02-23:
+
+  * Made some goto_* routines return the region that will be focused
+    and added asynchronity notices in documentation.
+
+2004-02-18:
+
+  * Some tab drag&drop fixes.
+  * Startup errorlog display fixed when we didn't even open the
+    display.
+  * WIonWS load routines better handle corrupt sizes in layout
+    savefile.
+
+2004-02-17:
+
+  * Object/proxy cache references to proxies weren't being cleared
+    when objects were destroyed.
+
+2004-02-16:
+
+  * Added exported function to get line editor 'mark'.
+
+2004-02-15:
+
+  * Cleaned up header files from (at least) most of the functions
+    that don't exist in any source file.
+
+2004-02-14:
+
+  * Man pages fixes
+  * Fixed toggle_tab on floatframes.
+
+2004-02-11:
+
+  * Move/resize display was never showing position.
+  * Completions display wasn't being refreshed, if its size wasn't
+    changed between completions.
+  * Oops, warping on workspace switch had been broken at some point.
+  * Some autoconf script portability and other fixes.
+  * The function floatws_current was not being exported as
+    WFloatWS.current.
+
+2004-02-10:
+
+  * Client window focusing routine was not setting "awaiting focus"
+    status.
+  * Removed superfluous debugging message.
+
+2004-02-08:
+
+  * querylib.query_renameworkspace documentation was out-of-date.
+
+2004-02-07:
+
+  * Mod1+Enter full screen toggle was not mentioned on the manual
+    page.
+
+2004-02-06:
+
+  * Implemented a kludge to track "awaiting focus" state. This will
+    allow, for example, windows changing to full screen mode
+    immediately after mapping (instead of doing it right and setting
+    the properties before mapping) to be switched to.
+
+2004-02-05:
+
+  * WIonWS.newframe wasn't adjusting sizes of existing frames nicely.
+  * Added extra include for dock.
+
+2004-02-03:
+
+  * Minor memory leak removed: drawing engine colour group name.
+  * Some extra safety checks added in line editor.
+
+2004-02-02:
+
+  * Changed the autoconf script not to use \" that not all shells
+    apparently support.
+
+2004-02-01:
+
+  * Man page fixes.
+  * Fixed line breaking in really narrow listings.
+
+2004-01-30:
+
+  * Unblock signals at startup as GDM in its great wisdom initially
+    blocks the window manager from receiving SIGCHLD resulting in
+    zombies.
+  * More changes to (floatws) stacking policy.
+
+2004-01-29:
+
+  * Transient size calculation fixed.
+  * Creating frame for a transient on a floatws will raise the frame
+    containing the transient_for window.
+
+2004-01-28:
+
+  * Documentation comment for ioncore_userdir was broken.
+  * Changed libtool minimum version requirement back to safe 1.4.3.
+  * Minor man page improvements.
+
+2004-01-27:
+
+  * Install documentation and manual pages under $PREFIX/share as per
+    the FHS.
+
+2004-01-26:
+
+  * Trap signals at an earlier stage so that processes forked at
+    startup don't become temporarily defunct.
+
+2004-01-25:
+
+  * Typo and spelling fixes.
+
+2004-01-24:
+
+  * Added dummy multibyte/widechar routines for retarded platforms
+    without even such dummy support.
+
+2004-01-21:
+
+  * Moved session directory creation to a proper place, so that the
+    directory will exist for the style menu save feature.
+  * Fill _NET_SUPPORTED root window property with the supported
+    features (_NET_WM_FULLSCREEN, _NET_WM_NAME, _NET_VIRTUAL_ROOTS).
+  * Some more polish on floatws focus policy.
+
+2004-01-20:
+
+  * Binaries are now again stripped when installed.
+  * Module preloading support was broken.
+
+2004-01-19:
+
+  * Autoconf script Xinerama check fixed.
+  * Old submaps were ignored when new entries were added.
+  * Fixed tab drop on a floatws.
+
+2004-01-16:
+
+  * Fixed goto_previous after switching between windows in the same
+    frame with a query.
+  * The dock no longer gets focused when the pointer enters it.
+  * Minor client window management set up fixes.
+  * Pass _ION_KLUDGES (XA_STRING) property in WClientwin.get_ident as
+    .kludges.
+  * There were still some references to frame-tab (how tab-frame),
+    causing initial frame sizes on floatws:s to be miscalculated.
+
+2004-01-15:
+
+  * Style selection saving wasn't working.
+  * A couple manual page and README bugs were fixed.
+  * Removed Mod1+K T rebinding in ionframe_bindings to
+    toggle_transients_pos (it is supposed to be clear_tags).
+  * Changed order of mplex old/new selected object map/unmap to
+    reduce flicker.
+
+2004-01-14:
+
+  * Added optional autoconf script.
+  * Floating workspace now give focus to highest-stacked frame when
+    the active one is destroyed.
+  * Mod1+N/P were bound to raise/lower on floating workspaces.
+
+2004-01-13:
+
+  * Keyboard move/resize warps (if enabled) pointer back to
+    manipulated frame after finishing.
+  * Frame maximize takes active client window size limits into
+    account.
+
+2004-01-09:
+
+  * Changed winprop selection by title to longest match.
+
+2004-01-08:
+
+  * Support changes in X keyboard map.
+
+2004-01-06:
+
+  * Minor man page fixes.
+
+2003-12-29:
+
+  * Previous frame geometry (for maximize and shade) is saved in the
+    workspaces save file.
+  * Workspace query asks for type of workspace when creating new.
+  * Some default menu configuration changes. PWM no longer uses the
+    same menu configuration file.
+
+2003-12-23:
+
+  * Included the dock module with Ion.
+  * PWM stock configuration files load the dock module by default.
+
+2003-12-18:
+
+  * Fixed winprop lookup when window name is nil.
+  * Added some object destroy safety checks.
+  * Class lookup is now case-insensitive.
+  * Message line counting fix.
+  * Better error message in querylib.query_workspace.
+  * WScreens no longer accept tab drag&drop.
+  * look-clean "bigmenu" font changed.
+
+2003-12-14:
+
+  * Fixed (?) grab release focusing when warping is disabled.
+
+2003-12-12:
+
+  * Man pages still had references to old user configuration file
+    directory.
+
+2003-12-11:
+
+  * Fixed a potential segfault when window disappears while being set
+    up to be managed.
+  * Fixed .welcome_msg_displayed permissions.
+  * Fixed querylib.query_man default value.
+
+2003-12-09:
+
+  * Removed '-devel' from path names.
+  * Changed user configuration file directories to ~/.ion2/ and ~
+    /.pwm2/.
+  * Renamed all ioncore*.lua configuration files to ion*.lua.
+  * The main configuration file for Ion is ion.lua and for PWM
+    pwm.lua.
+  * Removed configuration file conversion utilities; people following
+    the development branch should already have converted their files.
+  * Module compatibility is checked against ION_API_VERSION (2)
+    instead of ION_VERSION.
+  * Removed compat.lua
+
+2003-12-06:
+
+  * Added "stylemenu" that displays all look-*.lua files on search
+    path.
+  * Bound WClientWin.toggle_transients_pos to DEFAULT_MOD+K T.
+  * Added WClientWin.toggle_transients_pos export and
+    transients_at_top winprop.
+
+2003-12-05:
+
+  * Submenus can now be generated by functions when needed.
+  * Added "windowlist" and "workspacelist" default menus.
+
+2003-12-04:
+
+  * Closing a frame initially contaning transient window will switch
+    focus to the frame that contained the transient_for window.
+
+2003-12-03:
+
+  * Display a welcome message and manual page to new users.
+  * Display a welcome message and manual page to new users.
+  * etc/ make install changes; ioncore.lua is now always overwritten
+    and draw.lua link restored to a working file.
+  * Script search path changes; calling file's directly is now only
+    considered if explicitly indicated in the file name. (So now
+    normally "included" files in user's directories will always be
+    preferred over those in system directories.)
+  * The ion and pwm scripts were removed and are instead now binaries
+    linked against ioncore.a.
+  * The 'ion' binary uses ~/.ion (no longer ~/.ion-devel) for user's
+    configuration files and the 'pwm' binary uses ~/.pwm for user's
+    configuration files.
+  * Removed mentions of ion-devel in the release tarball; default
+    installation target is now /usr/local with configuration files in
+    /usr/local/etc/ion and ~/.ion. (CVS snapshots will still use /usr
+    /local/ion-devel.)
+
+2003-12-02:
+
+  * Fixed message display line copying bug.
+  * Added a "basic concepts" section in the manual page.
+
+2003-12-01:
+
+  * The line editor and region_set_name strip white space from the
+    beginning and end of strings.
+  * Ignore unknown bits in keypress event state.
+
+2003-11-30:
+
+  * Only redraw menu entries that need redrawing when selected entry
+    is changed.
+  * Implemented sticky frames on WFloatWS:s.
+  * Implemented move/resize edge snapping.
+  * Smoother square root based move/resize acceleration curve.
+
+2003-11-29:
+
+  * Fixed selection request when multibyte support is not enabled.
+  * "Close" key and menu binding changes.
+  * Some focus handling changes, fixes and clean-up.
+
+2003-11-28:
+
+  * Keyboard is no longer grabbed in submap mode if normal bindmap is
+    not grabed.
+
+2003-11-25:
+
+  * Added WIonWS.farthest, next_to and goto_dir exports.
+
+2003-11-24:
+
+  * Added 'jumpto' winprop and 'clientwin_added' hook.
+  * Fonts are chosen more consistently in provided look-* style
+    files.
+
+2003-11-23:
+
+  * Completable hosts for SSH query are parsed from ~/.ssh/
+    known_hosts (instead of requiring the user to a list of them).
+  * String shortening rules can now be specified always-on so that
+    the rule is applied even when no shortening is necessary.
+  * Look configuration files properly ported the drawing engine model
+    and proper menu styles added to those styles that need it.
+  * 'pmenu' entry index could be too big by one. Fixed.
+  * Added new style look-cleanios.
+  * Added WIonWS.resize_tree function that can be used to resize
+    whole subtrees of the workspace split hierarchy.
+  * Changes in stipple pattern usage in drawing a dragged tab.
+
+2003-11-21:
+
+  * New string shortening code could segfault. Fixed it.
+  * Listing (completions, messages) line breaking wasn't yet
+    multibyte-aware.
+  * Invalid multibyte strings could cause the line editor to go to an
+    endless loop.
+  * Title shortening rules are now used always even if the title
+    would fit in the available space without modification.
+  * Modified the default drawing engine to be more usable as a basis
+    for alternative drawing engines that need per-window data.
+
+2003-11-19:
+
+  * Replaced UTF-8 support with (almost) general multibyte encoding
+    support.
+
+2003-11-16:
+
+  * Added font caching/ref.counting so that font loading would take
+    little less time when pattern guessing is required to fullfill
+    locale's requirements.
+  * UTF8 is not used if locale is C/POSIX (or broken) even if Ion was
+    compiled with UTF8 support.
+  * Updated the man page.
+  * Bindings can now be removed on the fly by passing nil as callback
+    function.
+  * Added support for _NET_WM_STATE_FULLSCREEN request.
+
+2003-11-14:
+
+  * Added FontSet guessing code that should be able to figure out
+    enough fonts for XCreateFontSet to fullfill locales' requirements
+    so font loading shouldn't fail so often when UTF8 support is
+    enabled.
+  * The functions to create binding wrappers to operate on WMPlexs'
+    children were extended and given better names, although the old
+    ones are still available.
+
+2003-11-13:
+
+  * Call XClearWindow when toggling tab to avoid clutter.
+  * Changes in default configuration files to make them more legible
+    and to add menu configuration.
+  * 'ioncore-startup.lua' kludge was removed and replaced by the
+    loading of 'ioncore-efbb.lua' in case of empty bindmaps from the
+    C side.
+  * Lua files in share/ (but not etc/) are precompiled.
+
+2003-11-12:
+
+  * C-side module configuration file loading function also look for
+    compiled .lc files.
+  * Lua-side include() automatically also looks for .lc and .lua
+    files if neither extension nor path component is given.
+
+2003-11-09:
+
+  * Added WRegion.is_active and is_mapped exports.
+
+2003-11-06:
+
+  * Stack management fixes.
+  * Some mplex_managed_changed calls were wrong, causing trouble with
+    transparency.
+
+2003-10-30:
+
+  * Removed CURRENT_FILE kludge for include handling; use the Lua
+    debug interface instead to get the file the calling function was
+    defined in.
+
+2003-10-27:
+
+  * Updated the look-* files.
+  * Some style name changes.
+  * Changed styles are automatically translated (and complained of).
+
+2003-10-25:
+
+  * Check fallback font at startup with XCreateFontSet instead of
+    XLoadQueryFont.
+
+2003-10-24:
+
+  * Moved list of modules to build from system.mk to modulelist.mk
+
+2003-10-04:
+
+  * Added genframe_(in)activated hooks.
+  * va_list usage changes due to problems on some architechtures.
+
+2003-09-15:
+
+  * Some fixes to client window rescuing.
+  * Some target and fullscreen winprop handling fixes.
+
+2003-09-09:
+
+  * Fixed an event-missing problem.
+
+2003-08-31:
+
+  * Added a note on .xinitrc/.xsession to README.
+
+2003-08-28:
+
+  * Some border drawing fixes.
+
+2003-08-24:
+
+  * Added ''pmenu'' off-screen scrolling support as in PWM.
+
+2003-08-22:
+
+  * Fixed a crash problem in case of invalid use of
+    WGenFrame.p_tabdrag.
+
+2003-08-21:
+
+  * Added a brush that handles submenu entries in menus specially.
+  * Enhanced menu support.
+
+2003-08-20:
+
+  * Don't strip white space from query results.
+
+2003-08-19:
+
+  * Fixed tab drop on floatws:s (was putting clients to full screen
+    mode on occasion).
+
+2003-08-14:
+
+  * Added ioncore_version export.
+  * Added very preliminary and primitive menu support (only
+    query-like embedded-in-an-mplex menus).
+
+2003-08-13:
+
+  * Dragging a tab with no title could cause a segfault.
+
+2003-08-12:
+
+  * There was an indexing bug in rootwin.c that caused stack
+    corruption and crash when Xinerama was enabled.
+
+2003-08-11:
+
+  * Winprop lookup had been broken.
+
+2003-08-10:
+
+  * Added some more functions to manipulate object indices within a
+    WMPlex.
+  * Changes in tab reordering were not being updated to screen
+    correctly.
+  * make_exec_fn was broken when the parameter to created function
+    was a frame.
+
+2003-08-08:
+
+  * Modified the winprop patch to use the numerical zero field
+    instead of " ! " to store winprops with no name regexp specified.
+  * close_sub_or_self is now WRegion.close_sub_or_self.
+
+2003-08-07:
+
+  * Applied a patch to add title matching field 'name' (Lua regexp)
+    in winprops.
+
+2003-08-06:
+
+  * Backslash wasn't being escaped in saved strings.
+  * Implemented 'activity' display cue that is set when a newly
+    created client window is not displayed or when the urgency hint
+    is set by the client application.
+  * Updated style configuration files to draw tabs with the
+    'activity' attribute set in white on red. 'lookconv.lua' uses
+    these same colours in converted files.
+  * Wrote a conversion script from older .lua workspaces savefiles.
+  * Changed where get_winprop is called to a later time where the
+    client window's name has been set.
+  * Fixed a typo in UTF8 font code.
+
+2003-08-04:
+
+  * Ionframe shade fixed.
+
+2003-08-03:
+
+  * Added options to set floatframe bar width limits and tab bar
+    location for ionframes(fields floatframe_bar_max_w_q/
+    floatframe_tab_min_w and ionframe_bar_inside_borderin frame style
+    config).
+
+2003-08-01:
+
+  * Added ignore_cfgrq winprop.
+  * Added some line editing and history exports.
+
+2003-07-31:
+
+  * Bound Control+G to end a query and Control+K G to clear mark in
+    queries.
+  * Fixed some problems with selections in queries and added
+    wedln_clear_mark function.
+
+2003-07-30:
+
+  * Removed support for screen-specific configuration files.
+  * Added "deinit" hook.
+  * Implemented keyboard resize acceleration.
+
+2003-07-28:
+
+  * Fixed a bug in the new split resizing algorithm that caused
+    bottom/right regions in a split to be misplaced if both bottom
+    and top or left and right border were moved of another region.
+
+2003-07-27:
+
+  * Fixed transient_mode = "current" in full-screen mode.
+  * Added keys for manipulating tags and attaching tagged objects
+    (Mod+T: toggle tag, Mod+K T: clear tags, Mod+K A: attach tagged).
+  * Fixed a problem with the split resizing algorithm and keyboard
+    resize by almost completely rewriting the algorithm.
+
+2003-07-25:
+
+  * Colour scheme configuration files were converted to the new
+    format.
+  * Ion now supports drawing engines as loadable modules!
+
+2003-07-22:
+
+  * Added a script (etc/lookconv.lua) to convert the old .lua colour
+    schemes to the upcoming format.
+  * The prospective default drawing engine was added.
+
+2003-07-21:
+
+  * Added a note on *BSD libtool version brain-damagedness.
+
+2003-07-19:
+
+  * Some va_list passing changes.
+
+2003-07-18:
+
+  * The fact that there is a configuration manual was made much
+    better visible in the README.
+
+2003-07-16:
+
+  * Nested workspace handling had been broken by the add managed/
+    attach interface change. Fixed.
+
+2003-07-14:
+
+  * Lua function binding for classes put into class-tables thus
+    making the bindings more object-oriented in spirit.
+  * The function 'exec_on_wm_display' was renamed 'exec'.
+
+2003-07-11:
+
+  * AnyModifier handling fixes; Xlib was crashing when lock ignore
+    kludge was applied on AnyModifier grabs.
+
+2003-07-08:
+
+  * The 'have region A manage region B' interface was heavily
+    revamped. The generic region_manage(_new) functions are gone and
+    only WMPlexes now export the equivalent interfaces mplex_attach
+    (_new). Only client windows' are now set up with a generic
+    interface that is a lot simpler than the old.
+
+2003-06-28:
+
+  * Implemented region_close on WFloatWS:s and renamed
+    floatws_destroy to floatws_relocate_and_close to be consistent
+    with the naming of similar functions on WIonFrames.
+  * Fixed a crash when the same key was bound as both submap and
+    normal action on an object.
+
+2003-06-27:
+
+  * The Mod1+F1 Ion man page display binding was broken.
+  * The function exec_in_frame was renamed exec_in.
+  * The '-or' flag to find apparently was a GNU extension; '-o' seems
+    to work.
+  * The CF_LT_DL_ANCIENT option was removed as much more extra code
+    would have been needed to support ancient versions of libtool.
+    Version 1.4.3 or newer is now required.
+
+2003-06-26:
+
+  * XOR resize rubberand had been broken by previous changes.
+  * FloatWS:s don't warp to new frames.
+
+2003-06-25:
+
+  * Tabs' grab area extended to include frame's top border when the
+    frame's y coordinate is zero.
+  * The default bindings for the F-keys now use the modifier from
+    SECOND_MOD (defaults to the empty string i.e. no modifier).
+
+2003-06-23:
+
+  * Fixed pointer warping on screen change.
+  * A bug in grab handler calling code could crash Ion when leaving
+    keyboard resize mode manually.
+  * Resize display was showing incorrect values for keyboard resize.
+
+2003-06-21:
+
+  * Client window last height request bookkeeping code had been lost
+    when configure request policy was changed. This caused transient
+    sizes to be calculated incorrectly.
+  * Return from full screen mode to floatws had been broken.
+  * As the number of dynamic functions has been getting bigger, the
+    functions are now sorted on first use and then binary-searched
+    instead of naive linear searching.
+  * Screen lookup had been broken for windows that are not properly
+    on any screen.
+
+2003-06-20:
+
+  * Split recalculation on WS resize fixed and made proportional.
+  * Put new client windows in innermost/deepest nested active
+    workspace, if any, instead of limiting to those attached directly
+    to screens.
+  * The split functions now return the newly created frame.
+  * Some initial focus policy changes.
+
+2003-06-19:
+
+  * Tab-bar state wasn't being applied correctly from savefiles.
+  * New windows weren't being placed on correct screen in Xinerama
+    mode.
+  * Changes to client window move request handling on WFloatWS:s;
+    while the current behaviour may not be correct, a greater number
+    of apps' requests should work almost as expected even in nested
+    workspaces.
+
+2003-06-18:
+
+  * Use libtool for make clean.
+  * Some title shortening rules were defined in wrong order in
+    ioncore-example.lua and the rules App: doc -> doc... and App: doc
+    -> doc... were missing.
+  * Added min_size winprop.
+  * Transients weren't properly unattached when the managing client
+    window died. This could cause segfault e.g. at exit.
+
+2003-06-17:
+
+  * Scripts in share/ still weren't being built.
+  * Added some Cygwin installation notes to system.mk.
+  * Added a note to system.mk about the Xlib UTF8 bug.
+  * Added commented-out options to system.mk for compiling Ion with
+    the Debian Lua package as the paths and file names differ greatly
+    from the official distribution.
+  * Added workaround to the XFree86 textprop bug that caused starting
+    Opera to crash Ion when UTF8 support was enabled.
+  * The Mod1+C binding had been broken by the removal if
+    make_active_leaf_fn: The function close_sub_or_self (not same as
+    make_active_leaf_fn(region_close)) was added and the key bound to
+    this function.
+  * The function region_get_active_leaf was removed and the export
+    region_active_sub added.
+  * Added Galeon find dialog randomly missing transient_for hint
+    workaround winprop to kludges.lua.
+
+2003-06-15:
+
+  * make_active_leaf_fn in compat.lua was broken.
+  * Stack traces are ordered better when there are nested calls with
+    errors and calls to C functions for which no name is known are
+    compressed in the output.
+
+2003-06-14:
+
+  * Focus was being incorrectly changed when an inactive full screen
+    client window was destroyed.
+  * The man page query completor also looks for symbolic links.
+
+2003-06-13:
+
+  * Some changes to grab and drag handler setup functions.
+  * Escape key was harcoded to kill any active grab (so that
+    misconfigured resize modes and such can't do harm).
+
+2003-06-12:
+
+  * Error log should be somewhat easier to read now.
+  * Resize timeout timer was being set up only after some resize
+    action had been performed, not when entering the mode.
+
+2003-06-10:
+
+  * The Lua interfacing code now uses a unique (cached in a weak
+    table) WWatch for Ion's objects instead of creating a new
+    userdata/watch every time an object is passed to Lua. This allows
+    using the objects as indexes in tables.
+  * Warping on workspace switch had been broken by addition of
+    multiplexes.
+  * The functions extl_dofile/string' were removed and extl_loadfile/
+    string added.
+  * Binding configuration (hopefully) simplified: bindings previously
+    defined in common-frame-bindings.lua were moved to
+    ioncore-bindings.lua and functions for defining bindings common
+    to all WMPlexes and WGenFrames were added.
+
+2003-06-09:
+
+  * Don't complain of disappeared windows at startup phase.
+  * WRegions (except WClientWins) are now given names of the form
+    'ClassName' by default.
+  * 'QueryLib.query_workspace' new creates workspaces of the type set
+    in the variable 'default_ws_type' if no type is otherwise
+    specified and Mod1+F9 was bound to create workspaces of this type
+    without asking for a name. (The default name of default_ws_type
+    is used.)
+  * Some client window initial focus policy unification.
+
+2003-06-08:
+
+  * Workspace swithing while dragging tabs had been broken by the
+    mplex change.
+  * Added mplex_managed_count, mplex_managed_index and
+    mplex_current_index functions. The latter two are in
+    ioncore-mplexfns.lua that must specifically be loaded if the
+    functions are needed.
+  * Added -noxinerama command line option.
+
+2003-06-06:
+
+  * Added 'screen_set_managed_offset' function that statusbars and
+    such should use to allocate space.
+
+2003-06-04:
+
+  * WScreen and WGenFrame now have a common WMPlex base class.
+
+2003-06-03:
+
+  * Ion-ssh and ion-man scripts were updated to use $SHAREDIR/
+    ion-runinxterm.
+
+2003-06-02:
+
+  * Some libltdl search path setting changes.
+  * Ugly-font support was broken.
+  * Changed $SHAREDIR before $ETCDIR on configuration file/script
+    search path because people weren't removing their old *lib.lua
+    files.
+  * Most of module management code removed as libltdl can handle it.
+  * Remaining sprintf calls replaced with snprintf.
+  * Added -DCF_LTLD_ANCIENT kludge so that it might be possible to
+    use some systems' ancient libltdl.
+  * CF_NO_XINERAMA had been broken at some point.
+
+2003-06-01:
+
+  * An off-by-one error in extl_l1_finalize caused references to some
+    Lua tables (including large completions) never to be released.
+
+2003-05-31:
+
+  * The *DIR settings in system.mk are now more detailed.
+  * Changes in installation directories: The ion-* shell scripts are
+    installed in $SHAREDIR and are ioncorelib.lua, querylib.lua and
+    compat.lua. 'ion-completefile' is installed in $EXTRABINDIR (=
+    $MODULEDIR) being a binary.
+  * Changes in installation directories: The ion-* shell scripts are
+    installed in $SHAREDIR and are ioncorelib.lua, querylib.lua and
+    compat.lua. 'ion-completefile' is installed in $EXTRABINDIR (=
+    $MODULEDIR) being a binary.
+  * More changes in move/resize mode bindings to be more consistent
+    and predictable: Left/Right/Up/Down and F/B/P/N grow the frame in
+    the specific direction, Shift+keys shrink and in case of floating
+    frames, DEFAULT_MOD+keys move.
+  * The functions *frame_do_resize were changed to receive four
+    parameters, one for each border/direction.
+  * Manual page updated.
+  * License changed: LGPL.
+
+2003-05-29:
+
+  * All object destroys should now be handled safely.
+
+2003-05-28:
+
+  * Examples of query_man_path and query_ssh_hosts were added to the
+    default ioncore.lua main configuration file.
+
+2003-05-27:
+
+  * Some client window resize/move request handling changes.
+  * New name allocation code: client windows are now in a separate
+    namespace from other objects and "short names" without appended
+    instance number are gone.
+  * WClientWins now save the last height request of transients (and
+    other managed objects) so a decent size should always be restored
+    when the window is in a big enough frame.
+
+2003-05-25:
+
+  * QueryLib should now remember last directory for file view and
+    edit queries.
+  * Added the boolean 'fullscreen' winprop.
+
+2003-05-23:
+
+  * Grab handling code simplified.
+  * Xinerama screens now always have a virtual root window for better
+    separation.
+
+2003-05-21:
+
+  * The exported function specification generation script was
+    extended with EXTL_EXPORT_AS(...).
+  * The exports region_set_w/h were replaced with
+    region_request_geom.
+
+2003-05-20:
+
+  * Some more mouse resize tuning.
+  * The exports generation script was ignoring constness of string
+    and could therefore cause Ion to crash or corrupt strings.
+  * Simpler implementation of 'goto_previous' using watches.
+  * Better (?) frame shading and maximizing code that should also
+    eventually work on tiled workspaces (only partially implemented;
+    better region_request_geom neeeded).
+
+2003-05-19:
+
+  * The functions lookup/complete_region now expect a string class
+    parameter (or null for "WRegion") and the functions complete/
+    lookup_workspace/clientwin were moved to ioncorelib.lua as they
+    are not needed on the C side.
+  * Kludges and bloat to a proper (but not necessarily correct) X
+    server time in WM_TAKE_FOCUS messages to get around problems with
+    some programs.
+
+2003-05-18:
+
+  * Fix around problems with macros with some (possibly broken?)
+    versions of gcc.
+  * Some more focusing policy changes/fixes.
+
+2003-05-17:
+
+  * Fixed FloatWS initial focus.
+  * Default configuration uses XOR-rubberband move/resize (instead of
+    opaque) to be nicer on slower systems.
+  * Changes in object and function names to be closer to what users
+    see and think: what previously were screens (WScreen) are now
+    called root windows (WRootWin) and viewport (WViewport) have
+    become screens (WScreen). These changes are
+
+2003-05-16:
+
+  * Enchancements in client window "rescueing" and some unifications
+    with return from full screen mode.
+  * Added the extl_globals function for accessing globals.
+
+2003-05-15:
+
+  * Fixed a problem with bsearch() and Solaris.
+
+2003-05-14:
+
+  * Mouse resize changed to only resize along one coordinate axis
+    when the window is grabbed far enough from borders.
+  * 'ionws_do_clientwin' now calls the Lua function
+    'ionws_placement_method' with parameters (ws, cwin,
+    pos_given_by_user) to determine in which frame to place a window.
+    This can be used to e.g. experiment with placement heuristics.
+  * Return from full screen mode should work with floatws:s now.
+  * Changes in how parameters are passed to Lua code loaded as string
+    or from a file.
+  * Client window management setup code simplified by attaching
+    transients the their transient_for by default and having
+    floatws:s override this behaviour by hooking to
+    add_clientwin_alt.
+
+2003-05-13:
+
+  * Fixed a minor resize glitch.
+  * Keyboard resize should not "cumulate" size increments that do not
+    affect the frame size.
+  * Vertical keyboard resize binding swapped.
+  * Transient resizing when the managing WClientWin was resized had
+    been broken at some point.
+  * The new Lua calling code allowed removing dependency on C99
+    va_copy a little more easily than the old so Ion no longer
+    depends on it and should be easier to compile on older systems
+    (apparently including gcc 2.9x.x).
+  * There was a problem getting return values from Lua functions.
+  * The 'include' function didn't handle absolute paths.
+
+2003-05-12:
+
+  * Added new exports to get information on splits on WIonWs:s. This
+    should help writing alternative navigation functions.
+  * The exports region_get_(x|y|w|h) were replaced with region_geom.
+  * Region name instances are saved in the workspace savefiles.
+    (However, client windows do not use the saved title because it
+    may have changed so client windows' instance numbers may change
+    over restarts.)
+
+2003-05-11:
+
+  * Documentation was missing for exports in screen.c.
+  * The rest of the queries (goto/create workspace, attach client)
+    are now finally implemented in Lua as the function region_manage
+    (_new) are available.
+  * 'ionws_load' no longer requires 'split_tree' to be specified so
+    that new workspaces can be created with region_manage_new without
+    specifying the contents.
+  * Added checks in region_add_managed to prevent from attachinging
+    parent's or manager's to their (grand)children or managed
+    regions.
+
+2003-05-10:
+
+  * Viewport names are now saved and other changes in savefile
+    format. Old 'add_to_viewport' function was kept for compatibility
+    but will be removed eventually.
+  * 'extl_dofile' and 'extl_dostring' now pass arguments in the local
+    instead of global variable 'arg'.
+  * The Lua interface code now uses lua_cpcall extensively to make it
+    more tolerant to Lua's longjmp error handling.
+
+2003-05-09:
+
+  * Query module listings could hang Ion if there was not enough
+    space for a single visible row.
+  * Fixed a bug in extl_table_get that caused it to succeed for NULL
+    WObjs.
+  * Added the exports 'region_manage' and 'region_manage_new'.
+  * Updated the README.
+  * Fixed transient size/position problems and split the
+    REGION_ATTACH_GEOMRQ flag into separate POSRQ and SIZERQ.
+
+2003-05-08:
+
+  * Fixed a va_arg problem with luaextl.c and strange architechtures.
+  * Some bindings were still using Mod1 instead of DEFAULT_MOD.
+
+2003-05-07:
+
+  * 'viewport_display_managed' was calling just 'set_focus' instead
+    of 'warp' as it should.
+  * Client window size hints were not used when Ion was restarted.
+    Fixed that.
+  * The completion handler for QueryLib.query_lua can now descend
+    into tables and complete subexpressions.
+  * QueryLib.query_lua sets the variable '_' in the local environment
+    of the string to be called to point to the frame the query was
+    opened in. The variable 'arg' is also now set in the local
+    environment instead of global.
+  * The functions 'ionws_split', 'ionws_split_empty' and
+    'ionws_split_top' were renamed to the more consistent
+    'ionframe_split', 'ionframe_split_empty' and 'ionws_newframe'. As
+    usual, 'compat.lua' has wrappers to the old functions.
+  * Added documentation to querylib.lua.
+  * 'mkexports.lua' can now parse documentation from Lua code.
+  * Added documentation to ioncorelib.lua.
+  * Removed make_screen_switch_nth_fn.
+
+2003-05-06:
+
+  * Line editor history is now saved when Ion exits.
+  * Fixed a bug in the new transient management setup code.
+  * Fixed a bug in the title shortening routine.
+
+2003-05-05:
+
+  * Removed target_id code.
+  * Client windows are now saved over restarts in saves/
+    workspaces-*.lua instead of using target_ids. A special check
+    code property is added to each window so that we don't
+    incorrectly reparent windows when initially starting Ion.
+  * Fixed extl_stack_get 'double' code.
+
+2003-05-04:
+
+  * 'mkexports.lua' now parses for documentation of the form /
+    *EXTL_DOC ... */.
+  * Documentation was added to the source for exported functions.
+  * Sort functions in documentation alphabetically.
+  * Added hyperlinks in the exported function documentation.
+
+2003-05-03:
+
+  * The 'mkexports' script was rewritten in Lua (was an
+    unmaintainable vomit of Perl).
+
+2003-05-02:
+
+  * Fixed (floatws) focus problem that reoccured after previous
+    attempt at fixing other focus problems.
+  * Added support for hooks Lua code can hook on to with add_to_hook
+    (hook, fn).
+  * Added the Lua-side hooks genframe_managed_switched and
+    viewport_workspace_switched.
+  * IonFrame keyboard resize mode changed to allow resizing in both
+    directions without leaving and re-entering resize mode.
+    Compatibility functions for the old mode are provided in
+    compat.lua.
+  * The compatibility functions in compat.lua now complain of
+    obsoleteness to stderr.
+  * IonFrame keyboard resize mode changed to allow resizing in both
+    directions without leaving and re-entering resize mode.
+    Compatibility functions for the old mode are provided in
+    compat.lua.
+  * WFloatFrames can now be resized from the keyboard.
+
+2003-05-01:
+
+  * Some unifications in add_clientwin/region_add_managed interface.
+  * Added new exports that should e.g. enable writing workspace
+    navigation functions that can also be used to move between
+    viewports or other workspaces instead of just wrapping around.
+  * Added 'eq' metamethod for WObj:s.
+
+2003-04-29:
+
+  * Fixed CURRENT_FILE maintenance in include().
+
+2003-04-28:
+
+  * QueryLib.query_exec fixed to use the correct handler.
+  * Fixed the region destroy focus fix.
+  * The innermost window grabbing on a mouse button should now get to
+    handle the event as is the case with key grabs.
+
+2003-04-27:
+
+  * Added 'popen_bgread(cmd, lua_fn)' to open read mode pipes that
+    are selected() in the main event loop and the given function
+    called with received data.
+  * Moved file completetion code from the query module into a
+    separate external program ('ion-completefile').
+  * QueryLib file and man page completors use 'popen_bgread' so the
+    queries can not block the WM from processing other events (or
+    even hang it).
+  * ion-completefile Makefile fixed.
+
+2003-04-25:
+
+  * Fixed extl_verify_wobj.
+  * Some changes on how region close/destroy is handled and how focus
+    is handled when an active region with non-window manager is
+    destroyed.
+  * Fixed do_complete_region.
+  * Most Ion functions should be null-string safe now except for some
+    low-level functions and functions that also receive string length
+    as an argument. This allows Lua scripts to pass nil to functions
+    that have special meaning for NULL strings.
+
+2003-04-24:
+
+  * Some minor TODOs completed and some minor fixes.
+
+2003-04-23:
+
+  * The floatws module is now aware of window gravities.
+
+2003-04-22:
+
+  * The (exported) functions floatframe_raise/lower are obsolete and
+    replaced with region_raise/lower. The file 'compat.lua' can be
+    included to define these functions.
+  * Added window stacking management code.
+  * Added window stacking management code.
+  * Fixed region_notify_subregions_move.
+
+2003-04-20:
+
+  * No longer complain of missing workspace savefiles.
+
+2003-04-19:
+
+  * Winprop management is now implemented in Lua.
+  * Extl_init enables Lua loadlib.
+  * 'ioncore-lib.lua' renamed 'ioncorelib.lua' to be consistent with
+    'querylib.lua'.
+
+2003-04-17:
+
+  * QueryLib.mancache fixed to contain weak references.
+
+2003-04-16:
+
+  * Don't waitpid() in the SIGCHLD handler but in the main loop after
+    this handler has been called. For some reason Lua's io.popen()
+    didn't like the old behaviour.
+  * Added man-page completion to QueryLib.
+  * WFloatWS placement code should now handle shaded frames
+    correctly.
+  * Include correct version of libtu. Old version could cause
+    crashes.
+
+2003-04-13:
+
+  * FloatWS module honours window positions when starting up the WM.
+
+2003-04-12:
+
+  * Added collect_errors(fn, params) for Lua code to be able to e.g.
+    display encountered errors with query_fwarn.
+  * Full error log is displayed with xmessage after startup whether
+    it is possible to continue or not.
+  * The standard modules no longer fail on partially broken
+    configuration files unless no bindings have been configured
+    before the error occured.
+  * Prefer _NET_WM_NAME, if it exists, over WM_NAME as apps no longer
+    seem to use WM_NAME for UTF-8 titles.
+  * Yet another attempt at perfecting focus handling (before
+    resorting to separate displayed and actual activity states and
+    update delays or similar another kludge in counteracting X's lame
+    key grab focus policy).
+  * Include stdarg.h in luaextl.c
+  * Added the flag -std=c99 to options to compile luaextl.c as it
+    needs va_copy from C99 and some versions of GCC seem to disable
+    this macro otherwise.
+  * Old upvalue syntax removed from Lua code as the just-released Lua
+    5.0 does not support it anymore by default.
+  * Some transient handling fixes.
+  * region_do_add_managed wasn't passing enough parameters which
+    could cause a crash.
+
+2003-04-11:
+
+  * Transient_mode winprop fixed.
+  * complete_function fixed.
+  * WFloatFrames can now be shaded.
+  * If UTF8 support is enabled, Ion will attempt to load
+    CF_FALLBACK_FONT ("fixed" by default) at startup. If this fails
+    (or XSupporsLocale() fails, which it seldom seems to do), it will
+    reset locale back to "POSIX" so that there's a better chance that
+    some fonts can be loaded although non-ASCII (7-bit) characters
+    will be crippled. (If UTF8 support is disabled, 8-bit character
+    sets should usually work.)
+  * Client windows are unmapped when frames are unmapped. This was an
+    overlooked (but lame and redundant) requirement of the ICCCM and
+    fullfilling it might fix some apps. (Ion probably still is far
+    from ICCCM-compliant, but so are most of the badly behaving
+    apps.)
+  * Added placement calculation code to the floatws module. Placement
+    method can be configured with 'set_floatws_placement_method
+    ("method")'. Available methods are udlr, lrud and random. (Maybe
+    placement methods should be implemented in Lua?)
+  * The line editor's copy-paste features should now at least attempt
+    to support UTF8.
+  * Inconsistently named 'goto_viewport_id' renamed to
+    goto_nth_viewport.
+
+2003-04-10:
+
+  * A number of bugs in the Lua interface were fixed.
+  * A lot of the query code was converted to Lua.
+  * QueryLib.query_ssh query was added. This will tab-complete hosts
+    from the table "query_ssh_hosts" and run the script "ion-ssh" on
+    the entered host.
+  * complete_function implemented in Lua.
+  * QueryLib.query_yesno fixed.
+  * Remaining "goto_*_name" functions were removed as Lua code will
+    probably mostly use "reg=lookup_*() ... region_goto(reg)"
+
+2003-04-09:
+
+  * Added functions to add entries into Lua tables (for completion
+    handlers).
+
+2003-04-08:
+
+  * Use libtool and libltdl for module support.
+  * Code to create ~/.ion-devel/saves/ if it didn't exist had been
+    lost at some point.
+
+2003-04-07:
+
+  * Added extl_dostring and better extl_dofile
+  * Focusing code: iteration n.
+  * Removed out-of-date documentation
+  * Function renames. Most functions that can be considered member
+    functions of some WObj are now rather consistently (although
+    unnaturally) named.
+  * Added quite useless stack trace displayed when C function called
+    from Lua calls warn().
+  * Added obj_is and obj_typename exports.
+
+2003-04-06:
+
+  * Use Lua as extension language.
+
+2003-04-05:
+
+  * MODULE_CFLAGS fixed.
+
+2003-04-02:
+
+  * Some code cleanup.
+
+2003-03-30:
+
+  * Some simplifications to the object model: WThing removed and
+    functionality split between WObj (watches) and WRegion (child<->
+    parent linking).
+  * Some minor cleanup.
+
+2003-03-28:
+
+  * Scripts are build using ETCDIR and LIBDIR instead of just PREFIX.
+  * Modules are removed by 'make realclean'.
+  * Possible key binding setup bug fixed.
+  * The region_add_managed mechanism was simplified and generalised.
+
+2003-03-27:
+
+  * Renamed the main binary 'ioncore'.
+  * Added 'ion' shell script to run 'ioncore' with correct
+    configuration and module file directory parameters. A 'pwm'
+    script to run ioncore in PWM mode was also added but this is not
+    installed by 'make install' at the moment.
+  * A minor nested WS fix.
+  * Minor fix in clientwin_deinit.
+
+2003-03-22:
+
+  * Applied the toggle_tab patch.
+
+2003-03-20:
+
+  * Frames save their saveable contents
+  * EnterWindow event handling changed so that embedded workspaces
+    work as expected.
+
+2003-03-17:
+
+  * Double-click fixed.
+  * Client window (esp. transient) resize request fixes.
+
+2003-03-15:
+
+  * The functions region_add_bindmap* no longer have the grab
+    argument but instead REGION_BINDINGS_ARE_GRABBED flag is to be
+    set.
+  * CF_PLACEMENT_GEOM check added in find_suitable_viewport.
+  * The functions region_add_bindmap* no longer have the grab
+    argument but instead REGION_BINDINGS_ARE_GRABBED flag is to be
+    set.
+  * ASCII control characters (ch&0x7f<32) are now presented as
+    escaped octals in saved region name strings.
+
+2003-03-11:
+
+  * Tabs can now be dropped on WFloatWS workspaces to create a new
+    frames containing the region corresponding to the dragged tab.
+  * Function lookup order changed from region->parent to region->
+    manager.
+  * Fixed a stupid mistake in creating an initial workspace when
+    there is no workspaces.conf.
+
+2003-03-10:
+
+  * Resize size hint handling properly (?) implemented.
+  * Added the compile time option CF_UNDERSCORED_MODULE_SYMBOLS for
+    some strange systems whose libdl insists on the calling program
+    prefixing module symbol names with an underscore.
+
+2003-03-09:
+
+  * Updated default configuration files. Binding configuration is now
+    divided into multiple module-specific files with some common
+    bindings in common-frame-bindins.conf. Some look configuration
+    files were added and the rest were also changed to reflect
+    changes in the order frame border colours and sizes are
+    specified.
+  * Very preliminary and experimental (a lot is still missing)
+    support for PWM-like workspaces and frames: the floatws module.
+  * Tiled workspace and frame code (WIonWS, WIonFrame) modularised
+    (ionws.so) and generic frame and worksapce code moved to Ioncore.
+    Dependencies on the query module were also removed.
+  * The query module was removed of dependencies to WIonFrame code
+    and is now a loadable module (query.so).
+  * The 'query_workspace' command by default creates workspaces of
+    the first registered (module loaded) kind. Other kinds of
+    workspaces can be created by prefixing workspace name with the
+    class name (WIonWS, WFloatWS) and a colon, e.g. 'WFloatWS:foo'.
+  * Support for compiling modules statically in the Ion core binary
+
+2003-03-08:
+
+  * 'make install' code moved from the toplevel Makefile to Makefiles
+    in subdirectories (etc, man, scripts)
+  * 'make install' code moved from the toplevel Makefile to Makefiles
+    in subdirectories (etc, man, scripts).
+
+2003-03-06:
+
+  * Don't grab buttons that are only bound to an area (border, tab)
+    of the frame instead of the whole frame.
+  * Fixed a bug in do_fit_clientwin
+
+2003-03-02:
+
+  * Some clean-up
+  * Some renamings that will break configuration files again.
+
+2003-03-01:
+
+  * Use iconv instead of libunicode
+  * Added some locale checks
+
+2003-02-28:
+
+  * Maybe focusing would work this time...
+  * Preliminary support for UTF8. XFree86 (4.x) and libunicode are
+    required.
+  * The 'transparent_background' draw.conf option now only applies to
+    empty frames. For client windows with a transparent background
+    the 'transparent' winprop should be set to true for transparent
+    frame background.
+
+2003-02-27:
+
+  * do_fit_clientwin fixed
+
+2003-02-25:
+
+  * Support for optional autoconf-generated system-ac.inc. (The
+    configure script is not finished or included.)
+  * More kludges in an attempt to fix focus handling
+
+2003-02-24:
+
+  * Fixed focus and grab handling when warping is not enabled
+  * Xft support fixed
+
+2003-02-23:
+
+  * Some changes and (hopefully) fixes to focusing policy
+  * Preliminary support for workspace switching while dragging tabs.
+  * Added the compile-time option CF_SECOND_RATE_OS_FS to change
+    colons to underscores in display name part of configuration file
+    names.
+  * The command clientwin_toggle_fullscreen now works in both
+    directions. However, it should be noted that this toggle does not
+    work well along with client programs' full screen mode toggles.
+    Some means of communication should be devised.
+  * Nested submaps are now fully implemented.
+  * Fixed frame_close
+  * Implemented "close" command for queries.
+  * Added the command frame_close_if_empty and bound close command
+    for frames to this.
+
+2003-02-22:
+
+  * Resize size display should now be properly positioned on Xinerama
+    screens.
+  * Removed clientwin_bindings and viewport_bindings sections.
+  * More consistent and descriptive command names.
+  * Key binding setup changed.
+  * X window -less regions no longer contain children. Instead the
+    regions "manage" these objects that share the parent object with
+    the managing object.
+  * Key binding setup changed.
+  * Active client window commands can be accessed from other bindings
+    with the command 'commands_at_leaf'.
+  * Tab width calculation fixed
+
+2003-02-20:
+
+  * Xft default compilation options changed in system.mk
+  * load_module searches the directories $LIBDIR and ~/.ion-devel/lib
+    for the module if the name contains no slashes.
+
+2003-02-17:
+
+  * Fixed region_do_find_new_home
+
+2003-02-16:
+
+  * Fixed alloc_defer
+
+2003-02-09:
+
+  * Changed broken_app_resize_kludge a bit. Should work a little
+    better now.
+  * Support re-reading draw.conf (reread_draw_config) without restart
+
+2003-01-31:
+
+  * Changed hook linking order
+
+2003-01-27:
+
+  * Changed -pedantic-errors to -pedantic in system.mk to get around
+    broken glibc headers
+
+2003-01-17:
+
+  * Transient mapping fix
+
+2003-01-09:
+
+  * Xft font names are now to be prefixed with 'xft:', otherwise
+    normal clear fonts are used. Xft support still is not compiled in
+    by default.
+
+2003-01-05:
+
+  * Submap handling fix
+
+2002-12-31:
+
+  * Send more ConfigureNotify events to fix slow startup times of
+    some programs
+
+2002-12-29:
+
+  * Configurable regular expression based window title shortening
+    rules
+
+2002-12-19:
+
+  * Winprop matching improvements: WM_WINDOW_ROLE support and
+    configuration format changed to 'winprop "class", "role",
+    "instance" { ... }'.
+
+2002-12-14:
+
+  * quote_next returns
+
+2002-12-04:
+
+  * Applied Xft support patch
+  * Some extra abstraction to Xft support code
+
+2002-11-15:
+
+  * Transient window height restrictions lifted
+
+2002-11-08:
+
+  * Fixed pointer warping on workspace change when warps are disabled
+
+2002-11-04:
+
+  * Fixed a segfault problem with symlists
+
+2002-11-03:
+
+  * Fixed a problem concerning resizing of frames containing hidden
+    "acrobatic" windows
+  * Fullscreen windows on separate Xinerama screens should be focused
+    properly now.
+  * Default (black&white) colour scheme changes
+  * Line editor history scrolling fixed
+  * Other minor fixes
+  * Added broken_app_resize_kludge function
+  * Added transparent_background (TRUE/FALSE) draw.conf configuration
+    option
+  * Fixed a drawing problem with ion_bar_inside_frame FALSE
+
+2002-11-02:
+
+  * Added handle_event_alt "alternative hook" for modules that want
+    to handle X events directly.
+
+2002-10-28:
+
+  * Screen-based configuration file selection fixed
+
+2002-10-15:
+
+  * Fixed a problem with query boxes and wheel mice
+
+2002-09-26:
+
+  * Added the function goto_named_region (replaces missing
+    goto_client_name)
+
+2002-09-25:
+
+  * Fixed pointer warping on workspace change
+  * Added manual tab-ordering functions frame_move_current_tab_left/
+    right
+
+2002-09-15:
+
+  * Added a few missing characters to workspace configuration loading
+    code
+
+2002-08-23:
+
+  * Self-pointing transient_for hint problem fixed
+
+2002-08-18:
+
+  * Tagging restored (frame functions: toggle_sub_tag, attach_tagged
+    and global function clear_tags)
+
+2002-07-07:
+
+  * Function completion in query_function restored
+
+2002-06-15:
+
+  * Tab drag assertion fixed
+
+2002-06-06:
+
+  * "Watches" added in pointing device code
+
+2002-06-05:
+
+  * Old window_press restored: mouse actions directed to the client
+    window associated with a tab should work now.
+  * Split bugfix
+  * Target ID table bugfix
+
+2002-06-04:
+
+  * Preliminary Xinerama support
+
+2002-06-03:
+
+  * Another key binding related segfault fix
+
+2002-05-31:
+
+  * Fixed lockup when a window's title ends in its only colon (and
+    spaces) but even just the three dots and instance number are too
+    long to fit in the tab.
+
+2002-05-30:
+
+  * Fixed 'switch_tab'
+  * Fixed segfault when unbound key was pressed in submap mode
+
+2002-05-29:
+
+  * Lifted restriction on nested command sequences (now max 32)
+  * More fixes and temporary kludges
+  * Fixed wscurrent callback handlers
+  * Fixed query_function error reporting
+
+2002-05-28:
+
+  * Resize problem fixed
+  * New binding configuration file
+
+2002-05-27:
+
+  * Binding callbacks are now entirely command sequence based
+
+2002-05-26:
+
+  * Key binding management revised: all X server key grabs are made
+    on the root window and the innermost window with an internal grab
+    gets to
+
+2002-05-21:
+
+  * Fixed split_empty
+  * Fixed workspace switching on restart
+
+2002-05-20:
+
+  * Maximize fixed
+  * Title updating fixed
+
+2002-05-10:
+
+  * transient_mode winprop returns
+
+2002-04-20:
+
+  * Main loop select() support for multiple file descriptors.
+
+2002-04-12:
+
+  * Some minor glitches like missing includes fixed -- strict
+    compiler warning flags enabled by default again.
+  * The function query_renameframe was added and names of frames are
+    saved now.
+
+2002-04-11:
+
+  * Added the region_ws_attach_clientwin/region_ws_attach_transient
+    interface that workspace-like objects should implement.
+  * 'target' winprop for specifying named workspaces (or any named
+    object with region_attach_sub) as attachment targets for client
+    windows.
+  * Command sequence stuff moved to wmcore/
+
+
+2002-04-04:
+  * Resolved some problems with resize/workspace_request_sub_geom
+
+2002-03-27:
+  * Applied an input handling and resize mode patch.
+
+2002-03-17:
+  * Added 'split_top "dir"' command to create a new frame
+    above/below/left of/right of all other frames
+    (dir=top/bottom/left/right, respectively). Removed
+    split_vert/horiz and replaced them with 'split "dir"'.  Also
+    added 'split_empty "dir"' that will not attach current client to
+    the newly created frame.
+
+2002-03-16:
+  * Added set_width/height/widthq/heightq commands. The versions with
+    the q postfix take a value in [0,1] and the others take an
+    integer value. The behaviour is obvious.
+
+2002-02-06:
+  * Fixed region_move_subregions so that destroy_frame should work
+    now.
+
+2002-01-30:
+  * Transients fixed (at least partially).
+  * Some focusing fixes.
+
+2002-01-27:
+  * Fixed some resize stuff. Simultaneous vertical and horizontal
+    resize is now possible. Keyboard resize is not working yet:
+    better "resize mode" binding handling wanted.
+  * look-*.conf:s updated. 'frame_colors *, *, bg, *' and
+    'background_color bg' have changed places. That is, the
+    'background_color' option now sets the client area background
+    while frame_colors sets the colours of the frame's border.
+  * Some frame drawing changes.
+
+2002-01-26:
+  * Command sequences based on the query_function patch.
+  * Support for deferred actions, deferred destroy particularly,
+    called when the program returns to the main loop.
+  * Added information about the 'warp_enabled' configuration file
+    option to config.txt. The old CF_WARP and CF_WARP_WS compile-time
+    options are gone. This option has the same effect as those two
+    combined and _is enabled by default_.
+  * Split stuff from config.txt and functions.txt to draw.txt and
+    query.txt.
+  * look-dusky.conf is now default.
+  * Updated the LICENSE file to the clarified version of the artistic
+    license. (The license used to be the original artistic license.)
+
+2002-01-19:
+  * Applied a patch to have query_function finally support functions
+    with arguments.
+  * Fixed a possible problem with missing configuration files.
+  * Complain and refuse to start if configuration files are missing
+    or bindings are inadequate (not the above fix :-). Also attempt
+    to view this complaint with xmessage.
+
+2002-01-12:
+  * Installation prefix now (temporarily) defaults to
+    /usr/local/ion-devel and configuration files will be expected to
+    be found in this directory under etc/ion-devel or in
+    ~/.ion-devel.
+
+2001-12-29:
+  * query_renameworkspace is back
+
+2001-12-28:
+  * Old confws.c updated to compile as a temporary (incomplete)
+    implementation of workspace saving features
+
+2001-08-28:
+  * fit_clientwin changes
+
+2001-08-19:
+  * query/ compiles.
+
+2001-08-12:
+  * Added generic resize code
+
+2001-08-08:
+  * The generic window management library part, 'wmcore' is finally
+    in compilable state again after having been fit to use abstract
+    WRegions instead of specific frames, client windows, etc. where
+    possible. It still needs much work, though.
+
+2001-06-27:
+  * Function list changes
+
+2001-06-23:
+  * look-*.confs updated
+  * Makefile updates
+  * sample.conf updates
+
+2001-06-19:
+  * Configuration file changes
+
+2001-05-28:
+  * Attach current client of a frame to the new frame when splitting.
+
+2001-05-27:
+  * New registration-based hooks and function list extensions.
+
+2001-05-26:
+  * Initial commit with wmcore/. Much more work still needed, though.
+
+2001-04-25:
+  * Added missing functions to documentation
+
+2001-04-19:
+  * switch_ws_next/prev wrap around
+  * Fixed a problem with some programs' popups
+
+2001-04-01:
+  * Unmap;map race condition fix.
+
+2001-03-12:
+  * Added CALL_ALT and the 'add_clientwin_alt' alternative hook.
+  * Hook changes
+
+2001-03-05:
+  * transient_mode winprop
+
+2001-03-04:
+  * Changes for easier completion support in modules
+
+2001-03-03:
+  * system.mk options to disable module support on systems without
+    dynamic linking support and/or dlopen and friends.
+  * Added read_config_for
+
+2001-03-02:
+  * Enhanced timer support
+  * Added goto_client_name
+  * Experimental module support
+
+2001-02-26:
+  * Completion fix (for the case where all possible completions are
+    duplicates).
+
+2001-02-24:
+  * Added rename_workspace patch.
+  * Oops kind of fix in key.c
+
+2001-02-16:
+  * complete_file_with_path fix and complete normally if no
+    completions found in $PATH.
+
+2001-02-15:
+  * Some ICCCM and other fixes to make some programs not break as
+    badly.
+  * Call setpgid(0, 0) before running a program.
+  * Oops. A few missing lines were causing bad things to happen when
+    trying to resize only frame on a workspace.
+
+2001-02-13:
+  * Applied patch to allow command completion (using $PATH) with
+    query_exec.
+
+2001-02-12:
+  * Destroying the first workspace on a screen could cause a
+    segfault.
+
+2001-01-21:
+  * Added 'stubborn' winprop --- ignore coordinates --- for use with
+    badly behaving windows when CF_PLACEMENT_GEOM is enabled.
+
+2001-01-20:
+  * Frame ID management fixes for multiple screens/broken workspace
+    configuration files.
+  * The functions 'goto_*_frame' changed to 'goto_*' --- check your
+    bindings.
+
+2001-01-16:
+  * goto_previous fix
+  * Other previous active window clean-up
+
+2001-01-15:
+  * Added CF_PLACEMENT_GEOM kludge --- Place new windows that have
+    position specified in the frame under that coordinate.
+
+2001-01-05:
+  * 'query_runwith' runs the program without arguments if the user
+    inputs an empty string.
+  * 'query_workspace_with' didn't work after multihead update.
+  * Trailing and leading whitespace of user input to queries are
+    stripped.
+  * Strip trailing and leading whitespace from window names.
+
+2001-01-02:
+  * Preliminary support for multiple screens within single process.
+  * The command 'switch_ws_nth <num>' switches between workspaces of
+    current screen. 'switch_ws_nth2 <scr>, <num>' can be used to go
+    to specific, numbered workspace. Setting <num> to -1 will go to
+    active workspace on <scr>. 'query_workspace' works as before (new
+    workspace is, of course, created on the active screen).
+  * Fixed a typo in same_screen
+
+2001-01-01:
+  * Some extra code removed
+
+2000-12-30:
+  * Focus newly splitted frame instead of the old one
+  * Added CF_WARP_WS for perhaps nicer focusing on workspace switch
+    when CF_WARP is enabled.
+  * Don't map tabdrag window before moving
+  * Default config: Button 1 click instead of press to switch client
+
+2000-12-28:
+  * Added a few missing 'void's
+  * Makefile/path setting changes
+
+2000-12-21:
+  * Better focus handling for CF_WARP (pointer should always stay
+    within boundaries of the active frame)
+  * Added a word on (mouse) button bindings to the manual page.
+
+2000-12-20:
+  * Added 'close_main' for closing client main window, not possible
+    transients first.
+  * Colormap changing fixes
+
+2000-12-02:
+  * Resize fix
+
+2000-11-12:
+  * Added bindings-sun.conf where exit and restart are bound to
+    SunF36/SunF37.
+  * Correctly indicate active client with multiple screens (better
+    multihead support still to be written...)
+
+2000-11-07:
+  * Automatically create ~/.ion if it does not exist when trying to
+    save workspaces.
+
+2000-11-05:
+  * Added CF_WARP for warping the pointer to active frame, enable
+    from config.h.
+
+2000-11-04:
+  * 'query_workspace_with' now attaches client to current frame on a
+    workspace if the workspace already exists.
+  * Line editor cursor positioning fix
+
+2000-10-29:
+  * Added 'switch_ws_next' and 'switch_ws_prev'
+
+2000-10-27:
+  * The functions 'scrollup_compl' and 'scrolldown_compl' are now
+    just 'scrollup' and 'scrolldown' (used to scroll messages as
+    well).
+  * Changed 'edln_bindings' section of the config file to
+    'input_bindings' as 'cancel' and the scroll functions affect
+    messages as well.
+  * Changed warnings in query.c be displayed on screen instead of
+    stderr.
+  * Added 'query_function' for calling ion functions. Only simple
+    functions that have no arguments from FUNTAB_MAIN are supported.
+    'query_function' is bound to Mod1+F3 in the default
+    configuration.
+  * Included snprintf_2.2 for implementations of asprintf and
+    vasprintf on platforms that don't have them.
+
+2000-10-24:
+  * Completion list wrapping
+  * Added WMessage for displaying messages
+
+2000-10-22:
+  * Do not ignore base size hint to display xterm size correctly
+  * Move size information window in the middle of the frame being
+    resized
+
+2000-10-16:
+  * Minor pointer focusing change
+
+2000-10-07:
+  * Fixed problem with transients not getting resized
+
+2000-10-04:
+  * Fixed problems with some programs' expectations
+
+2000-09-09:
+  * Line editor cosmetic fix
+
+2000-09-03:
+  * Added goto_previous
+
+2000-08-31:
+  * Client numbering fix
+
+2000-08-30:
+  * Initial public release
+
+2000-08-29:
+  * Added keybindings to the manual page
+  * Added doc/config.txt
+  * Added doc/functions.txt
+
+2000-08-28:
+  * Added kpress_waitrel-kludge to prevent accidental multiple-window
+    closes
+  * Current frame is remembered over workspace switch now
+  * Added query_workspace_with
+  * Fixes and a small diet
+  * Portability fixes

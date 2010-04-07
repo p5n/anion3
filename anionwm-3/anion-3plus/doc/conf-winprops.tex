@@ -1,0 +1,288 @@
+\section{Winprops}
+\label{sec:winprops}
+
+The so-called ``winprops''\index{Winprops} can be used to change how
+specific windows are handled and to set up some kludges to deal with
+badly behaving applications. They are defined by calling the function
+\code{defwinprop} with a table containing the properties to set and the
+necessary information to identify a window. The currently supported
+winprops are listed below, and the subsequent subsections explain the
+usual method of identifying windows, and how to obtain this information.
+
+%\begin{table}
+%\begin{htmlonly}
+%\docode % latex2html kludge
+%\end{htmlonly}
+%\caption{Supported winprops}
+%\label{tab:winprops}
+
+\newenvironment{winprop}[2]{
+  \begin{function}%
+      % Sigh. (La)TeX is a mess.
+      %\index{%
+      %  \ifx\\#1\\%
+      %  #2\else#1\fi%
+      %  @\expandafter\var{#2}}
+      \item[Winprop:] \var{#1} (#2)
+      \item[Description:]
+}
+{
+  \end{function}
+}
+
+
+\begin{winprop}{acrobatic}{boolean}
+    \index{acrobatic@\var{acrobatic}}
+    Set this to \code{true} for Acrobat Reader. It has an annoying
+    habit of trying to manage its dialogs instead of setting them as
+    transients and letting the window manager do its job, causing
+    Ion and acrobat go a window-switching loop when a dialog is
+    opened. 
+\end{winprop}
+
+
+\begin{winprop}{float}{boolean}
+    \index{float@\var{float}}
+    Set this to open the window in a floating frame, when
+    in a group.
+\end{winprop}
+
+
+\begin{winprop}{fullscreen}{boolean}
+    \index{fullscreen@\var{fullscreen}}
+    Should the window be initially in full screen mode?
+\end{winprop}
+
+
+\begin{winprop}{ignore_cfgrq}{boolean}
+    \index{ignore-cfgrq@\var{ignore_cfgrq}}
+    Should configure requests on the window be ignored?
+    Only has effect on floating windows.
+\end{winprop}
+
+
+\begin{winprop}{ignore_net_active_window}{boolean}
+    \index{ignore-net-active-window@\var{ignore_net_active_window}}
+    Ignore extended WM hints \code{_NET_ACTIVE_WINDOW} request. 
+\end{winprop}
+
+
+\begin{winprop}{jumpto}{boolean}
+    \index{jumpto@\var{jumpto}}
+    Should a newly created client window always be made
+    active, even if the allocated frame isn't. 
+\end{winprop}
+
+
+\begin{winprop}{new_group}{string}
+    \index{new-group@\var{new_group}}
+    If the region specified by \code{target} winprop does not exist
+    (or that winprop is not set), create a new workspace using the 
+    previously stored layout (see \fnref{ioncore.deflayout}) named by
+    this property. After creating the workspace, \code{target} is 
+    attempted to be found again. (If that still fails, the newly 
+    created workspace is still asked to manage the client window.)
+\end{winprop}
+
+
+\begin{winprop}{oneshot}{boolean}
+    \index{oneshot@\var{oneshot}}
+    Discard this winprop after first use. 
+\end{winprop}
+
+
+\begin{winprop}{orientation}{string}
+    \index{orientation@\var{orientation}}
+    The orientation of the window: one of \codestr{vertical} or
+    \codestr{horizontal}. This is only useful when using the
+    window as a status display.
+\end{winprop}
+
+
+\begin{winprop}{statusbar}{string}
+    \index{statusbar@\var{statusbar}}
+    Put the window in the statusbar, in the named tray component,
+    (The default tray component is called simply \codestr{systray}, 
+    and others you give names to in your custom template, always 
+    prefixed by \codestr{systray\_}.
+\end{winprop}
+
+
+\begin{winprop}{switchto}{boolean}
+    \index{switchto@\var{switchto}}
+    Should a newly mapped client window be switched to within
+    its frame.
+\end{winprop}
+        
+
+\begin{winprop}{target}{string}
+    \index{target@\var{target}}
+    The name of an object (workspace, frame) that should manage 
+    windows of this type. See also \code{new_group}.
+\end{winprop}
+
+        
+\begin{winprop}{transient_mode}{string}
+    \index{transient-mode@\var{transient_mode}}
+    \codestr{normal}: No change in behaviour. \codestr{current}:
+    The window should be thought of as a transient for the current
+    active client window (if any) even if it is not marked as a
+    transient by the application. \codestr{off}: The window should 
+    be handled as a normal window even if it is marked as a
+    transient by the application. 
+\end{winprop}
+
+
+\begin{winprop}{transparent}{boolean}
+    \index{transparent@\var{transparent}}
+    Should frames be made transparent when this window is selected? \\
+\end{winprop}
+
+
+\subsection{Sizehint winprops}
+
+Additionally, the winprops 
+\code{max_size}\index{max-size@\var{max_size}},
+\code{min_size}\index{min-size@\var{min_size}},
+\code{aspect}\index{aspect@\var{aspect}},
+\code{resizeinc}\index{aspect@\var{resizeinc}},
+and
+\code{ignore_max_size}\index{ignore-max-size@\var{ignore_max_size}},
+\code{ignore_min_size}\index{ignore-min-size@\var{ignore_min_size}},
+\code{ignore_aspect}\index{ignore-aspect@\var{ignore_aspect}},
+\code{ignore_resizeinc}\index{ignore-aspect@\var{ignore_resizeinc}},
+may be used to override application-supplied size hints. The four
+first ones are tables with the fields \var{w} and \var{h}, indicating
+the width and height size hints in pixels, and the latter ignore
+winprop is a boolean. 
+
+Finally, the boolean
+\code{userpos}\index{userpos@\var{userpos}} option may be used to
+override the \code{USPosition} flag of the size hints. Normally,
+when this flag is set, Ion tries to respect the supplied window
+position more than when it is not set. Obviously, this makes sense
+only for floating windows.
+
+
+\subsection{Classes, roles and instances}
+\label{sec:classesrolesinstances}
+
+The identification information supported are
+\var{class}\index{class@\var{class}!winprop},
+\var{role}\index{role@\var{role}!winprop},
+\var{instance}\index{instance@\var{instance}!winprop},
+\var{name}\index{name@\var{name}!winprop},
+\var{is_transient}\index{is-transient@\var{is_transient}!winprop}, and
+\var{is_dockapp}\index{is-dockapp@\var{is_dockapp}!winprop}.
+It is not necessary to specify all of these fields.
+The first three are strings, and must exactly match the
+corresponding information obtained from the window's properties.
+The \var{name} field is a Lua-style regular expression matched against
+the window's title. The \var{is_transient} field is a boolean that can
+be used to include or exclude transients only, while the \var{is_dockapp}
+field is set by Ion for the dock windows of Window Maker dockapp protocol
+dockapps. Usually this is the only information available for these 
+\emph{icon} windows. 
+
+Ion looks for a matching winprop in the order listed by the following
+table. An 'E' indicates that the field must be set in the winprop
+and it must match the window's corresponding property exactly or, in
+case of \var{name}, the regular expression must match the window
+title. An asterisk '*' indicates that a winprop where the field is
+not specified (or is itself an asterisk in case of the first three
+fields) is tried.
+
+\begin{center}
+\begin{tabular}{llll}
+  \tabhead{\var{class} & \var{role} & \var{instance} & other}
+  E	       & E          & E              & E \\
+  E	       & E          & E              & * \\
+  E	       & E          & *              & E \\
+  E	       & E          & *              & * \\
+  E	       & *          & E              & E \\
+  E	       & *          & E              & * \\
+  E	       & *          & *              & E \\
+  \vdots       & \vdots     & \vdots         & etc. \\
+\end{tabular}
+\end{center}
+
+If there are multiple matching winprops with the same
+\var{class}, \var{role} and \var{instance}, but other information
+different, the most recently defined one is used.
+
+
+\subsection{Finding window identification}
+
+The 'Window info' context menu entry (\key{Mod1+M} or \key{Button3} on a tab)
+can be used to list the identification information required to set winprops
+for a window and all the transient windows managed within it. 
+
+\index{xprop} 
+Another way to get the identification information is to use \command{xprop}.
+Simply run To get class and instance, simply run \command{xprop WM_CLASS}
+and click on the particular window of interest. The class is the latter of
+the strings while the instance is the former.  To get the role -- few
+windows have this property -- use the command \command{xprop WM_ROLE}. 
+This method, however, will not work on transients. 
+
+\index{transient}
+So-called ``transient windows'' are usually short-lived dialogs (although
+some programs abuse this property) that have a parent window that they are
+``transient for''. On tiled workspaces Ion displays these windows 
+simultaneously with the parent window at the bottom of the same frame.
+Unfortunately \command{xprop} is stupid and can't cope with this situation,
+returning the parent window's properties when the transient is clicked on.
+For this reason you'll have to do a little extra work to get the properties
+for that window.\footnote{There's a patch to \command{xprop} to
+fix this, but nothing seems to be happening with respect to including it in 
+XFree86.}
+
+Finally, it should be mentioned that too many authors these days
+``forget'' to set this vital identification to anything meaningful:
+everything except name is the same for all of the program's 
+windows, for example. Some other programs only set this information
+after the window has been mapped, i.e. the window manager has been
+told to start managing it, which is obviously too late. 
+Gtk applications in particular are often guilty on both counts.
+
+
+\subsection{Some common examples}
+
+\subsubsection{Acrobat Reader}
+
+The following is absolutely necessary for Acrobat reader:
+
+\begin{verbatim}
+defwinprop{
+    class = "AcroRead",
+    instance = "documentShell",
+    acrobatic = true,
+}
+\end{verbatim}
+
+\subsubsection{Forcing newly created windows in named frames}
+
+The following winprop should place xterm started with command-line parameter
+\mbox{\code{-name sysmon}} and running a system monitoring program in a
+particular frame:
+\begin{verbatim}
+defwinprop{
+    class = "XTerm",
+    instance = "sysmon",
+    target = "sysmonframe",
+}
+\end{verbatim}
+
+For this example to work, we have to somehow create a frame named
+\codestr{sysmonframe}. One way to do this is to make the following
+call in the \key{Mod1+F3} Lua code query:
+
+\begin{verbatim}
+mod_query.query_renameframe(_)
+\end{verbatim}
+
+Recall that \code{_} points to the multiplexer (frame or screen) in which 
+the query was opened. Running this code should open a new query prefilled
+with the current name of the frame. In our example we would change the 
+name to \codestr{sysmonframe}, but we could just as well have used the 
+default name formed from the frame's class name and an instance number.

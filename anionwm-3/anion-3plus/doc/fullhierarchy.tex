@@ -1,0 +1,42 @@
+\chapter{Full class hierarchy visible to Lua-side}
+\label{app:fullhierarchy}
+  
+%\begin{figure}
+%\begin{htmlonly}
+%\docode % latex2html kludge
+%\end{htmlonly}
+{\small
+\begin{verbatim}
+    Obj
+     |-->WHook
+     |-->WTimer
+     |-->WMoveresMode
+     |-->WRegion
+     |    |-->WClientWin
+     |    |-->WWindow
+     |    |    |-->WMPlex
+     |    |    |    |-->WFrame
+     |    |    |    `-->WScreen
+     |    |    |         `->WRootWin
+     |    |    |-->WInfoWin
+     |    |    |    `-->WStatusBar (mod_statusbar)
+     |    |    |-->WMenu (mod_menu)
+     |    |    `-->WInput (mod_query)
+     |    |         |-->WEdln (mod_query)
+     |    |         `-->WMessage (mod_query)
+     |    |-->WGroup
+     |    |    |-->WGroupWS
+     |    |    `-->WGroupCW
+     |    `-->WTiling (mod_tiling)
+     `-->WSplit (mod_tiling)
+          |-->WSplitInner (mod_tiling)
+          |    `-->WSplitSplit (mod_tiling)
+          |         `-->WSplitFloat (mod_tiling)
+          `-->WSplitRegion (mod_tiling)
+               `-->WSplitST (mod_tiling)
+\end{verbatim}
+}
+%\caption{Full Ioncore and most common modules' class hierarchy
+%  visible to Lua side.}
+%\label{fig:fullclasshierarchy}
+%\end{figure}

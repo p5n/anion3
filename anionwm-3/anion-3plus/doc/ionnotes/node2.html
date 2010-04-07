@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>1 Class and object hierarchies</TITLE>
+<META NAME="description" CONTENT="1 Class and object hierarchies">
+<META NAME="keywords" CONTENT="ionnotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ionnotes.css">
+
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="ionnotes.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html81"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html75"
+  HREF="ionnotes.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html69"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html77"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html79"
+  HREF="node8.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html82"
+  HREF="node3.html">2 Object system implementation</A>
+<B> Up:</B> <A NAME="tex2html76"
+  HREF="ionnotes.html">Ion: Notes for the</A>
+<B> Previous:</B> <A NAME="tex2html70"
+  HREF="node1.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html78"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html80"
+  HREF="node8.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html83"
+  HREF="node2.html#SECTION00021000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Class hierarchy</A>
+<LI><A NAME="tex2html84"
+  HREF="node2.html#SECTION00022000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Object hierarchies: WRegion parents and managers</A>
+<UL>
+<LI><A NAME="tex2html85"
+  HREF="node2.html#SECTION00022100000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Parent-child relations</A>
+<LI><A NAME="tex2html86"
+  HREF="node2.html#SECTION00022200000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Manager-managed relations</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html87"
+  HREF="node2.html#SECTION00023000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Summary</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00020000000000000000"></A>
+<A NAME="sec:objects"></A>
+<BR>
+<SPAN CLASS="arabic">1</SPAN> Class and object hierarchies
+</H1>
+
+<P>
+While Ion does not not have a truly object-oriented design
+<A NAME="tex2html1"
+  HREF="#foot216"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A>,
+things that appear on the computer screen are, however, quite
+naturally expressed as such ``objects''. Therefore Ion implements
+a rather primitive OO system for these screen objects and some
+other things. 
+
+<P>
+It is essential for the module writer to learn this object
+system, but also people who write their own binding configuration files
+necessarily come into contact with the class and object hierarchies
+- you need to know which binding setup routines apply where, 
+and what functions can be used as handlers in which bindings.
+It is the purpose of this section to attempt to explain these 
+hierarchies. If you do not wish the read the full section, at least
+read the summary at the end of it, so that you understand the very
+basic relations.
+
+<P>
+For simplicity we consider only the essential-for-basic-configuration
+Ioncore, <SPAN  CLASS="textit">mod_tiling</SPAN> and <SPAN  CLASS="textit">mod_query</SPAN> classes. 
+See Appendix <A HREF="#app:fullhierarchy"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A> for the full class hierarchy visible
+to Lua side.
+
+<P>
+
+<H2><A NAME="SECTION00021000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Class hierarchy</A>
+</H2>
+
+<P>
+One of the most important principles of object-oriented design methodology
+is inheritance; roughly how classes (objects are instances of classes)
+extend on others' features. Inheritance gives rise to class hierarchy.
+In the case of single-inheritance this hierarchy can be expressed as a
+tree where the class at the root is inherited by all others below it
+and so on. Figure <A HREF="#fig:classhierarchy">1</A> lists out the Ion class 
+hierarchy and below we explain what features of Ion the classes 
+implement.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:classhierarchy"></A><A NAME="323"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1:</STRONG>
+Partial Ioncore, <SPAN  CLASS="textit">mod_tiling</SPAN> and <SPAN  CLASS="textit">mod_query</SPAN> 
+    class hierarchy.</CAPTION>
+<TR><TD><PRE>
+    Obj
+     |--&gt;WRegion
+     |    |--&gt;WClientWin
+     |    |--&gt;WWindow
+     |    |    |--&gt;WMPlex
+     |    |    |    |--&gt;WFrame
+     |    |    |    `--&gt;WScreen
+     |    |    |         `--&gt;WRootWin
+     |    |    `--&gt;WInput (mod_query)
+     |    |         |--&gt;WEdln (mod_query)
+     |    |         `--&gt;WMessage (mod_query)
+     |    |--&gt;WGroup
+     |    |    |--&gt;WGroupWS
+     |    |    `--&gt;WGroupCW
+     |    `--&gt;WTiling (mod_tiling)
+     `--&gt;WSplit (mod_tiling)
+</PRE></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The core classes:
+
+<P>
+<DL>
+<DT><STRONG>Obj</STRONG></DT>
+<DD><A NAME="329"></A>
+    Is the base of Ion's object system.
+
+<P>
+</DD>
+<DT><STRONG>WRegion</STRONG></DT>
+<DD><A NAME="330"></A>
+    is the base class for everything corresponding to something on the
+    screen. Each object of type WRegion has a size and  position
+    relative to the parent WRegion. While a big part of Ion 
+    operates on these instead of more specialised classes, WRegion
+    is a ``virtual''  base class in that there are no objects of ``pure''
+    type WRegion; all concrete regions are objects of some class 
+    that inherits WRegion.
+
+<P>
+</DD>
+<DT><STRONG>WClientWin</STRONG></DT>
+<DD><A NAME="331"></A> is a class for
+    client window objects, the objects that window managers are
+    supposed to manage.
+
+<P>
+</DD>
+<DT><STRONG>WWindow</STRONG></DT>
+<DD><A NAME="332"></A> is the base class for all
+    internal objects having an X window associated to them
+    (WClientWins also have X windows associated to them).
+
+<P>
+</DD>
+<DT><STRONG>WMPlex</STRONG></DT>
+<DD>is a base class for all regions that ``multiplex'' 
+    other regions. This means that of the regions managed by the multiplexer,
+    only one can be displayed at a time. 
+
+<P>
+</DD>
+<DT><STRONG>WScreen</STRONG></DT>
+<DD><A NAME="333"></A> is an instance of WMPlex
+    for screens.
+
+<P>
+</DD>
+<DT><STRONG>WRootWin</STRONG></DT>
+<DD><A NAME="334"></A> is the class for
+    root windows<A NAME="250"></A> of X screens<A NAME="251"></A>.
+    It is an instance of WScreen.
+    Note that an ``X screen'' or root window is not necessarily a
+    single physical screen<A NAME="253"></A> as a root window
+    may be split over multiple screens when ugly hacks such as 
+    Xinerama<A NAME="254"></A> are used. (Actually there can be only 
+    one root window when Xinerama is used.) 
+
+<P>
+</DD>
+<DT><STRONG>WFrame</STRONG></DT>
+<DD><A NAME="335"></A> is the class for frames.
+    While most Ion's objects have no graphical presentation, frames 
+    basically add to WMPlexes the decorations around client 
+    windows (borders, tabs).
+
+<P>
+</DD>
+<DT><STRONG>WGroup</STRONG></DT>
+<DD><A NAME="336"></A> is the base class for groups.
+    Particular types of groups are workspaces 
+    (WGroupWS<A NAME="337"></A>)
+    and groups of client windows
+    (WGroupCW<A NAME="338"></A>).
+</DD>
+</DL>
+
+<P>
+Classes implemented by the <SPAN  CLASS="textit">mod_tiling</SPAN> module:
+
+<P>
+<DL>
+<DT><STRONG>WTiling</STRONG></DT>
+<DD><A NAME="340"></A> is the class for tilings
+    of frames.
+  
+</DD>
+<DT><STRONG>WSplit</STRONG></DT>
+<DD><A NAME="341"></A> (or, more specifically, classes
+    that inherit it) encode the WTiling tree structure.
+</DD>
+</DL>
+
+<P>
+Classes implemented by the <SPAN  CLASS="textit">mod_query</SPAN> module:
+
+<P>
+<DL>
+<DT><STRONG>WInput</STRONG></DT>
+<DD><A NAME="343"></A> is a virtual base class for the
+    two classes below.
+  
+</DD>
+<DT><STRONG>WEdln</STRONG></DT>
+<DD><A NAME="344"></A> is the class for the ``queries'',
+    the text inputs that usually appear at bottoms of frames and sometimes
+    screens. Queries are the functional equivalent of ``mini buffers'' in
+    many text editors.
+  
+</DD>
+<DT><STRONG>WMessage</STRONG></DT>
+<DD><A NAME="345"></A> implements the boxes for 
+    warning and other messages that Ion may wish to display to the user. 
+    These also usually appear at bottoms of frames.
+</DD>
+</DL>
+
+<P>
+There are also some other ``proxy'' classes that do not refer
+to objects on the screen. The only important one of these for
+basic configuration is WMoveresMode that is used for
+binding callbacks in the move and resize mode.
+
+<P>
+
+<H2><A NAME="SECTION00022000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Object hierarchies: WRegion parents and managers</A>
+</H2>
+
+<P>
+
+<H3><A NAME="SECTION00022100000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Parent-child relations</A>
+</H3>
+Each object of type WRegion has a parent and possibly a manager
+associated to it. The parent<A NAME="286"></A> for an object is always a 
+WWindow and for WRegion with an X window (WClientWin,
+WWindow) the parent WWindow is given by the same relation of
+the X windows. For other WRegions the relation is not as clear.
+There is generally very few restrictions other than the above on the
+parent--child relation but the most common is as described in
+Figure <A HREF="#fig:parentship">2</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:parentship"></A><A NAME="297"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2:</STRONG>
+Most common parent-child relations</CAPTION>
+<TR><TD><PRE>
+    WRootWins
+     |--&gt;WGroupWSs
+     |--&gt;WTilings
+     |--&gt;WClientWins in full screen mode
+     `--&gt;WFrames
+          |--&gt;WGroupCWs
+          |--&gt;WClientWins
+          |--&gt;WFrames for transients
+          `--&gt;a possible WEdln or WMessage
+</PRE></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+WRegions have very little control over their children as a parent.
+The manager<A NAME="301"></A> WRegion has much more control over its
+managed WRegions. Managers, for example, handle resize requests,
+focusing and displaying of the managed regions. Indeed the manager--managed
+relationship gives a better picture of the logical ordering of objects on
+the screen. Again, there are generally few limits, but the most common
+hierarchy is given in Figure <A HREF="#fig:managership">3</A>. Note that sometimes
+the parent and manager are the same object and not all regions may have
+a manager, but all non-screen regions have a parent--a screen if not 
+anything else.
+
+<P>
+
+<H3><A NAME="SECTION00022200000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Manager-managed relations</A>
+</H3>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:managership"></A><A NAME="309"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3:</STRONG>
+Most common manager-managed relations</CAPTION>
+<TR><TD><PRE>
+    WRootWins
+     |--&gt;WGroupCWs for full screen WClientWins
+     |    |--&gt;WClientWins
+     |    `--&gt;WFrames for transients (dialogs)
+     |         `--&gt; WClientWin
+     |--&gt;WGroupWSs for workspaces
+     |    |--&gt;WTiling
+     |    |    |--&gt;WFrames
+     |    |    |    `--&gt;WGroupCWs (with contents as above)
+     |    |    `--&gt;possibly a WStatusBar or WDock
+     |    |--&gt;WFrames for floating content
+     |    |--&gt;possibly a WEdln, WMessage or WMenu
+     |    `--&gt;possibly a WStatusBar or WDock (if no tiling)
+     `--&gt;WFrames for sticky stuff, such as the scratchpad
+</PRE></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Note that a workspace can manage another workspace. This can be
+achieved with the <A HREF="#fn:attach_new"><TT>attach_new</TT></A> function, and allows you to nest
+workspaces as deep as you want.
+
+<P>
+
+<H2><A NAME="SECTION00023000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Summary</A>
+</H2>
+
+<P>
+In the standard setup, keeping queries, messages and menus out of
+consideration:
+
+<P>
+
+<UL>
+<LI>The top-level objects that matter are screens and they correspond
+    to physical screens. The class for screens is WScreen.
+</LI>
+<LI>Screens contain (multiplex) groups (WGroup) and other 
+    objects, such as WFrames. Some of these are mutually exclusive
+    to be viewed at a time.
+</LI>
+<LI>Groups of the specific kind WGroupWS often contain a
+    WTiling tiling for tiling frames (WFrame), but 
+    groups may also directly contain floating frames.
+</LI>
+<LI>Frames are the objects with decorations such as tabs and borders.
+    Frames contain (multiplex) among others (groups of) client windows, 
+    to each of which corresponds a tab in the frame's decoration. Only 
+    one client window (or other object) can be shown at a time in each 
+    frame. The class for client windows is WClientWin.
+</LI>
+</UL>
+
+<P>
+<BR><HR><H4>Footnotes</H4>
+<DL>
+<DT><A NAME="foot216">... design</A><A
+ HREF="node2.html#tex2html1"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
+<DD>the author doesn't like such artificial designs
+
+</DD>
+</DL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html81"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html75"
+  HREF="ionnotes.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html69"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html77"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html79"
+  HREF="node8.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html82"
+  HREF="node3.html">2 Object system implementation</A>
+<B> Up:</B> <A NAME="tex2html76"
+  HREF="ionnotes.html">Ion: Notes for the</A>
+<B> Previous:</B> <A NAME="tex2html70"
+  HREF="node1.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html78"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html80"
+  HREF="node8.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

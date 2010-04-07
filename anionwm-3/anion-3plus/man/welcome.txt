@@ -1,0 +1,417 @@
+
+Welcome to Ion!
+
+If you have never used Ion before, it is highly recommended that you study 
+the Ion manual page before proceeding further. It is reproduced below, but 
+you can also access it later on, for example, by pressing <F1> and then 
+<Enter> or, by running 'man ion3' in a terminal. All this supposing that 
+you have installed Ion in a standard location so that the system commands
+can find the manual page.
+
+If you are too eager to try out Ion and against all recommendation want to
+skip reading the manual page, you should at least know that pressing <F2> 
+should start a terminal emulator (xterm) and that the main menu can be 
+accessed with <F12>.
+
+When you feel ready to write customized configuration files (you're going
+to do that in any case), please see the configuration manual available from
+the Ion webpage listed at the end of the user manual below. It may, however,
+be beneficial to become well acquainted with Ion before delving into this 
+so that you have grasped the basic concepts necessary to understand the
+binding configuration files.
+
+
+---- Manual page follows ----
+
+
+ION(1)                                                                  ION(1)
+
+
+
+NAME
+       Ion - an X11 window manager
+
+SYNOPSIS
+       ion3 [options]
+
+DESCRIPTION
+       Ion  is  a tiling tabbed window manager designed with keyboard users in
+       mind.
+
+
+OPTIONS
+       -display host:display.screen
+              X display to manage
+
+       -conffile configfile
+              Configuration file to use instead of default
+
+       -searchdir dir
+              Directory to search for configuration files and other scripts
+
+       -oneroot
+              On X servers with multiple (traditional  non-Xinerama)  screens,
+              manage  only  default screen (root window), not all, as given by
+              the -display option or in the DISPLAY environment variable.
+
+       -session session_name
+              Set session name. This option affects where workspace and  other
+              save files are put (~/.ion3/session_name if option set).
+
+       -help  Show help on command line options
+
+       -version
+              Show version
+
+       -about Show about text (version, author, license)
+
+
+BASIC CONCEPTS
+       This  section  is  an overview of the types objects that appear on an X
+       display managed by Ion and their relationships  in  a  standard  setup.
+       This  information  is necessary to understand the operations and avail-
+       ability of the different key  bindings  explained  below.  For  a  more
+       detailed  explanation, needed for writing custom bindings configuration
+       files, see the additional documentation  available  from  the  Ion  Web
+       page.
+
+       The  top-level  objects  that  matter  in the case at hand are screens.
+       They correspond to physical screens. Screens contain workspaces  (which
+       are  a  kind  of  group), and client windows put into full screen mode.
+       These objects are multiplexed in the sense that only one  can  be  dis-
+       played at a time.
+
+       Workspaces themselves may contain tilings and detached/floating frames.
+       Tilings themselves contain frames tiled to fill the screen, and  possi-
+       bly  a  statusbar  or  dock.  Akin  to  screens, frames multiplex other
+       objects, but in this case mostly client  window  groups.  Most  of  the
+       time,  frames  are  the only trace of Ion you see on the screen. Frames
+       may have border decorations, and they have a tab for  each  multiplexed
+       object.
+
+       Queries  are  boxes  that appear at the bottoms of frames or screens to
+       ask you for textual input to execute an  action  that  depends  on  it.
+       Most queries support tab-completion.
+
+
+
+BINDINGS
+       These  are the default key and pointer bindings. (Mod1) depends on your
+       system. On PC:s with XFree86 it is probably bound to the left  Alt  key
+       (Alt_L).  On  Suns  it  is  usually  bound to the diamond keys (Meta_L,
+       Meta_R). Use xmodmap(1x) to find out.
+
+       The string in square brackets after a binding group heading below indi-
+       cates the module whose configuration file defines these bindings.
+
+
+   Globally available bindings
+       Mod1+1, Mod1+2, Mod1+3, Mod1+4, Mod1+5, Mod1+6, Mod1+7, Mod1+8, Mod1+9,
+       Mod1+0
+              Switch to n:th object (workspace,  full  screen  client  window)
+              within current screen.
+
+       Mod1+comma, Mod1+period
+              Switch to next/previous object within current screen.
+
+       Mod1+K K
+              Go to first region demanding attention or previously active one.
+
+       Mod1+K T
+              Clear all tags.
+
+       Mod1+Shift+1, Mod1+Shift+2
+              Go to n:th screen on multihead setup.
+
+       Mod1+Shift+comma, Mod1+Shift+period
+              Go to next/previous screen on multihead setup.
+
+       Mod1+F9
+              Create a new workspace of chosen default type.
+
+       F12, Button3 press
+              Display the main menu.
+
+       Button2 press
+              Display the window list menu.
+
+       Mod1+Tab
+              Forward-circulate focus.
+
+       Mod1+K Tab
+              Backward-circulate focus.
+
+       Mod1+K R
+              Raise focused object, if possible.
+
+
+
+   Bindings operating on all frames and screens
+       Mod1+C Close current object.
+
+
+
+   Bindings operating on all frames
+       Mod1+K H, Mod1+K V
+              Maximize the frame horizontally/vertically.
+
+       Button3 press
+              Display context menu.
+
+       Mod1+R Begin move/resize mode.
+
+       Button1 click at tab, Button2 click at tab
+              Switch the frame to display the object indicated by the tab.
+
+       Button1 drag at border, Mod1+Button3 drag
+              Resize the frame.
+
+       Mod1+Button1 drag
+              Move the frame.
+
+       Button1 drag at tab, Button2 drag at tab
+              Move objects between frames by dragging and dropping the tab.
+
+
+
+   Bindings operating on top-level (non-transient) frames and screens
+       Mod1+T Toggle tag of current object.
+
+       F1     Query for manual page to be displayed.
+
+       Mod1+F1
+              Show the Ion manual page.
+
+       F2     Run a terminal emulator.
+
+       F3     Query for command line to execute.
+
+       Mod1+F3
+              Query for Lua code to execute.
+
+       F4     Query for host to connect to with SSH.
+
+       F5     Query for file to edit.
+
+       F6     Query for file to view.
+
+       F9     Query for workspace to go to or create a new one.
+
+       Mod1+G Query for a client window to go to.
+
+       Mod1+M Display context menu.
+
+       Mod1+K D
+              Detach (float) or reattach an object to its previous location.
+
+
+
+   Bindings operating on top-level (non-transient) frames
+       Mod1+A Query for a client window to attach.
+
+       Mod1+K  1,  Mod1+K 2, Mod1+K 3, Mod1+K 4, Mod1+K 5, Mod1+K 6, Mod1+K 7,
+       Mod1+K 8, Mod1+K 9, Mod1+K 0
+              Switch to n:th object within the frame.
+
+       Mod1+K N, Mod1+K P
+              Switch to next/previous object within the frame.
+
+       Mod1+K comma, Mod1+K period
+              Move current object within the frame left/right.
+
+       Mod1+K H, Mod1+K V
+              Maximize the frame horizontally/vertically.
+
+       Mod1+K A
+              Attach tagged objects to this frame.
+
+
+
+   Bindings for floating/detached frames
+       Button1 double click at tab
+              Toggle shade mode
+
+       Button1 press at tab, Button1 press at border, Mod1+Button1 click
+              Raise the frame.
+
+       Mod1+Button3 click
+              Lower the frame.
+
+       Button1 drag at tab
+              Move the frame.
+
+       Mod1+K B
+              Tile frame, if no tiling exists on the workspace
+
+
+
+   Bindings for tilings and tiled frames [mod_tiling]
+       Mod1+S Split current frame vertically.
+
+       Mod1+P, Mod1+N, Mod1+Tab, Mod1+K Tab
+              Go to frame above/below/right/left of current frame.
+
+       Mod1+K S
+              Split current frame horizontally.
+
+       Mod1+K X
+              Destroy current frame.
+
+
+
+   Bindings for client windows
+       Mod1+L Nudge the client window. This might  help  with  some  programs'
+              resizing problems.
+
+       Mod1+K C
+              Kill client owning the client window.
+
+       Mod1+K Q
+              Send  next key press to the client window. Some programs may not
+              allow this by default.
+
+
+       Mod1+Return
+              Toggle client window group full-screen mode
+
+
+
+   Move/resize mode bindings
+       Escape Cancel the resize mode.
+
+       Return End the resize mode.
+
+       Left, Right, Up, Down, F, B, P, N
+              Grow in specified direction.
+
+       Shift+Left,  Shift+Right,  Shift+Up,  Shift+Down,   Shift+F,   Shift+B,
+       Shift+P, Shift+N
+              Shrink in specified direction.
+
+       Mod1+Left,  Mod1+Right,  Mod1+Up,  Mod1+Down,  Mod1+F,  Mod1+B, Mod1+P,
+       Mod1+N
+              Move in specified direction.
+
+
+
+   Bindings for message boxes and queries [mod_query]
+       Escape, Control+G, Control+C
+              Close the query/message box, not executing bound actions.
+
+       Control+U, Control+V, Page_Up, Page_Down
+              Scroll the message or completions up/down.
+
+
+
+   Bindings for editing in queries [mod_query]
+       These bindings are similar to those of the joe(1)  text  editor.   Cut,
+       copy  and  paste  works  in a more conventional manner, though, but the
+       keys are equivalent.
+
+
+       Control+F, Control+B, Right, Left
+              Move one character forward/backward.
+
+       Control+E, Control+A, End, Home
+              Go to end/beginning.
+
+       Control+X, Control+Z
+              Skip one word forward/backward.
+
+       Control+D, Delete
+              Delete next character.
+
+       BackSpace, Control+H
+              Delete previous character.
+
+       Control+W, Control+O
+              Delete one word forward/backward.
+
+       Control+J
+              Delete to end of line.
+
+       Control+Y
+              Delete the whole line.
+
+       Control+T
+              Transpose characters.
+
+       Control+P, Control+N, Up, Down, Control+Up, Control+Down
+              Select next/previous (matching) history entry.
+
+       Button2 click, Control+K C
+              Paste from the clipboard.
+
+       Control+K B
+              Set mark/begin selection.
+
+       Control+K Y
+              Cut selection.
+
+       Control+K K
+              Copy selection.
+
+       Control+K G
+              Clear mark/cancel selection.
+
+       Tab, Shift+Tab, Control+Tab
+              Try to complete the entered text or cycle through completions.
+
+       Control+R, Control+S
+              Complete from history
+
+       Control+M, Return, KP_Enter
+              Close the query and execute bound action.
+
+
+
+   Bindings for menus [mod_menu]
+       Escape, Control+G, Control+C, Left
+              Close the menu.
+
+       Return, KP_Enter, Control+M, Right
+              Activate current menu entry.
+
+       Control+N, Control+P, Up, Down
+              Select next/previous menu entry.
+
+       BackSpace
+              Clear the menu's typeahead find buffer.
+
+
+
+
+FILES AND DIRECTORIES
+       /etc/ion3plus/cfg_ion.lua
+              System default main configuration files
+
+       /etc/ion3plus/cfg_*.lua
+              Other configuration files.
+
+       /etc/ion3plus/look_*.lua
+              Colour scheme configuration files
+
+       ~/.ion3/
+              User configuration files
+
+       ~/.ion3/cfg_ion.lua
+              User default main configuration file (overrides system default)
+
+
+SEE ALSO
+       The Ion home page, http://iki.fi/tuomov/ion/
+
+       The document "Configuring and extending Ion3 with Lua" found on the Ion
+       home page.
+
+       //usr/local/ion-3plus/share/doc/ion3plus/
+
+       X(7x), pwm3(1), joe(1)
+
+
+AUTHOR
+       Ion was written by Tuomo Valkonen <tuomov at iki.fi>.
+
+
+
+                                                                        ION(1)

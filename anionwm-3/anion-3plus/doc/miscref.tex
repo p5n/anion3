@@ -1,0 +1,44 @@
+
+\subsection{Size policies}
+\label{sec:sizepolicies}
+
+Some functions accept a \var{sizepolicy} parameter. The possible
+values are: 
+
+\begin{flushleft}
+\codestr{default},
+\codestr{full},
+\codestr{full\_bounds},
+\codestr{free},
+\codestr{free\_glue},
+\codestr{northwest},
+\codestr{north},
+\codestr{northeast},
+\codestr{west},
+\codestr{center},
+\codestr{east},
+\codestr{southwest},
+\codestr{south},
+\codestr{southeast},
+\codestr{stretch\_top},
+\codestr{stretch\_bottom},
+\codestr{stretch\_left},
+\codestr{stretch\_right},
+\codestr{free\_glue\_northwest},
+\codestr{free\_glue\_north},
+\codestr{free\_glue\_northeast},
+\codestr{free\_glue\_west},
+\codestr{free\_glue\_center},
+\codestr{free\_glue\_east},
+\codestr{free\_glue\_southwest},
+\codestr{free\_glue\_south}, and
+\codestr{free\_glue\_southeast}.
+\end{flushleft}
+
+The ``free'' policies allow the managed
+object to be moved around, whereas the other versions do not. 
+The ``glue'' policies glue the object to some border, while allowing
+it to be moved away from it by user action, but not automatically.
+The ``stretch'' policies stretch the object along the given border,
+while the coordinate-based policies simply place the object along 
+that border.

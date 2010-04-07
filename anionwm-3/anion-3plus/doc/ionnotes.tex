@@ -1,0 +1,57 @@
+\documentclass[english,a4paper,11pt,oldtoc,mctitle]{artikel3}
+\input{macros}
+
+% For including some files from reports
+\newcommand{\xchapter}[1]{\section{#1}}
+\newcommand{\xsection}[1]{\subsection{#1}}
+\newcommand{\xsectionstar}[1]{\subsection*{#1}}
+\newcommand{\xsubsection}[1]{\subsubsection{#1}}
+
+
+\title{Ion: Notes for the module and patch writer}
+\author{Tuomo Valkonen \\ tuomov at iki.fi}
+%%DATE
+
+\makeindex
+
+
+\begin{document}
+
+\maketitle
+
+Ion: Notes for the module and patch writer\\
+Copyright \copyright\  2003--2004 Tuomo Valkonen.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2
+published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled ``GNU
+Free Documentation License''.
+
+\bigskip
+
+\begin{abstract}
+    This document is an unorganized collection of notes for
+    those who want to write modules or patches to Ion.
+\end{abstract}
+
+\tableofcontents
+
+\input{objects}
+
+\input{objectsimpl}
+
+\input{luaif}
+
+\input{designnotes}
+
+\input{cstyle}
+
+\appendix
+
+\input{fdl}
+
+\printindex
+
+\end{document}

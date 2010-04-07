@@ -1,0 +1,53 @@
+
+Ion autoconf script README
+
+
+CONFIGURE SCRIPT OPTIONS
+
+The Ion-specific options to ./configure are:
+
+    --disable-xinerama
+    --disable-xfree86-textprop-bug-workaround
+    --enable-Xutf8
+    --disable-shared
+    --with-libtool (see *BSD NOTES below)
+    --with-lua* (see DEBIAN NOTES below)
+    --enable-c99-source
+    --enable-xopen-source
+
+Run ./configure --help for more information on these options. The
+defaults are chosen to generate a configuration very similar to the
+Ion default.
+
+
+*BSD NOTES
+
+Many *BSD versions come with a very old version of libtool. Use the
+--with-libtool option to use a more recent version installed
+elsewhere, e.g.
+
+    ./configure --with-libtool=/usr/local/stow/libtool-1.5
+
+
+DEBIAN NOTES
+
+If you are using the Lua 5.0 package on Debian then use
+
+    ./configure --with-lua-suffix=50 \
+    --with-lua-includes=/usr/include/lua50
+
+This will allow the script to find the Lua headers, binaries and
+libraries as renamed and located on Debian.
+
+
+CYGWIN NOTES
+
+Under Cygwin you must use statically linked modules:
+
+    ./configure --disabled-shared
+
+
+AUTHORS
+
+Tom Payne <ion@tompayne.org>
+

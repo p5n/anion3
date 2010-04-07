@@ -1,0 +1,106 @@
+
+\chapter{Scripting}
+\label{chap:tricks}
+
+This chapter documents some additional features of the Ion configuration
+and scripting interface that can be used for more advanced scripting than
+the basic configuration explained in chapter \ref{chap:config}.
+
+\section{Hooks}
+\label{sec:hooks}
+
+Hooks are lists of functions to be called when a certain event occurs.
+There are two types of them; normal and ``alternative'' hooks. Normal
+hooks do not return anything, but alt-hooks should return a boolean
+indicating whether it handled its assigned task successfully. In the case
+that \var{true} is returned, remaining handlers are not called.
+
+Hook handlers are registered by first finding the hook
+with \fnref{ioncore.get_hook} and then calling \fnref{WHook.add}
+on the (successful) result with the handler as parameter. Similarly
+handlers are unregistered with \fnref{WHook.remove}. For example:
+
+\begin{verbatim}
+ioncore.get_hook("ioncore_snapshot_hook"):add(
+    function() print("Snapshot hook called.") end
+)
+\end{verbatim}
+
+In this example the hook handler has no parameters, but many hook
+handlers do. The types of parameters for each hook are listed in
+the hook reference, section \ref{sec:hookref}.
+
+Note that many of the hooks are called in ``protected mode'' and can not 
+use any functions that modify Ion's internal state. 
+
+
+\section{Referring to regions}
+
+\subsection{Direct object references}
+
+All Ion objects are passed to Lua scripts as 'userdatas', and you may
+safely store such object references for future use. The C-side object
+may be destroyed while Lua still refers to the object. All exported
+functions gracefully fail in such a case, but if you need to explicitly
+test that the C-side object still exists, use \fnref{obj_exists}.
+
+As an example, the following short piece of code implements 
+bookmarking:
+
+\begin{verbatim}
+local bookmarks={}
+
+-- Set bookmark bm point to the region reg
+function set_bookmark(bm, reg)
+    bookmarks[bm]=reg
+end
+
+-- Go to bookmark bm
+function goto_bookmark(bm)
+    if bookmarks[bm] then
+        -- We could check that bookmarks[bm] still exists, if we
+        -- wanted to avoid an error message.
+        bookmarks[bm]:goto()
+    end
+end
+\end{verbatim}
+
+\subsection{Name-based lookups}
+
+If you want to a single non-\type{WClientWin} region with an exact known 
+name, use \fnref{ioncore.lookup_region}. If you want a list of all regions,
+use \fnref{ioncore.region_list}. Both functions accept an optional argument
+that can be used to specify that the returned region(s) must be of a more 
+specific type. Client windows live in a different namespace and for them
+you should use the equivalent functions \fnref{ioncore.lookup_clientwin}
+and \fnref{ioncore.clientwin_list}.
+
+To get the name of an object, use \fnref{WRegion.name}. Please be
+aware, that the names of client windows reflect their titles and
+are subject to changes. To change the name of a non-client window
+region, use \fnref{WRegion.set_name}.
+
+
+\section{Alternative winprop selection criteria}
+
+It is possible to write more complex winprop selection routines than
+those described in section \ref{sec:winprops}. To match a particular
+winprop using whatever way you want to, just set the \var{match}
+field of the winprop to a function that receives the as its parameters
+the triple \var{(prop, cwin, id)}, where \var{prop} is the table for 
+the winprop itself, \code{cwin} is the client window object,
+and  \var{id} is the \fnref{WClientWin.get_ident} result.
+The function should return \var{true} if the winprop matches, 
+and \code{false} otherwise. Note that the \var{match} function
+is only called after matching against class/role/instance.
+
+The title of a client window can be obtained with \fnref{WRegion.name}.
+If you want to match against (almost) arbitrary window properties,
+have a look at the documentation for the following functions, and
+their standard Xlib counterparts: \fnref{ioncore.x_intern_atom}
+(XInternAtom), \fnref{ioncore.x_get_window_property} (XGetWindowProperty),
+and \fnref{ioncore.x_get_text_property} (XGetTextProperty).
+
+
+\input{statusd}
+

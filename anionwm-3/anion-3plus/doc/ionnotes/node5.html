@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>4 Miscellaneous design notes</TITLE>
+<META NAME="description" CONTENT="4 Miscellaneous design notes">
+<META NAME="keywords" CONTENT="ionnotes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ionnotes.css">
+
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="ionnotes.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html132"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html126"
+  HREF="ionnotes.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html120"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html128"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html130"
+  HREF="node8.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html133"
+  HREF="node6.html">5 C coding style</A>
+<B> Up:</B> <A NAME="tex2html127"
+  HREF="ionnotes.html">Ion: Notes for the</A>
+<B> Previous:</B> <A NAME="tex2html121"
+  HREF="node4.html">3 The Lua interface</A>
+ &nbsp; <B>  <A NAME="tex2html129"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html131"
+  HREF="node8.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html134"
+  HREF="node5.html#SECTION00051000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Destroying WObj:s</A>
+<LI><A NAME="tex2html135"
+  HREF="node5.html#SECTION00052000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> The types <TT>char*</TT> and <TT>const char*</TT> as function
+  parameters and return values</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00050000000000000000">
+<SPAN CLASS="arabic">4</SPAN> Miscellaneous design notes</A>
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION00051000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Destroying WObj:s</A>
+</H2>
+
+<P>
+To keep Ion's code as simple as possible yet safe, there are restrictions
+when the WObj
+<TT>destroy_obj</TT><A NAME="623"></A>
+function that calls watches, the deinit routine and frees memory may
+be called directly. In all other cases the <TT>mainloop_defer_destroy</TT><A NAME="624"></A>
+function should be used to defer the call of <TT>destroy_obj</TT> until
+Ioncore returns to its main event loop. 
+
+<P>
+Calling the <TT>destroy_obj</TT> function directly is allowed in the
+following cases:
+
+<UL>
+<LI>In the deinit handler for another object. Usually managed objects
+      are destroyed this way.
+</LI>
+<LI>The object was created during the current call to the function
+      that wants to get rid of the object. This is the case, for example,
+      when the function created a frame to manage some other object but for
+      some reason failed to reparent the object to this frame.
+</LI>
+<LI>In a deferred action handler set with <TT>mainloop_defer_action</TT><A NAME="625"></A>.
+      Like deferred destroys, other deferred actions are called when
+      Ioncore has returned to the main loop.
+</LI>
+<LI>You are absolute sure that C code outside your code has no
+      references to the object.
+</LI>
+</UL>
+
+<P>
+If there are no serious side effects from deferring destroying the
+object or you're unsure whether it is safe to destroy the object
+immediately, use <TT>mainloop_defer_destroy</TT>.
+
+<P>
+
+<H2><A NAME="SECTION00052000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> The types <TT>char*</TT> and <TT>const char*</TT> as function
+  parameters and return values</A>
+</H2>
+
+<P>
+The following rules should apply to using strings as return values and
+parameters to functions. 
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1" WIDTH="100%">
+<TR><TD ALIGN="LEFT">Type</TD>
+<TD ALIGN="LEFT">Return value</TD>
+<TD ALIGN="LEFT">Parameter</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT>const char*</TT></TD>
+<TD ALIGN="LEFT">The string is owned by the called function
+       and the caller is only quaranteed short-term read access to the
+       string.</TD>
+<TD ALIGN="LEFT">The called function may only read the string during its execution.
+       For further reference a copy must be made.</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT>char*</TT></TD>
+<TD ALIGN="LEFT">The string is the caller's responsibility and it
+       <SPAN  CLASS="textit">must</SPAN> free it when no longer needed.</TD>
+<TD ALIGN="LEFT">The called function may modify the string but the ``owner'' of
+       the string is case-dependant.</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html132"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html126"
+  HREF="ionnotes.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html120"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html128"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html130"
+  HREF="node8.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html133"
+  HREF="node6.html">5 C coding style</A>
+<B> Up:</B> <A NAME="tex2html127"
+  HREF="ionnotes.html">Ion: Notes for the</A>
+<B> Previous:</B> <A NAME="tex2html121"
+  HREF="node4.html">3 The Lua interface</A>
+ &nbsp; <B>  <A NAME="tex2html129"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html131"
+  HREF="node8.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,428 @@
+
+Tervetuloa käyttämään Ionia!
+
+Jos et ole käyttänyt Ionia aiemmin, on hyvin suotiteltavaa, että opiskelet
+Ionin ohjesivun ennen kuin jatkat tätä pidemmälle. Se on toistettu alla,
+mutta voit aukaista sen myös myöhemmin painamalla <F1> ja <Enter>, tai
+suorittamalla 'man ion3' komentoriviltä. (Tämä toimii sillä oletuksella,
+että olet asentanut Ionin järjestelmässäsi sellaiseen vakiosijaintin, 
+mistä sen työkalut osaavat hakea ohjesivuja.)
+
+Jos olet innokas kokeilemaan Ionia nyt heti ja vastoin suosituksia haluat
+jättää ohjesivun lukematta tällä istumalla, sinun tulisi kuitenkin tietää
+ainakin seuraavat näppäimet: <F2> käynnistää pääte-emulaattorin (xterm)
+ja <F12> näyttää päävalikon.
+
+Jossain vaiheessa, opeteltuasi Ionin peruskäsitteet ja toiminnot, haluat
+varmaan muokata sen asetukset itsellesi sopivammiksi. Tähän löydät apua
+(englanniksi) Ionin asetus- ja ohjelmointimanuaalista. Se löytyy ainakin
+Ionin seittisivulta, johon on linkki alla olevan ohjesivun lopussa.
+Huomautettakoon vielä, että Ionin käytön ja peruskäsitteiden opettelu
+on hyvin suositeltvaa ennen asetustiedostojen pariin hyppäämistä.
+
+---- Ohjesivu seuraa ----
+
+
+ION(1)                                                                  ION(1)
+
+
+
+NIMI
+       Ion - X11 ikkunanhallintaohjelma
+
+SELOSTE
+       ion3 [valinnat]
+
+KUVAUS
+       Ion  on  näppäimistökäyttäjiä silmälläpitäen suunniteltu laatoitusta ja
+       välilehtiä hyödyntävä ikkunanhallintaohjelma X11:lle.
+
+
+VALINNAT
+       -display kone:palvelin.näyttö
+              X palvelin, johon ottaa yhteys.
+
+       -conffile asetustiedosto
+              Käytettävä asetustiedosto.
+
+       -searchdir dir
+              Hakupolkuun lisättävä hakemisto, josta löytyy asetus-  ja  muita
+              tiedostoja.
+
+       -oneroot
+              Hallitse  vain  oletusnäyttöä  X-palvelimilla, joissa on useampi
+              perinteinen  (ei  Xinerama)  näyttö/juuri-ikkuna.  Tämä   näyttö
+              voidaan  valita -display parametrillä tai DISPLAY ympäristömuut-
+              tujalla.
+
+       -session session_name
+              Istunnon nimi. Tämä vaikuttaa talletustiedostojen sijaintiin.
+
+       -help  Näytä komentorivin ohje.
+
+       -version
+              Näytä Ionin versio.
+
+       -about Näytä tietoja Ionista (versio, tekijä, lisenssi).
+
+
+PERUSKÄSITTEET
+       Tämä kappale on  katsaus  erilaisiin  niin  kutsuttuihin  kappaleisiin,
+       joita  ilmenee  Ionin  hallitsemalla  X-näytöllä,  ja niiden suhteisiin
+       tavallisessa  kokoonpanossa.  Sinun  tarvitse  ymmärtää  nämä   suhteet
+       tietääksesi  milloin  mitkäkin alempana kuvattavat näppäinsidonnat ovat
+       käytettävissäsi. Jos  kaipaat  vielä  tarkempaa  kuvausta,  esimerkiksi
+       tehdäksesi  omat  asetustiedostot,  katso  Ionin seittisivulta saatavaa
+       yksityiskohtaisempaa dokumentaatiota.
+
+       Ylimmän tason kappaleista, joilla on merkitystä tässä yhteydessä,  kut-
+       sutaan  näytöiksi.  Ne  vastaavat  fyysisiä näyttöjä. Näytöt sisältävät
+       työpöytiä (jotka ovat itse eräänlaisia ryhmiä)  ja  kokoruudun  tilassa
+       olevia asiakasikkunoita. Nämä kappaleet ovat lomitettu siten, että vain
+       yksi voi näkyä kerrallaan.
+
+       Työpöydät  voivat  vuorostaan   sisältää   laatoituksia   sekä   kellu-
+       via/irroitettuja kehyksiä. Laatoitukset taasen sisältävät kehyksiä laa-
+       toitettuna täyttämään koko näytön, sekä  mahdollisesti  tilapalkin  tai
+       telakan  (dock). Näyttöjen tapaan kehykset lomittavat muita kappaleita,
+       mutta tässä tapauksessa  lähinnä  asiakasikkunaryhmiä.   Kehykset  ovat
+       suurimman  osan  ajasta ainut asia, minkä näet Ionista. Niillä voi olla
+       reunakoristukset, ja lisäksi kehyksissä on välilehti jokaiselle lomite-
+       tulle kappaleelle.
+
+       Kyselyt  ovat  näyttöjen  tai  kehysten  alaosiin imestyviä laatikoita,
+       jotka odottavat sinulta tekstin syöttöä jonkin siitä riippuvan  toimin-
+       non suorittamiseksi. Useimmat kyselyt tukevat tab-täydennystä.
+
+
+
+SIDONNAT
+       Nämä  ovat oletusarvoiset näppäin- ja osoitinsidonnat. Näppäinmuunninta
+       (Mod1) vastaava  näppäin  riippuu  järjestelmästäsi.  PC-tietokoneilla,
+       joissa  on  XFree86  se  on  todennäköisesti vasen Alt-näppäin (Alt_L).
+       Suneilla se on luultavasti sidottu timanttinäppäimiin.  Käytä  komentoa
+       xmodmap(1x) selvittääksesi asian tarkemmin.
+
+       Otsikkojen  perässä  hakasuluissa  oleva merkkijono ilmoittaa moduulin,
+       jonka asetustiedosto määrittelee alla olevat sidonnat.
+
+
+   Yleisesti saatavilla olevat sidonnat
+       Mod1+1, Mod1+2, Mod1+3, Mod1+4, Mod1+5, Mod1+6, Mod1+7, Mod1+8, Mod1+9,
+       Mod1+0
+              Siirry  n:teen  tämänhetkisen  näytön  lomittamaan  kappaleeseen
+              (työpöytä, kokoruudun asiakasikkuna).
+
+       Mod1+comma, Mod1+period
+              Siirry seuraavaan/edelliseen  tämänhetkisen  näytön  lomittamaan
+              kappaleeseen.
+
+       Mod1+K K
+              Mene  ensimmäiseen  huomiota vaativaan alueeseen, tai edelliseen
+              aktiiviseen.
+
+       Mod1+K T
+              Poista kaikki merkinnät.
+
+       Mod1+Shift+1, Mod1+Shift+2
+              Siirry näytölle n usean näytön järjestelmässä.
+
+       Mod1+Shift+comma, Mod1+Shift+period
+              Mene    seuraavalle/edelliselle    näytölle     usean     näytön
+              järjestelmässä.
+
+       Mod1+F9
+              Luo uusi työpöytä ennalta asetettua tyyppiä.
+
+       F12, Button3 painallus
+              Näytä päävalikko.
+
+       Button2 painallus
+              Näytä ikkunavalikko.
+
+       Mod1+Tab
+              Kierrätä fokusta eteenpäin.
+
+       Mod1+K Tab
+              Kierrätä fokusta taaksepäin
+
+       Mod1+K R
+              Nosta aktiivista kappaletta, jos mahdollista.
+
+
+
+   Näytöillä ja kaikissa kehyksissä toimivat sidonnat
+       Mod1+C Sulje aktiivinen kappale.
+
+
+
+   Kaikissa kehyksissä toimivat sidonnat
+       Mod1+K H, Mod1+K V
+              Maksimoi kehys vaaka/pystysuunnassa.
+
+       Button3 painallus
+              Näytä kontekstivalikko.
+
+       Mod1+R Aloita siirto ja koonmuutostila.
+
+       Button1 napsautus osassa tab, Button2 napsautus osassa tab
+              Vaihda kehys näyttämään välilehden ilmoittama kappale.
+
+       Button1 raahaus osassa border, Mod1+Button3 raahaus
+              Muuta kehyksen kokoa.
+
+       Mod1+Button1 raahaus
+              Siirrä kehystä.
+
+       Button1 raahaus osassa tab, Button2 raahaus osassa tab
+              Siirrä  kappaletta  kehysten välillä raahaamalla ja pudottamalla
+              välilehti.
+
+
+
+   Näytöillä ja ylimmän tason kehyksissä (ei ns. transientit) toimivat  sidon-
+       nat
+       Mod1+T Merkitse aktiivinen kappale.
+
+       F1     Kysy ohjesivua näytettäväksi.
+
+       Mod1+F1
+              Näytä Ionin ohjesivu.
+
+       F2     Käynnistä pääte-emulaattori.
+
+       F3     Kysy komentoriviä suoritettavaksi.
+
+       Mod1+F3
+              Kysy Lua-koodia ajettavaksi.
+
+       F4     Ota SSH-yhteys kyseltävään koneeseen.
+
+       F5     Kysy tiedostoa muokattavaksi.
+
+       F6     Kysy tiedostoa näytettäväksi.
+
+       F9     Kysy työpöytää jolle siirtyä, tai luo uusi.
+
+       Mod1+G Kysy asiakasikkunaa, johon siirtyä.
+
+       Mod1+M Näytä kontekstivalikko.
+
+       Mod1+K D
+              Irroita  (kelluta)  tai  uudelleenliitä  kappale  sen edelliseen
+              sijaintiin.
+
+
+
+   Ylimmän tason kehyksissä (ei ns. transientit) toimivat sidonnat
+       Mod1+A Kysy liitettävää asiakasikkunaa.
+
+       Mod1+K 1, Mod1+K 2, Mod1+K 3, Mod1+K 4, Mod1+K 5, Mod1+K 6,  Mod1+K  7,
+       Mod1+K 8, Mod1+K 9, Mod1+K 0
+              Siirry n:teen kehyksen jakavaan kappaleeseen.
+
+       Mod1+K N, Mod1+K P
+              Siirry seuraavaan/edelliseen kehyksen jakavaan kappaleeseen.
+
+       Mod1+K comma, Mod1+K period
+              Siirrä  kehyksessä  tällä hetkellä näytettävää kappaletta vasem-
+              malle/oikealle.
+
+       Mod1+K H, Mod1+K V
+              Maksimoi kehys vaaka/pystysuunnassa.
+
+       Mod1+K A
+              Liitä merkityt kappaleet tähän kehykseen.
+
+
+
+   Kelluvissa/irroitetuissa kehyksissä toimivat sidonnat
+       Button1 kaksoisnapsautus osassa tab
+              Kytke litistys päälle/pois.
+
+       Button1  painallus  osassa  tab,  Button1  painallus   osassa   border,
+       Mod1+Button1 napsautus
+              Nosta kehys.
+
+       Mod1+Button3 napsautus
+              Alenna kehystä.
+
+       Button1 raahaus osassa tab
+              Siirrä kehystä.
+
+       Mod1+K B
+              Laatoita kehys, jos työpöydällä ei ole kehystä
+
+
+
+   Laatoituksien ja laatoitettujen kehysten sidonnat [mod_tiling]
+       Mod1+S Halkaise tämänhetkinen kehys pystysuunnassa.
+
+       Mod1+P, Mod1+N, Mod1+Tab, Mod1+K Tab
+              Siirry tämänhetkisen kehyksen yllä/alla/vasemmalle/oikealla ole-
+              vaan kehykseen.
+
+       Mod1+K S
+              Halkaise tämänhetkinen kehys vaakasuunnassa.
+
+       Mod1+K X
+              Tuhoa tämänhetkinen kehys.
+
+
+
+   Asiakasikkunoiden sidonnat
+       Mod1+L Tönäise aktiivista asiakasikkunaa. Tämä saattaa auttaa joidenkin
+              ohjelmien koko-ongelmien kanssa.
+
+       Mod1+K C
+              Tapa aktiivisen asiakasikkunan omistava ohjelma.
+
+       Mod1+K Q
+              Lähetä  seuraava näppäinpainallus aktiiviselle asiakasikkunalle.
+              Kaikki ohjelmat eivät välttämättä salli tätä oletuksena.
+
+
+       Mod1+Return
+              Muuta asiakasikkunaryhmän kokoruudun tilaa
+
+
+
+   Siirto- ja koonmuutostilan sidonnat
+       Escape Peruuta tilasta.
+
+       Return Siirry tilasta pois.
+
+       Left, Right, Up, Down, F, B, P, N
+              Kasvata vastaavaan suuntaan.
+
+       Shift+Left,  Shift+Right,  Shift+Up,  Shift+Down,   Shift+F,   Shift+B,
+       Shift+P, Shift+N
+              Kutista vastaavaan suuntaan.
+
+       Mod1+Left,  Mod1+Right,  Mod1+Up,  Mod1+Down,  Mod1+F,  Mod1+B, Mod1+P,
+       Mod1+N
+              Liiku vastaavaan suuntaan.
+
+
+
+   Viestilaatikoiden ja kyselyiden sidonnat [mod_query]
+       Escape, Control+G, Control+C
+              Sulje kysely/viesti suorittamatta sidottuja toimintoja.
+
+       Control+U, Control+V, Page_Up, Page_Down
+              Vieritä viestiä tai täydennyksiä ylös/alas.
+
+
+
+   Tekstinmuokkaussidonnat kyselyihin [mod_query]
+       Nämä  näppäinsidonnat  vastaavat   tekstieditorin   joe(1)   sidontoja.
+       Leikkaus  ja liimaus toimii kuitenkin tavanomaisemmin, joskin näppäimet
+       ovat vastaavat.
+
+
+       Control+F, Control+B, Right, Left
+              Siirry yksi merkki eteen/taakse.
+
+       Control+E, Control+A, End, Home
+              Mene rivin alkuun/loppuun.
+
+       Control+X, Control+Z
+              Ohita yksi sana eteen/taaksepäin
+
+       Control+D, Delete
+              Poista seuraava merkki.
+
+       BackSpace, Control+H
+              Tuhoa edellinen merkki.
+
+       Control+W, Control+O
+              Tuhoa yksi sana eteen/taakse.
+
+       Control+J
+              Tuhoa merkit rivin loppuun saakka.
+
+       Control+Y
+              Tuhoa koko rivi.
+
+       Control+T
+              Transponoi merkit.
+
+       Control+P, Control+N, Up, Down, Control+Up, Control+Down
+              Näytä seuraava/edellinen vastaus muistista.
+
+       Button2 napsautus, Control+K C
+              Liimaa teksti leikelaudalta.
+
+       Control+K B
+              Aloita tekstin valinta.
+
+       Control+K Y
+              Leikkaa valittu teksti.
+
+       Control+K K
+              Kopioi valittu teksti.
+
+       Control+K G
+              Lopeta tekstin valinta.
+
+       Tab, Shift+Tab, Control+Tab
+              Yritä täydentää syötetty teksti tai selaa täydennyksiä.
+
+       Control+R, Control+S
+              Täydennä historiasta
+
+       Control+M, Return, KP_Enter
+              Sulje kysely ja suorita sidottu toiminta.
+
+
+
+   Valikoiden sidonnat [mod_menu]
+       Escape, Control+G, Control+C, Left
+              Sulje valikko.
+
+       Return, KP_Enter, Control+M, Right
+              Suorita valinta.
+
+       Control+N, Control+P, Up, Down
+              Siirry seuraavaan/edelliseen valintaan.
+
+       BackSpace
+              Tyhjää valikon hakupuskuri.
+
+
+
+
+TIEDOSTOT JA HAKEMISTOT
+       /etc/ion3plus/cfg_ion.lua
+              Järjestelmän oletusarvoinen pääasetustiedosto.
+
+       /etc/ion3plus/cfg_*.lua
+              Muita asetustiedostoja.
+
+       /etc/ion3plus/look_*.lua
+              Ulkonäön asetustiedostoja.
+
+       ~/.ion3/
+              Käyttäjän asetustiedostot.
+
+       ~/.ion3/cfg_ion.lua
+              Käyttäjän oletusarvoinen pääasetustiedosto.
+
+
+KATSO MYÖS
+       Ionin kotisivu, http://iki.fi/tuomov/ion/ (englanniksi).
+
+       Dokumentti "Configuring and  extending  Ion3  with  Lua"  (englanniksi)
+       nähtävissä Ionin kotisivulla.
+
+       //usr/local/ion-3plus/share/doc/ion3plus/
+
+       X(7x), pwm3(1), joe(1)
+
+
+TEKIJÄ
+       Ionin on kirjoittanut Tuomo Valkonen <tuomov at iki.fi>.
+
+
+
+                                                                        ION(1)
