@@ -1,7 +1,7 @@
 /*
  * ion-scripts-3/misc/mod_xkb.c
  *
- * Copyright (c) Sergey Redin 2006. 
+ * Copyright (c) Sergey Redin 2006.
  *
  * Ion is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by
@@ -16,14 +16,9 @@
 
 #include "exports.h"
 
-
 /*{{{ Module information */
-
-
 #include "../version.h"
-
 char mod_xkb_ion_api_version[]=ION_API_VERSION;
-
 /*}}}*/
 
 /*{{{ Exports */
@@ -51,9 +46,7 @@ int mod_xkb_lock_modifiers(int affect, int values)
 /*}}}*/
 
 
-
 /*{{{ Init & deinit */
-
 
 void mod_xkb_deinit()
 {
@@ -61,18 +54,12 @@ void mod_xkb_deinit()
 }
 
 
-   
-
 bool mod_xkb_init()
 {
     if(!mod_xkb_register_exports())
         return FALSE;
 
-/*    extl_read_config("cfg_xkb", NULL, FALSE); */
-    
     return TRUE;
 }
 
-
 /*}}}*/
-

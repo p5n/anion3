@@ -41,72 +41,72 @@ static int xinerama_error_base;
 
 bool mod_xinerama_init()
 {
-    WRootWin* rootWin = ioncore_g.rootwins;
-    Display* dpy = ioncore_g.dpy;
-    int scrNum,nScreens;
+  WRootWin* rootWin = ioncore_g.rootwins;
+  Display* dpy = ioncore_g.dpy;
+  int scrNum,nScreens;
+  XineramaScreenInfo* sInfo;
+  WScreen* new;
+
+  int nRects;
+  int i;
+
+  if(XineramaQueryExtension(dpy,&xinerama_event_base, &xinerama_error_base))
+  {
     XineramaScreenInfo* sInfo;
-    WScreen* new;
+    sInfo = XineramaQueryScreens(dpy, &nRects);
 
-    int nRects;
-    int i;
-
-    if(XineramaQueryExtension(dpy,&xinerama_event_base, &xinerama_error_base))
+    if(!sInfo)
     {
-        XineramaScreenInfo* sInfo;
-        sInfo = XineramaQueryScreens(dpy, &nRects);
-
-        if(!sInfo)
-        {
-            warn(TR("Could not retrieve Xinerama screen info, sorry."));
-            return FALSE ;
-        }
-        
-        for(i = 0 ; i < nRects ; ++i)
-        {
-            WFitParams fp;
-            WMPlexAttachParams par = MPLEXATTACHPARAMS_INIT;
-
-            WScreen* newScreen;
-            WRegion* reg=NULL;
-#ifdef MOD_XINERAMA_DEBUG
-            printf("Rectangle #%d: x=%d y=%d width=%u height=%u\n", 
-                   i+1, sInfo[i].x_org, sInfo[i].y_org, sInfo[i].width,
-                   sInfo[i].height);
-#endif
-            fp.g.x = sInfo[i].x_org;
-            fp.g.y = sInfo[i].y_org;
-            fp.g.w = sInfo[i].width;
-            fp.g.h = sInfo[i].height;
-            fp.mode = REGION_FIT_EXACT;
-
-            par.flags = MPLEX_ATTACH_GEOM|MPLEX_ATTACH_SIZEPOLICY|MPLEX_ATTACH_UNNUMBERED ;
-            par.geom = fp.g;
-            par.szplcy = SIZEPOLICY_FULL_EXACT;
-
-            newScreen = (WScreen*) mplex_do_attach_new(&rootWin->scr.mplex, &par,
-                (WRegionCreateFn*)create_screen, NULL);
-
-            if(newScreen == NULL) {
-                warn(TR("Unable to create Xinerama workspace %d."), i);
-                XFree(sInfo);
-                return FALSE;
-                }
-
-            newScreen->id = i ;
-
-        }
-
-        XFree(sInfo);
-        rootWin->scr.id = -2;
+      warn(TR("Could not retrieve Xinerama screen info, sorry."));
+      return FALSE ;
     }
-    else
-        warn(TR("No Xinerama support detected, mod_xinerama won't do anything."));
 
-    return TRUE;
+    for(i = 0 ; i < nRects ; ++i)
+    {
+      WFitParams fp;
+      WMPlexAttachParams par = MPLEXATTACHPARAMS_INIT;
+
+      WScreen* newScreen;
+      WRegion* reg=NULL;
+#ifdef MOD_XINERAMA_DEBUG
+      printf("Rectangle #%d: x=%d y=%d width=%u height=%u\n",
+             i+1, sInfo[i].x_org, sInfo[i].y_org, sInfo[i].width,
+             sInfo[i].height);
+#endif
+      fp.g.x = sInfo[i].x_org;
+      fp.g.y = sInfo[i].y_org;
+      fp.g.w = sInfo[i].width;
+      fp.g.h = sInfo[i].height;
+      fp.mode = REGION_FIT_EXACT;
+
+      par.flags = MPLEX_ATTACH_GEOM|MPLEX_ATTACH_SIZEPOLICY|MPLEX_ATTACH_UNNUMBERED ;
+      par.geom = fp.g;
+      par.szplcy = SIZEPOLICY_FULL_EXACT;
+
+      newScreen = (WScreen*) mplex_do_attach_new(&rootWin->scr.mplex, &par,
+                                                 (WRegionCreateFn*)create_screen, NULL);
+
+      if(newScreen == NULL) {
+        warn(TR("Unable to create Xinerama workspace %d."), i);
+        XFree(sInfo);
+        return FALSE;
+      }
+
+      newScreen->id = i ;
+
+    }
+
+    XFree(sInfo);
+    rootWin->scr.id = -2;
+  }
+  else
+    warn(TR("No Xinerama support detected, mod_xinerama won't do anything."));
+
+  return TRUE;
 }
 
 
 bool mod_xinerama_deinit()
 {
-    return TRUE;
+  return TRUE;
 }

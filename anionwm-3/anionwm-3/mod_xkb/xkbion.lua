@@ -22,8 +22,8 @@ xkbion_set {
     statusname = "xkbion",
 }
 xkbion_set {
-    {name="num", command="numlockx on"},
-    {name="<->", command="numlockx off"},
+    {name="NUM", command="numlockx on"},
+    {name="---", command="numlockx off"},
     key="Num_Lock",
     statusname="num",
     atomname="XKBION_NUM",
@@ -58,16 +58,16 @@ xkbion_set {
 
 -- You can use this line in cfg_statusbar.lua to indicate the current XKB group:
 
-template="... %xkbion ...",
+-- template="... %xkbion ...",
 
 -- If your Ion does not have mod_xkb, you may try the following:
 
-xkbion_set {
-    {name="EN", command="setxkbmap us -option grp:caps_toggle"},
-    {name="RU", command="setxkbmap ru winkeys -option grp:caps_toggle"},
-    key="Caps_Lock",
-    statusname = "xkbion",
-}
+-- xkbion_set {
+--    {name="EN", command="setxkbmap us -option grp:caps_toggle"},
+--    {name="RU", command="setxkbmap ru winkeys -option grp:caps_toggle"},
+--    key="Caps_Lock",
+--    statusname = "xkbion",
+-- }
 
 ]]
 
@@ -108,7 +108,7 @@ function xkbion_set (groups) -- the only global created by xkbion.lua
             return gnum
         end
     end
-    
+
     local set_group
     do
         local current_gnum = 1
@@ -146,7 +146,7 @@ function xkbion_set (groups) -- the only global created by xkbion.lua
             end
         end
     end
-    
+
     ioncore.get_hook("region_notify_hook"):add(
         function(reg, action)
             if (tostring(reg.__typename) == "WClientWin") and (action == "activated") then
