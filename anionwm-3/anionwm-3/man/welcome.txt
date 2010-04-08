@@ -404,7 +404,7 @@ SEE ALSO
        The document "Configuring and extending Ion3 with Lua" found on the Ion
        home page.
 
-       //usr/share/doc/anion3/
+       //usr/local/share/doc/anion3/
 
        X(7x), pwm3(1), joe(1)
 

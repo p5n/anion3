@@ -48,134 +48,139 @@ Rb_node rotations=NULL;
 
 static int rr2scrrot(int rr)
 {
-    switch(rr){
-    case RR_Rotate_0: return SCREEN_ROTATION_0; 
-    case RR_Rotate_90: return SCREEN_ROTATION_90; 
-    case RR_Rotate_180: return SCREEN_ROTATION_180; 
-    case RR_Rotate_270: return SCREEN_ROTATION_270; 
-    default: return SCREEN_ROTATION_0; 
-    }
+  switch(rr){
+    case RR_Rotate_0: return SCREEN_ROTATION_0;
+    case RR_Rotate_90: return SCREEN_ROTATION_90;
+    case RR_Rotate_180: return SCREEN_ROTATION_180;
+    case RR_Rotate_270: return SCREEN_ROTATION_270;
+    default: return SCREEN_ROTATION_0;
+  }
 }
 
 
 static void insrot(int id, int r)
 {
-    Rb_node node;
-        
-    node=rb_inserti(rotations, id, NULL);
-        
-    if(node!=NULL)
-        node->v.ival=r;
+  Rb_node node;
+
+  node=rb_inserti(rotations, id, NULL);
+
+  if(node!=NULL)
+    node->v.ival=r;
 }
 
 
 bool handle_xrandr_event(XEvent *ev)
 {
-    if(hasXrandR && ev->type == xrr_event_base + RRScreenChangeNotify) {
-        XRRScreenChangeNotifyEvent *rev=(XRRScreenChangeNotifyEvent *)ev;
-        
-        WFitParams fp;
-        WScreen *screen;
-        bool pivot=FALSE;
-        
-        screen=XWINDOW_REGION_OF_T(rev->root, WScreen);
-        
-        if(screen!=NULL){
-            int r;
-            Rb_node node;
-            int found;
-            
-            r=rr2scrrot(rev->rotation);
-            
-            fp.g.x=REGION_GEOM(screen).x;
-            fp.g.y=REGION_GEOM(screen).y;
-            
-            if(rev->rotation==RR_Rotate_90 || rev->rotation==RR_Rotate_270){
-                fp.g.w=rev->height;
-                fp.g.h=rev->width;
-            }else{
-                fp.g.w=rev->width;
-                fp.g.h=rev->height;
-            }
-            
-            fp.mode=REGION_FIT_EXACT;
-            
-            node=rb_find_ikey_n(rotations, screen->id, &found);
-            
-            if(!found){
-                insrot(screen->id, r);
-            }else if(r!=node->v.ival){
-                int or=node->v.ival;
-                
-                fp.mode|=REGION_FIT_ROTATE;
-                fp.rotation=(r>or
-                             ? SCREEN_ROTATION_0+r-or
-                             : (SCREEN_ROTATION_270+1)+r-or);
-                node->v.ival=r;
-            }
-            
-            REGION_GEOM(screen)=fp.g;
-            
-            mplex_managed_geom((WMPlex*)screen, &(fp.g));
-            
-            mplex_do_fit_managed((WMPlex*)screen, &fp);
-        }
-        
-        return TRUE;
+  if(hasXrandR && ev->type == xrr_event_base + RRScreenChangeNotify)
+  {
+    XRRScreenChangeNotifyEvent *rev=(XRRScreenChangeNotifyEvent *)ev;
+    WFitParams fp;
+    WScreen *screen;
+    bool pivot=FALSE;
+
+    screen=XWINDOW_REGION_OF_T(rev->root, WScreen);
+
+    if(screen!=NULL)
+    {
+      int r;
+      Rb_node node;
+      int found;
+
+      r = rr2scrrot(rev->rotation);
+
+      fp.g.x=REGION_GEOM(screen).x;
+      fp.g.y=REGION_GEOM(screen).y;
+
+      if(rev->rotation==RR_Rotate_90 || rev->rotation==RR_Rotate_270)
+      {
+        fp.g.w=rev->height;
+        fp.g.h=rev->width;
+      }
+      else
+      {
+        fp.g.w=rev->width;
+        fp.g.h=rev->height;
+      }
+
+      fp.mode=REGION_FIT_EXACT;
+
+      node=rb_find_ikey_n(rotations, screen->id, &found);
+
+      if(!found)
+      {
+        insrot(screen->id, r);
+      }
+      else if(r!=node->v.ival)
+      {
+        int or=node->v.ival;
+
+        fp.mode|=REGION_FIT_ROTATE;
+        fp.rotation=(r>or
+                     ? SCREEN_ROTATION_0+r-or
+                     : (SCREEN_ROTATION_270+1)+r-or);
+        node->v.ival=r;
+      }
+
+      REGION_GEOM(screen)=fp.g;
+
+      mplex_managed_geom((WMPlex*)screen, &(fp.g));
+      mplex_do_fit_managed((WMPlex*)screen, &fp);
     }
-    return FALSE;
+
+    return TRUE;
+  }
+  return FALSE;
 }
-
-
 
 
 static bool check_pivots()
 {
-    WScreen *scr;
-    XRRScreenConfiguration *cfg;
-    
-    rotations=make_rb();
-    
-    if(rotations==NULL)
-        return FALSE;
-    
-    FOR_ALL_SCREENS(scr){
-        Rotation rot=RR_Rotate_90;
-        
-        XRRRotations(ioncore_g.dpy, scr->id, &rot);
-        
-        insrot(scr->id, rr2scrrot(rot));
-    }
-    
-    return TRUE;
+  WScreen *scr;
+  XRRScreenConfiguration *cfg;
+
+  rotations=make_rb();
+
+  if(rotations==NULL)
+  {
+    return FALSE;
+  }
+
+  FOR_ALL_SCREENS(scr)
+  {
+    Rotation rot=RR_Rotate_90;
+    XRRRotations(ioncore_g.dpy, scr->id, &rot);
+    insrot(scr->id, rr2scrrot(rot));
+  }
+
+  return TRUE;
 }
 
 
 bool mod_xrandr_init()
 {
-    hasXrandR=
-        XRRQueryExtension(ioncore_g.dpy,&xrr_event_base,&xrr_error_base);
-        
-    if(!check_pivots())
-        return FALSE;
-    
-    if(hasXrandR){
-        XRRSelectInput(ioncore_g.dpy,ioncore_g.rootwins->dummy_win,
-                       RRScreenChangeNotifyMask);
-    }else{
-        warn_obj("mod_xrandr","XRandR is not supported on this display");
-    }
-    
-    hook_add(ioncore_handle_event_alt,(WHookDummy *)handle_xrandr_event);
-    
-    return TRUE;
+  hasXrandR = XRRQueryExtension(ioncore_g.dpy,&xrr_event_base,&xrr_error_base);
+
+  if(!check_pivots())
+    return FALSE;
+
+  if(hasXrandR)
+  {
+    XRRSelectInput(ioncore_g.dpy,ioncore_g.rootwins->dummy_win,
+                   RRScreenChangeNotifyMask);
+  }
+  else
+  {
+    warn_obj("mod_xrandr","XRandR is not supported on this display");
+  }
+
+  hook_add(ioncore_handle_event_alt,(WHookDummy *)handle_xrandr_event);
+
+  return TRUE;
 }
 
 
 bool mod_xrandr_deinit()
 {
-    hook_remove(ioncore_handle_event_alt,
-                (WHookDummy *)handle_xrandr_event);
-    
-    return TRUE;
+  hook_remove(ioncore_handle_event_alt, (WHookDummy *)handle_xrandr_event);
+  return TRUE;
 }
