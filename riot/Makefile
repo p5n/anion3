@@ -44,4 +44,5 @@ install:
 
 clean:
 	rm -f $(PKG) $(HSC_HS) $(HSC_C)
+	rm Ginsu/CWString_hsc.c Ginsu/CWString_hsc.h cbits/nomacro.o
 	for i in $(DIRS); do rm -f $$i/*.o $$i/*.hi; done
