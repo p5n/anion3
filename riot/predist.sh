@@ -3,12 +3,8 @@
 pwd=`pwd`
 basedir=`basename "$pwd"`
 
-date=`echo "$basedir"|sed 's/^[^-]\+-[^-]\+-\([0-9]\+\)$/\1/p; d'`
+date=`date +%Y%m%d`
 
-if test "$date" == ""; then
-    echo "Invalid package name $basedir."
-    exit 1
-else
-    echo "Setting release to $date in Riot/Version.hs"
-    perl -p -i -e "s/yyyymmdd/$date/" Riot/Version.hs
-fi
+echo "Setting release to $date in Riot/Version.hs"
+perl -p -i -e "s/release = \"\d+\"/release = \"$date\"/" Riot/Version.hs
+perl -p -i -e "s/version:            \d+/version:            1.$date/" riot.cabal

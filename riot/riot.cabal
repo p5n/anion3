@@ -1,5 +1,5 @@
 name:               riot
-version:            1.20080618
+version:            1.20100412
 homepage:           http://modeemi.fi/~tuomov/riot/
 synopsis:           Riot is an Information Organisation Tool 
 description:
@@ -16,7 +16,7 @@ license-file:       LICENSE
 author:             Tuomo Valkonen
 maintainer:         Tuomo Valkonen
 extra-source-files:
-    ChangeLog Makefile README TODO.riot exact-version
+    ChangeLog Makefile README TODO.riot
     install-sh predist.sh system.mk
 cabal-version:      >= 1.2
 build-type:         Simple

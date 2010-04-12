@@ -15,5 +15,5 @@ module Riot.Version where
 package = "riot"
 branch  = "1"
 status  = "ds"
-release = "20080618"
+release = "20100412"
 version = branch++status++"-"++release
