@@ -28,14 +28,14 @@ executable riot
                       Ginsu.Locale
                       IConv
 
-    build-depends:    base,   
+    build-depends:    base<4,
                       unix,
                       directory,
                       haskell98,
                       mtl,
                       process,
---                      packedstring,
                       containers,
+                      hscurses,
                       old-locale
 
     extensions:       CPP,
@@ -53,8 +53,6 @@ executable riot
 
     include-dirs:     cbits
     includes:         nomacro.h
-                      dist/build/riot/riot-tmp/Curses/Curses_hsc.h
     c-sources:        cbits/nomacro.c
-                      dist/build/riot/riot-tmp/Curses/Curses_hsc.c
 
     extra-libraries:  ncursesw

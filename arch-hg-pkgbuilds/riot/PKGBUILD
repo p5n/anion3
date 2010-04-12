@@ -1,0 +1,21 @@
+pkgname=riot
+pkgver=1.20100412
+pkgrel=1
+pkgdesc="an Information Organisation Tool"
+url="http://hackage.haskell.org/package/riot"
+license=('GPL')
+arch=('i686' 'x86_64')
+depends=('gmp' 'ncursesw')
+makedepends=('ghc' 'haskell-cabal' 'haskell-containers' 'haskell-directory'
+	     'haskell-haskell98' 'haskell-mtl' 'haskell-old-locale'
+	     'haskell-process' 'haskell-unix' 'haskell-hscurses')
+options=('strip')
+source=(http://hackage.haskell.org/packages/archive/riot/1.20080618/riot-1.20080618.tar.gz)
+md5sums=('b00d79c8990a8134bc2ffffe8c1b361f')
+
+build() {
+    cd ${srcdir}/riot-1.20080618
+    runhaskell Setup configure --prefix=/usr --docdir=/usr/share/doc/${pkgname} || return 1
+    runhaskell Setup build                   || return 1
+    runhaskell Setup copy --destdir=${pkgdir} || return 1
+}
