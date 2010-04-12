@@ -1,5 +1,5 @@
 pkgname=riot
-pkgver=20100412
+pkgver=1.20100412
 pkgrel=1
 pkgdesc="an Information Organisation Tool"
 url="http://hackage.haskell.org/package/riot"
@@ -11,7 +11,7 @@ makedepends=('ghc' 'haskell-cabal' 'haskell-containers' 'haskell-directory'
 	     'haskell-process' 'haskell-unix' 'haskell-hscurses')
 options=('strip' 'docs')
 source=(http://anion3.googlecode.com/files/riot-$pkgver.tar.gz)
-md5sums=('3faae63158a0e1ad171b19ab0905ed69')
+md5sums=('a748139e375c69e9be1845914cb5b2c9')
 
 build() {
     cd ${srcdir}/riot
