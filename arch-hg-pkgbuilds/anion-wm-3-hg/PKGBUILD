@@ -6,7 +6,8 @@ arch=(i686 x86_64)
 url="http://code.google.com/p/anion3/"
 license=('GPL2')
 depends=('libsm' 'lua')
-makedepends=('mercurial' 'rubber' 'texlive-latexextra' 'latex2html' 'libextl-3' 'libtu-3')
+makedepends=('mercurial' 'rubber' 'texlive-latexextra' 'latex2html'
+	     'libextl-3' 'libtu-3' 'texlive-htmlxml')
 options=(docs)
 
 _hgroot="https://anion3.googlecode.com/hg/"
