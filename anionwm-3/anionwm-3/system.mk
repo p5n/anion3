@@ -120,6 +120,16 @@ DEFINES += -DCF_XFREE86_TEXTPROP_BUG_WORKAROUND
 # macports.
 #EXTRA_INCLUDES += -I/opt/local/include
 
+##
+## Xft support
+##
+
+USE_XFT=1
+
+ifeq ($(USE_XFT),1)
+EXTRA_INCLUDES += `xft-config --cflags` -DXFT
+EXTRA_LIBS += `xft-config --libs`
+endif
 
 ##
 ## libc
