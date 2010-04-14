@@ -80,6 +80,7 @@ DECLSTRUCT(DEStyle){
     Pixmap tag_pixmap;
     int tag_pixmap_w;
     int tag_pixmap_h;
+    int xft_style;
     
     DEStyle *next, *prev;
 };

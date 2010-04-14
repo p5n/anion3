@@ -71,10 +71,17 @@ void destyle_create_tab_gcs(DEStyle *style)
     /*gcv.function=GXclear;*/
     gcv.stipple=stipple_pixmap;
     gcvmask=GCFillStyle|GCStipple/*|GCFunction*/;
+#ifndef XFT
     if(style->font!=NULL && style->font->fontstruct!=NULL){
         gcv.font=style->font->fontstruct->fid;
         gcvmask|=GCFont;
     }
+#else /* XFT */
+//    if(style->font!=NULL){
+//        gcv.font=style->font;
+//        gcvmask|=GCFont;
+//    }
+#endif /* XFT */
 
     style->stipple_gc=XCreateGC(dpy, root, gcvmask, &gcv);
     XCopyGC(dpy, style->normal_gc, 
@@ -202,6 +209,14 @@ void destyle_dump(DEStyle *style)
 
 bool destyle_init(DEStyle *style, WRootWin *rootwin, const char *name)
 {
+    DEColour black, white;
+#ifdef XFT
+    de_alloc_colour(rootwin, &black, "black");
+    de_alloc_colour(rootwin, &white, "white");
+#else
+    black=DE_BLACK(rootwin);
+    white=DE_WHITE(rootwin);
+#endif /* XFT */
     if(!gr_stylespec_load(&style->spec, name))
         return FALSE;
     
@@ -224,11 +239,11 @@ bool destyle_init(DEStyle *style, WRootWin *rootwin, const char *name)
     style->textalign=DEALIGN_CENTER;
 
     style->cgrp_alloced=FALSE;
-    style->cgrp.bg=DE_BLACK(rootwin);
-    style->cgrp.pad=DE_BLACK(rootwin);
-    style->cgrp.fg=DE_WHITE(rootwin);
-    style->cgrp.hl=DE_WHITE(rootwin);
-    style->cgrp.sh=DE_WHITE(rootwin);
+    style->cgrp.bg=black;
+    style->cgrp.pad=black;
+    style->cgrp.fg=white;
+    style->cgrp.hl=white;
+    style->cgrp.sh=white;
     gr_stylespec_init(&style->cgrp.spec);
     
     style->font=NULL;

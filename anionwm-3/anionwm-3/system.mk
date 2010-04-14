@@ -103,6 +103,16 @@ DEFINES += -DCF_XFREE86_TEXTPROP_BUG_WORKAROUND
 # on SunOS.
 #DEFINES += -DCF_SUN_F1X_REMAP
 
+##
+## Xft support
+##
+
+#USE_XFT=1
+
+ifeq ($(USE_XFT),1)
+EXTRA_INCLUDES += `xft-config --cflags` -DXFT
+EXTRA_LIBS += `xft-config --libs`
+endif
 
 ##
 ## Localisation

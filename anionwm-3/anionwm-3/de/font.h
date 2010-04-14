@@ -11,6 +11,9 @@
 
 #include <ioncore/common.h>
 #include <ioncore/gr.h>
+#ifdef XFT
+#include <X11/Xft/Xft.h>
+#endif /* XFT */
 
 INTRSTRUCT(DEFont);
 
@@ -26,6 +29,9 @@ DECLSTRUCT(DEFont){
     int refcount;
     XFontSet fontset;
     XFontStruct *fontstruct;
+#ifdef XFT /* XFT */
+    XftFont *font;
+#endif /* XFT */
     DEFont *next, *prev;
 };
 

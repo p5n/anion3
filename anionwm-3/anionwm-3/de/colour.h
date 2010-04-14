@@ -12,12 +12,19 @@
 #include <ioncore/common.h>
 #include <ioncore/global.h>
 #include <ioncore/rootwin.h>
+#ifdef XFT
+#include <X11/Xft/Xft.h>
+#endif /* XFT */
 
 
 INTRSTRUCT(DEColourGroup);
 
 
+#ifndef XFT
 typedef unsigned long DEColour;
+#else /* XFT */
+typedef XftColor DEColour;
+#endif /* XFT */
 
 
 DECLSTRUCT(DEColourGroup){
@@ -34,5 +41,6 @@ bool de_alloc_colour(WRootWin *rootwin, DEColour *ret, const char *name);
 bool de_duplicate_colour(WRootWin *rootwin, DEColour in, DEColour *out);
 void de_free_colour_group(WRootWin *rootwin, DEColourGroup *cg);
 void de_free_colour(WRootWin *rootwin, DEColour col);
+#define XftDEDefaultVisual()    DefaultVisual(ioncore_g.dpy, 0)
 
 #endif /* ION_DE_COLOUR_H */
