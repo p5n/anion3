@@ -3,7 +3,7 @@
 --
 -- This file only includes some settings that are rather frequently altered,
 -- and the differences between PWM and Ion. The rest of the settings are in 
--- cfg_ioncore.lua and individual modules' configuration files 
+-- cfg_anioncore.lua and individual modules' configuration files 
 -- (cfg_modulename.lua).
 --
 
