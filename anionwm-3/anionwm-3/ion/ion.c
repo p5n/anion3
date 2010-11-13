@@ -215,7 +215,7 @@ int main(int argc, char*argv[])
         /* We may have to pass the file to xmessage so just using tmpfile()
          * isn't sufficient.
          */
-        libtu_asprintf(&efnam, "%s/ion-%d-startup-errorlog", P_tmpdir,
+        libtu_asprintf(&efnam, "%s/anion-%d-startup-errorlog", P_tmpdir,
                        getpid());
         if(efnam==NULL){
             warn_err();
@@ -227,7 +227,7 @@ int main(int argc, char*argv[])
                 efnam=NULL;
             }else{
                 cloexec_braindamage_fix(fileno(ef));
-                fprintf(ef, TR("Ion startup error log:\n"));
+                fprintf(ef, TR("Anion startup error log:\n"));
                 errorlog_begin_file(&el, ef);
             }
         }
