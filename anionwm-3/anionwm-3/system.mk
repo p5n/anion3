@@ -110,8 +110,8 @@ DEFINES += -DCF_XFREE86_TEXTPROP_BUG_WORKAROUND
 #USE_XFT=1
 
 ifeq ($(USE_XFT),1)
-EXTRA_INCLUDES += `xft-config --cflags` -DXFT
-EXTRA_LIBS += `xft-config --libs`
+EXTRA_INCLUDES += `pkg-config --cflags xft` -DXFT
+EXTRA_LIBS += `pkg-config --libs xft`
 endif
 
 ##
@@ -137,8 +137,8 @@ endif
 USE_XFT=1
 
 ifeq ($(USE_XFT),1)
-EXTRA_INCLUDES += `xft-config --cflags` -DXFT
-EXTRA_LIBS += `xft-config --libs`
+EXTRA_INCLUDES += `pkg-config --cflags xft` -DXFT
+EXTRA_LIBS += `pkg-config --libs xft`
 endif
 
 ##
