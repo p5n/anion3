@@ -1,0 +1,16 @@
+DONE:
+
+- riot tool updated to build with ghc 6.12.1
+- integrated user contributed scripts
+- integrated mod_xrandr, mod_xinerama, mod_xkb
+- integrated documentation
+- Xft
+
+TODO:
+
+- add config variable to switch off frame_get_max_width_and_elastic()
+- Use Xft and corefonts at the same time
+- fix build deps to support parallel make (make -j2+)
+- add doxygen documentation
+- do TODO.riot from source tree
+- mod_xrandr - proportional scaling
